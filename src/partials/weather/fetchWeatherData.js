@@ -48,10 +48,24 @@ async function fetchWeatherData() {
   }
 }
 
+// function getPosition() {
+//   return new Promise((resolve, reject) => {
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// }
+
 function getPosition() {
   return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
+    navigator.geolocation.getCurrentPosition(
+      position => resolve(position),
+      error => {
+        console.log(error);
+
+        const defaultPosition = {
+          coords: { latitude: 51.5072, longitude: -0.1276 },
+        };
+        resolve(defaultPosition);
+      }
+    );
   });
 }
-
-fetchWeatherData();
