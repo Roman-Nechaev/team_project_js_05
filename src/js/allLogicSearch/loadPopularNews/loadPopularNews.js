@@ -1,3 +1,4 @@
+
 const API_KEY = '13J2OJQdfSen9tQqVIHpzfTVNgWWH6dm';
 const BASE_URL = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?`;
 
@@ -14,3 +15,4 @@ export const loadPopularData = async () => {
   }
   throw new Error(populerData.statusText);
 };
+
