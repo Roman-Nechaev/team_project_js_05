@@ -1,3 +1,6 @@
+
+import './js/calendar/calendar';
+
 // import './js/allLogicSearch/index';
 
 import NewsApiServis from './js/API/servise-news/servise-news-search';
@@ -34,3 +37,4 @@ function renderTemplate(e) {
 function clearGalleryInterface() {
   galleryRef.innerHTML = '';
 }
+
