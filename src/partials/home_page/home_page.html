@@ -1,10 +1,26 @@
-<div class="home-page-container container">
+<div class="home-page-container">
     <div class="items-to-choose">
         <button class="newsHP-categories">Categories
             <svg class="categ-arrow-down" width="14" height="14">
                 <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
             </svg>
         </button>
+        <div class="articles-to-choose-tablet hidden">
+            <button class="article-btn" type="button">Admin</button>
+            <button class="article-btn" type="button">Arts</button>
+            <button class="article-btn" type="button">Automobiles</button>
+            <button class="article-btn" type="button">Books</button>
+            <button class="article-btn others" type="button">Others
+                <svg class="others-arrow-down" width="14" height="14">
+                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down">
+                    </use>
+                </svg>
+                <svg class="others-arrow-up" width="14" height="14">
+                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-up">
+                    </use>
+                </svg>
+            </button>
+        </div>
         <button class="newsHP-calendar">
             <svg class="calendar-svg" width="19" height="19">
                 <use href="/assets/svg/symbol-defs.svg#icon-calendar">
@@ -39,11 +55,17 @@
                 <img class="newsHomePage-image" src="/assets/HP-1.jpg" alt="news cover" width="288" height="395">
                 <p class="newsHomePage-status-read">Already read</p>
                 <p class="newsHomePage-search-category">Job searching</p>
+                <button class="remove-from-favourite" type="button">Remove from favourite
+                    <svg class="heart" width="16" height="16">
+                        <use href="/assets/svg/symbol-defs.svg#icon-clicked_heart"></use>
+                    </svg>
+                </button>
                 <button class="add-to-favBtn" type="button">Add to favourite
                     <svg class="heart" width="16" height="16">
                         <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart"></use>
                     </svg>
                 </button>
+
             </div>
             <div>
                 <h2 class="newsHomePage-title">8 tips for passing an online interview that will help you get a job
