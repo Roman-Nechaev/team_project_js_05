@@ -1,0 +1,100 @@
+// body {
+//   font-family: 'Manrope', sans-serif;
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 14px;
+//   line-height: 1.35;
+//   color: var(--main-text-color);
+// }
+// :root {
+//   --accent-color: #4440f6;
+//   --main-text-color: #111321;
+//   --light-color: #a8a8a8;
+//   --extra-color: #ffffff;
+//   --marked-read-color: #00dd73;
+// }
+
+// .gallery {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 28px;
+//   margin-bottom: 40px;
+// }
+// .newsHomePage-card {
+//   width: 288px;
+//   height: 630px;
+//   @media screen and (min-width: 768px) {
+//     width: 353px;
+//     height: 675px;
+//   }
+//   @media screen and (min-width: 1200px) {
+//     width: 396px;
+//     height: 675px;
+//   }
+// }
+// .categories-mobile {
+//   padding: 13px;
+//   background-color: var(--accent-color);
+//   border: 1px solid var(--accent-color);
+//   border-radius: 20px;
+// }
+// .newsHP-calendar {
+//   padding: 12px;
+// }
+// .card-picture {
+//   position: relative;
+//   margin-bottom: 20px;
+// }
+
+// .newsHomePage-search-category {
+//   position: absolute;
+//   left: 0px;
+//   top: 40px;
+//   opacity: 0.7;
+//   background-color: var(--accent-color);
+//   padding: 5px 8px;
+//   color: var(--extra-color);
+//   border-bottom-right-radius: 5px;
+//   border-top-right-radius: 5px;
+// }
+// .newsHomePage-status-read {
+//   font-weight: 700;
+//   position: absolute;
+//   left: 167px;
+//   top: 14px;
+//   color: var(--marked-read-color);
+// }
+// .add-to-favBtn {
+//   position: absolute;
+//   left: 154px;
+//   top: 355px;
+//   font-weight: 500;
+//   font-size: 12px;
+//   line-height: 16px;
+//   border-radius: 20px;
+//   background-color: var(--extra-color);
+//   border-color: var(--extra-color);
+//   padding: 6px 12px;
+// }
+
+// .newsHomePage-title {
+//   font-weight: 700;
+//   font-size: 24px;
+//   line-height: 33px;
+//   letter-spacing: -0.01em;
+//   margin-bottom: 20px;
+// }
+// .newsHomePage-text {
+//   margin-bottom: 20px;
+// }
+// .homePage-readMore {
+//   display: flex;
+//   justify-content: space-between;
+// }
+// .newsHomePage-date {
+//   color: var(--light-color);
+// }
+// .newsHomePage-readMore-link {
+//   color: var(--accent-color);
+//   text-decoration: none;
+// }
