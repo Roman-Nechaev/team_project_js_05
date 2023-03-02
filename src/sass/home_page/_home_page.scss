@@ -14,15 +14,17 @@ body {
   --marked-read-color: #00dd73;
 }
 .home-page-container {
-  max-width: 100%;
   margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 320px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 768px;
+  }
 }
-// .home-page-container:not(:first-child) {
-//   @media screen and (min-width: 768px) and (max-width: 1279px) {
-//     display: flex;
-//     flex-wrap: wrap;
-//   }
-// }
+
 .items-to-choose {
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin-bottom: 40px;
@@ -32,6 +34,7 @@ body {
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: flex;
+
     gap: 40px;
   }
 }
@@ -81,6 +84,9 @@ body {
   justify-content: center;
   height: 31px;
 }
+.others {
+  margin-right: 40px;
+}
 .article-btn:focus {
   background-color: var(--accent-color);
   color: var(--extra-color);
@@ -95,7 +101,6 @@ body {
 }
 .others-arrow-down {
   margin-left: 10px;
-
   fill: var(--accent-color);
 }
 .others-arrow-up {
@@ -285,6 +290,8 @@ body {
 /////////////pagination
 .pagination-buttons {
   margin-bottom: 60px;
+  width: 320px;
+  margin: 0 auto;
 }
 .prew-btn {
   margin-right: 10px;
