@@ -146,9 +146,20 @@ nav a:hover {
 }
 
 
+//<<<<<<< header-update
 .search-input {
     display: none;
     padding-left: 48px;
+//=======
+.search-form__button{
+    border: none;
+    background-color: #FFFFFF;
+}
+
+
+.search input {
+    padding-left: 15px;
+//>>>>>>> main
     border: #111321 1px solid;
     border-radius: 20px;
     width: 288px;

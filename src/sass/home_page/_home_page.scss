@@ -1,0 +1,216 @@
+body {
+  font-family: 'Manrope', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--main-text-color);
+}
+:root {
+  --accent-color: #4440f6;
+  --main-text-color: #111321;
+  --light-color: #a8a8a8;
+  --extra-color: #ffffff;
+  --marked-read-color: #00dd73;
+}
+.items-to-choose {
+  margin-bottom: 40px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.newsHP-categories,
+.newsHP-calendar {
+  border-radius: 20px;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 7px 13px;
+  font-size: 12px;
+  line-height: 1.33;
+}
+.newsHP-categories:focus,
+.newsHP-calendar:focus {
+  background-color: var(--accent-color);
+  color: var(--extra-color);
+}
+.categ-arrow-down {
+  margin-left: 10px;
+  fill: var(--accent-color);
+}
+.calendar-arrow-down {
+  margin-left: 14px;
+  fill: var(--light-color);
+}
+.calendar-svg {
+  margin-right: 10px;
+  fill: var(--accent-color);
+}
+.calendar-svg:focus {
+  fill: var(--extra-color);
+}
+.weather-app {
+  height: 470px;
+  background-color: var(--accent-color);
+  margin-bottom: 28px;
+  mix-blend-mode: normal;
+  border-radius: 4px;
+}
+.weather-info {
+  display: inline-flex;
+  margin: 32px 36px 40px 36px;
+}
+.degrees {
+  font-family: 'Roboto';
+  font-size: 55px;
+  line-height: 1.16;
+  color: var(--extra-color);
+}
+
+.info-border {
+  width: 60px;
+  height: 0px;
+  border: 1px solid #ffffff;
+  transform: rotate(90deg);
+  margin-top: 32px;
+}
+.whats-the-weather {
+  font-family: 'Roboto';
+  font-size: 24px;
+  line-height: 1.16;
+  color: var(--extra-color);
+}
+
+.sun-moon {
+  margin: 0 auto;
+  width: 128px;
+  height: 121px;
+  background: linear-gradient(180deg, #fa6c21 0%, rgba(255, 211, 88, 0.2) 100%);
+  box-shadow: inset 0px 20px 65px #fa6c21;
+  border-radius: 50%;
+  margin-bottom: 40px;
+}
+
+.week-day,
+.weather-date {
+  font-family: 'Roboto';
+  font-size: 28px;
+  line-height: 33px;
+  color: var(--extra-color);
+  text-align: center;
+}
+.weather-date {
+  margin-bottom: 20px;
+}
+.weatherApp-link {
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: var(--extra-color);
+  background-color: var(--light-color);
+  opacity: 0.8;
+  margin-bottom: 32px;
+}
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.categories-mobile {
+  padding: 13px;
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
+}
+.newsHP-calendar {
+  padding: 12px;
+}
+.card-picture {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.newsHomePage-search-category {
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  opacity: 0.7;
+  background-color: var(--accent-color);
+  padding: 5px 8px;
+  color: var(--extra-color);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.newsHomePage-status-read {
+  font-weight: 700;
+  position: absolute;
+  left: 167px;
+  top: 14px;
+  color: var(--marked-read-color);
+}
+.add-to-favBtn {
+  position: absolute;
+  left: 154px;
+  top: 355px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  border-radius: 20px;
+  background-color: var(--extra-color);
+  border-color: var(--extra-color);
+  padding: 6px 12px;
+}
+
+.newsHomePage-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.newsHomePage-text {
+  margin-bottom: 20px;
+}
+.homePage-readMore {
+  display: flex;
+  justify-content: space-between;
+}
+.newsHomePage-date {
+  color: var(--light-color);
+}
+.newsHomePage-readMore-link {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/////////////pagination
+.pagination-buttons {
+  margin-bottom: 60px;
+}
+.prew-btn {
+  margin-right: 10px;
+  border: 1px solid var(--accent-color);
+  cursor: pointer;
+  height: 28px;
+}
+.changePage-btn {
+  margin-left: 4px;
+  margin-right: 4px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+.changePage-btn:focus {
+  background-color: var(--accent-color);
+}
+.btn-dots {
+  line-height: 16px;
+}
+
+.next-btn {
+  margin-left: 10px;
+  border: 1px solid var(--accent-color);
+  cursor: pointer;
+  height: 28px;
+}
