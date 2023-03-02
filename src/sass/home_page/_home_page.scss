@@ -23,6 +23,9 @@ body {
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 768px;
   }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
 }
 
 .items-to-choose {
@@ -34,8 +37,6 @@ body {
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: flex;
-
-    gap: 40px;
   }
 }
 .newsHP-categories,
@@ -50,6 +51,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.newsHP-calendar {
+  margin-left: 26px;
 }
 .newsHP-categories:focus,
 .newsHP-calendar:focus {
@@ -68,7 +72,6 @@ body {
   }
   @media screen and (min-width: 768px) {
     display: flex;
-    gap: 14px;
     margin-top: 28px;
     margin-bottom: 48px;
   }
@@ -83,10 +86,9 @@ body {
   display: flex;
   justify-content: center;
   height: 31px;
+  margin-right: 14px;
 }
-.others {
-  margin-right: 40px;
-}
+
 .article-btn:focus {
   background-color: var(--accent-color);
   color: var(--extra-color);
@@ -186,13 +188,26 @@ body {
   margin-bottom: 32px;
 }
 .gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-bottom: 40px;
-  width: 288px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+    width: 288px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 768px;
+    gap: 30px;
+  }
 }
 
+.newsHomePage-card {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 353px;
+  }
+}
 .categories-mobile {
   padding: 13px;
   background-color: var(--accent-color);
@@ -206,7 +221,9 @@ body {
   position: relative;
   margin-bottom: 20px;
 }
-
+.newsHomePage-image {
+  height: 395px;
+}
 .newsHomePage-search-category {
   position: absolute;
   left: 0px;
@@ -221,17 +238,22 @@ body {
 .newsHomePage-status-read {
   font-weight: 700;
   position: absolute;
-  left: 167px;
-  top: 14px;
   color: var(--marked-read-color);
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 167px;
+    top: 14px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    left: 225px;
+    top: 20px;
+  }
 }
 .add-to-favBtn {
   position: absolute;
   display: flex;
   justify-content: center;
+  cursor: pointer;
   gap: 4px;
-  left: 154px;
-  top: 355px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.14;
@@ -241,6 +263,14 @@ body {
   border-bottom-width: 0;
   border-right-width: 0;
   padding: 6px 12px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 154px;
+    top: 355px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    left: 215px;
+    top: 355px;
+  }
 }
 .remove-from-favourite {
   position: absolute;
@@ -249,8 +279,8 @@ body {
   text-align: center;
   border-bottom-width: 0;
   border-right-width: 0;
-  left: 154px;
-  top: 305px;
+  left: 112px;
+  top: 355px;
   width: 124px;
   padding: 6px 12px;
   font-weight: 500;
@@ -267,10 +297,15 @@ body {
 }
 .newsHomePage-title {
   font-weight: 700;
-  font-size: 24px;
-  line-height: 33px;
+  line-height: 1.37;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 24px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    font-size: 32px;
+  }
 }
 .newsHomePage-text {
   margin-bottom: 20px;
@@ -289,9 +324,12 @@ body {
 
 /////////////pagination
 .pagination-buttons {
-  margin-bottom: 60px;
-  width: 320px;
-  margin: 0 auto;
+  text-align: center;
+  margin: 0 auto 60px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-bottom: 100px;
+    margin-top: 48px;
+  }
 }
 .prew-btn {
   margin-right: 10px;
