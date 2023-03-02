@@ -10,6 +10,14 @@
     </ul>
   </nav>
   <div class="search">
+//<<<<<<< header-update
+    <input class="search-input" type="text" placeholder="Search" />
+    <button class="search-btn">
+      <svg class="search-icon">
+        <use href="/src/icon/sprite.svg#icon-search-icon"></use>
+      </svg>
+    </button>
+//=======
 
     <!-- <input type="text" placeholder="Search" />
     <button type="submit">Search</button> -->
@@ -27,17 +35,24 @@
     <input type="text" placeholder="Search" />
     <button type="submit">Search</button>
 
+//>>>>>>> main
   </div>
-  <div>
+  <div class="theme-choice">
     <ul class="switch-btn_choice">
-      <li class="switch-btn_choice_light">Light</li>
+      <li class="switch-btn_choice_light switch-btn_choice_text">Light</li>
+      <svg class="switch-btn_choice_ligh-icon switch-btn_choice_icon">
+        <use href="/src/icon/sprite.svg#icon-Light"></use>
+      </svg>
       <li class="switch-btn switch-on"></li>
-      <li class="switch-btn_choice_black">Black</li>
+      <li class="switch-btn_choice_black switch-btn_choice_text">Black</li>
+      <svg class="switch-btn_choice_black-icon switch-btn_choice_icon">
+        <use href="/src/icon/sprite.svg#icon-Black"></use>
+      </svg>
     </ul>
   </div>
-  <div class="burger-menu">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
+  <button class="burger-btn">
+    <svg class="burger-btn-icon">
+      <use href="/src/icon/sprite.svg#icon-burger-btn"></use>
+    </svg>
+  </button>
 </header>
