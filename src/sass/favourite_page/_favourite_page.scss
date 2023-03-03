@@ -25,11 +25,10 @@ body {
   @media screen and (min-width: 768px) {
     gap: 30px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     row-gap: 32px;
     column-gap: 40px;
   }
-  //   gap: 28px;
 }
 .newsHomePage-card {
   width: 288px;
@@ -38,7 +37,7 @@ body {
     width: 353px;
     height: 675px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 396px;
     height: 675px;
   }
@@ -56,7 +55,7 @@ body {
     width: 353px;
     height: 395px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 396px;
     height: 395px;
   }
