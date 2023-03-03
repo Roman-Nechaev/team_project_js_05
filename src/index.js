@@ -1,6 +1,8 @@
 // import './js/allLogicSearch/index';
 
-import NewsApiServis from './js/API/servise-news/servise-news-search';
+import NewsApiServis from './js/API/servise-news/serviseNewsSearch';
+
+import { templateMarkupNews } from './js/API/servise-news/templateMarkupNews';
 
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
@@ -12,7 +14,7 @@ function onSearchForm(e) {
   e.preventDefault();
   let { value } = e.target.search;
   value = value.trim();
-
+  clearGalleryInterface();
   newsApiServis.query = value;
   requestToServer();
 }
@@ -28,7 +30,7 @@ async function requestToServer() {
 }
 
 function renderTemplate(e) {
-  galleryRef.insertAdjacentHTML('beforeend', galleryTemplateMarkup(e));
+  galleryRef.innerHTML = templateMarkupNews(e);
 }
 
 function clearGalleryInterface() {
