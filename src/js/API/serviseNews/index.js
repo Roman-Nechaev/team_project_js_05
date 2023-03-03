@@ -3,7 +3,7 @@ import NewsApiServis from './serviseNewsSearch';
 import { templateMarkupNews } from './templateMarkupNews';
 
 const galleryRef = document.querySelector('.gallery');
-const searchFormRef = document.querySelector('#search-form');
+const searchFormRef = document.querySelector('.search');
 
 searchFormRef.addEventListener('submit', onSearchForm);
 
@@ -11,7 +11,8 @@ const newsApiServis = new NewsApiServis();
 
 export default function onSearchForm(e) {
   e.preventDefault();
-  let { value } = e.target.search;
+  let { value } = e.target.searchQuery;
+  console.log(value);
   value = value.trim();
   clearGalleryInterface();
   newsApiServis.query = value;
@@ -39,13 +40,15 @@ function clearGalleryInterface() {
 }
 
 function testFavorit(params) {
-  const clickOneCards = document.querySelector('[data-id]');
-  console.log(clickOneCards.dataset.id);
+  const clickOneCards = document.querySelectorAll('[data-id]');
+
+  const clickOne = clickOneCards.dataset.id;
+  console.log(clickOne);
 
   const favouriteBtnRef = document.querySelector('.add-to-favBtn');
   favouriteBtnRef.addEventListener('click', evt => {
     const reservedId = params; // зарезервований ID
-
+    console.log('object');
     // console.log(`Вибраний ID: ${selectedId}`);
     console.log(reservedId);
   });

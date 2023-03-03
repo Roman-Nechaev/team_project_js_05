@@ -6,9 +6,9 @@ async function getCurrentWeather(lat, lon, api_key) {
   try {
     const response = await axios.get(url);
     const data = response.data;
-    console.log(`Location: ${data.name}, ${data.sys.country}`);
-    console.log(`Weather now: ${data.weather[0].description}`);
-    console.log(`Temperature: ${data.main.temp}°C`);
+    // console.log(`Location: ${data.name}, ${data.sys.country}`);
+    // console.log(`Weather now: ${data.weather[0].description}`);
+    // console.log(`Temperature: ${data.main.temp}°C`);
   } catch (error) {
     console.log(error);
   }
@@ -19,16 +19,16 @@ async function getWeatherForecast(lat, lon, api_key) {
   try {
     const response = await axios.get(url);
     const data = response.data;
-    console.log(
-      `5-day weather forecast for the location: ${data.city.name}, ${data.city.country}`
-    );
+    // console.log(
+    //   `5-day weather forecast for the location: ${data.city.name}, ${data.city.country}`
+    // );
     const forecastList = data.list;
     forecastList.forEach(forecast => {
       const date = new Date(forecast.dt * 1000);
-      console.log(`Date: ${date.toDateString()}`);
-      console.log(`Weather: ${forecast.weather[0].description}`);
-      console.log(`Temperature: ${forecast.main.temp}°C`);
-      console.log(`Wind: ${forecast.wind.speed} m/s`);
+      // console.log(`Date: ${date.toDateString()}`);
+      // console.log(`Weather: ${forecast.weather[0].description}`);
+      // console.log(`Temperature: ${forecast.main.temp}°C`);
+      // console.log(`Wind: ${forecast.wind.speed} m/s`);
     });
   } catch (error) {
     console.log(error);

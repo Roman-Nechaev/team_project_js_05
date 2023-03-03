@@ -6,7 +6,7 @@ export function templateMarkupNews(newsDateResp) {
       const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
         oneNewsItem;
       return `
-    <div class="newsHomePage-card" data-id='${_id}'>
+    <div class="newsHomePage-card" data-id=${_id}>
     <div class="card-picture">
         <img
           class="newsHomePage-image"
@@ -17,12 +17,12 @@ export function templateMarkupNews(newsDateResp) {
         />
         <p class="newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">${news_desk}</p>
-        <button class="add-to-favBtn" type="button">
-          Add to favourite
-          <svg class="heart" width="16" height="16">
-            <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart"></use>
-          </svg>
-        </button>
+        <button class="add-to-favBtn" type="button">Add to favourite
+                    <svg class="heart" width="16" height="16">
+                        <use href="./assets/svg/symbol-defs.svg#icon-unclicked_heart">
+                        </use>
+                    </svg>
+                </button>
       </div>
       <div>
         <h2 class="newsHomePage-title">
