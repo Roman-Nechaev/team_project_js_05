@@ -9,6 +9,28 @@ async function getCurrentWeather(lat, lon, api_key) {
     console.log(`Location: ${data.name}, ${data.sys.country}`);
     console.log(`Weather now: ${data.weather[0].description}`);
     console.log(`Temperature: ${data.main.temp}°C`);
+
+    const date = new Date();
+    const options = {
+      // weekday: 'short',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    };
+    const formattedDate = date.toLocaleDateString('en-US', options);
+    const weekday = date.toLocaleString('en-US', { weekday: 'long' });
+
+    const degreesEl = document.querySelector('.degrees');
+    const whatsTheWeatherEl = document.querySelector('.whats-the-weather');
+    const locationEl = document.querySelector('.location');
+    const weekDayEl = document.querySelector('.week-day');
+    const weatherDateEl = document.querySelector('.weather-date');
+
+    degreesEl.innerHTML = `${Math.round(data.main.temp)}°`;
+    whatsTheWeatherEl.innerHTML = data.weather[0].description;
+    locationEl.innerHTML = data.name;
+    weekDayEl.innerHTML = weekday;
+    weatherDateEl.innerHTML = formattedDate;
   } catch (error) {
     console.log(error);
   }
@@ -25,10 +47,10 @@ async function getWeatherForecast(lat, lon, api_key) {
     const forecastList = data.list;
     forecastList.forEach(forecast => {
       const date = new Date(forecast.dt * 1000);
-      console.log(`Date: ${date.toDateString()}`);
-      console.log(`Weather: ${forecast.weather[0].description}`);
-      console.log(`Temperature: ${forecast.main.temp}°C`);
-      console.log(`Wind: ${forecast.wind.speed} m/s`);
+      // console.log(`Date: ${date.toDateString()}`);
+      // console.log(`Weather: ${forecast.weather[0].description}`);
+      // console.log(`Temperature: ${forecast.main.temp}°C`);
+      // console.log(`Wind: ${forecast.wind.speed} m/s`);
     });
   } catch (error) {
     console.log(error);
@@ -47,12 +69,6 @@ async function fetchWeatherData() {
     console.log(error);
   }
 }
-
-// function getPosition() {
-//   return new Promise((resolve, reject) => {
-//     navigator.geolocation.getCurrentPosition(resolve, reject);
-//   });
-// }
 
 function getPosition() {
   return new Promise((resolve, reject) => {
