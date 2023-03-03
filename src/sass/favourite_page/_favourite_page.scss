@@ -17,8 +17,7 @@ body {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 40px;
-  justify-content: center;
+  margin-top: 40px;
   @media screen and (max-width: 767px) {
     gap: 28px;
   }
