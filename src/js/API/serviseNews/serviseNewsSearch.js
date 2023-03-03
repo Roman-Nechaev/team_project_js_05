@@ -11,7 +11,9 @@ export default class NewsApiServis {
     const BASE_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?`;
     const options = {
       params: {
+        page: this.page,
         q: this.searchQuery,
+
         'api-key': API_KEY,
       },
     };
@@ -19,8 +21,21 @@ export default class NewsApiServis {
     const response = await axios.get(BASE_URL, options);
 
     const gatherData = await response.data;
+
     console.log(gatherData);
     return gatherData;
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+
+  UsePage(go) {
+    this.page = go;
+  }
+
+  resetPage() {
+    this.page = 1;
   }
 
   get query() {
