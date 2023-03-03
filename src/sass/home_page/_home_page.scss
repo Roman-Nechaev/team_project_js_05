@@ -13,11 +13,31 @@ body {
   --extra-color: #ffffff;
   --marked-read-color: #00dd73;
 }
+.home-page-container {
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 320px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
 .items-to-choose {
-  margin-bottom: 40px;
-  margin-top: 24px;
-  display: flex;
-  justify-content: space-between;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    // margin-bottom: 40px;
+    // margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+  }
 }
 .newsHP-categories,
 .newsHP-calendar {
@@ -27,9 +47,68 @@ body {
   padding: 7px 13px;
   font-size: 12px;
   line-height: 1.33;
+  height: 31px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.newsHP-calendar {
+  margin-left: auto;
+  cursor: pointer;
+}
+.api-calendar {
+  margin-left: auto;
+  @media screen and (min-width: 320px) {
+    margin-top: 24px;
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 28px;
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 28px;
+    margin-bottom: 60px;
+  }
 }
 .newsHP-categories:focus,
 .newsHP-calendar:focus {
+  background-color: var(--accent-color);
+  color: var(--extra-color);
+}
+.newsHP-categories {
+  margin-bottom: 40px;
+  margin-top: 24px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+///////////teblet buttons
+.articles-to-choose-tablet {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    margin-top: 28px;
+    margin-bottom: 48px;
+    gap: 14px;
+  }
+}
+.article-btn {
+  font-size: 12px;
+  line-height: 1.14;
+  padding: 8px 21px;
+  border: 1px solid var(--accent-color);
+  border-radius: 20px;
+  color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  height: 31px;
+  cursor: pointer;
+}
+
+.article-btn:focus {
   background-color: var(--accent-color);
   color: var(--extra-color);
 }
@@ -41,23 +120,47 @@ body {
   margin-left: 14px;
   fill: var(--light-color);
 }
+.others-arrow-down {
+  margin-left: 10px;
+  fill: var(--accent-color);
+}
+.others-arrow-up {
+  opacity: 0;
+}
+.others:focus .others-arrow-down {
+  visibility: hidden;
+  margin-left: 0;
+}
+.others:focus .others-arrow-up {
+  fill: var(--extra-color);
+  opacity: 1;
+}
+.newsHP-calendar:focus .calendar-svg {
+  fill: var(--extra-color);
+}
 .calendar-svg {
   margin-right: 10px;
   fill: var(--accent-color);
 }
-.calendar-svg:focus {
-  fill: var(--extra-color);
-}
+/////////////виджет погоды
+
 .weather-app {
+  width: 288px;
   height: 470px;
   background-color: var(--accent-color);
   margin-bottom: 28px;
   mix-blend-mode: normal;
   border-radius: 4px;
+  @media screen and (min-width: 768px) {
+    height: 675px;
+    width: 353px;
+  }
 }
+
 .weather-info {
   display: inline-flex;
   margin: 32px 36px 40px 36px;
+  align-items: center;
 }
 .degrees {
   font-family: 'Roboto';
@@ -89,7 +192,6 @@ body {
   border-radius: 50%;
   margin-bottom: 40px;
 }
-
 .week-day,
 .weather-date {
   font-family: 'Roboto';
@@ -103,6 +205,9 @@ body {
 }
 .weatherApp-link {
   text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
   border-radius: 10px;
   padding: 8px 14px;
   color: var(--extra-color);
@@ -110,27 +215,46 @@ body {
   opacity: 0.8;
   margin-bottom: 32px;
 }
+///////////////////////////////////////
 .gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-bottom: 40px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+    width: 288px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: 768px;
+    gap: 30px;
+    justify-content: flex-end;
+  }
 }
 
+.newsHomePage-card {
+  height: 630px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 353px;
+    height: 675px;
+  }
+}
 .categories-mobile {
   padding: 13px;
   background-color: var(--accent-color);
   border: 1px solid var(--accent-color);
   border-radius: 20px;
 }
-.newsHP-calendar {
-  padding: 12px;
-}
+
 .card-picture {
   position: relative;
   margin-bottom: 20px;
 }
-
+.newsHomePage-image {
+  height: 395px;
+}
 .newsHomePage-search-category {
   position: absolute;
   left: 0px;
@@ -145,29 +269,74 @@ body {
 .newsHomePage-status-read {
   font-weight: 700;
   position: absolute;
-  left: 167px;
-  top: 14px;
   color: var(--marked-read-color);
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 167px;
+    top: 14px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    left: 225px;
+    top: 20px;
+  }
 }
 .add-to-favBtn {
   position: absolute;
-  left: 154px;
-  top: 355px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  gap: 4px;
   font-weight: 500;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 1.14;
   border-radius: 20px;
   background-color: var(--extra-color);
-  border-color: var(--extra-color);
+  border-color: 1px solid var(--extra-color);
+  border-bottom-width: 0;
+  border-right-width: 0;
   padding: 6px 12px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 154px;
+    top: 355px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    left: 215px;
+    top: 355px;
+  }
+}
+.remove-from-favourite {
+  position: absolute;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row;
+  // text-align: center;
+  border-width: 0;
+  left: 112px;
+  top: 355px;
+  width: 124px;
+  padding: 6px 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.14;
+  border-radius: 20px;
+}
+.add-to-favBtn:focus {
+  opacity: 0;
 }
 
+.add-to-favBtn:focus .remove-from-favourite {
+  visibility: visible;
+}
 .newsHomePage-title {
   font-weight: 700;
-  font-size: 24px;
-  line-height: 33px;
+  line-height: 1.37;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 24px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    font-size: 32px;
+  }
 }
 .newsHomePage-text {
   margin-bottom: 20px;
@@ -186,23 +355,35 @@ body {
 
 /////////////pagination
 .pagination-buttons {
-  margin-bottom: 60px;
+  text-align: center;
+  margin: 0 auto 60px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-bottom: 100px;
+    margin-top: 48px;
+  }
 }
 .prew-btn {
   margin-right: 10px;
   border: 1px solid var(--accent-color);
+  color: #111321;
   cursor: pointer;
   height: 28px;
+  outline: none;
 }
 .changePage-btn {
   margin-left: 4px;
   margin-right: 4px;
+  border: 1px solid var(--accent-color);
   width: 28px;
   height: 28px;
   cursor: pointer;
+  color: #111321;
+  font-weight: 500;
+  font-size: 16px;
 }
 .changePage-btn:focus {
   background-color: var(--accent-color);
+  color: var(--extra-color);
 }
 .btn-dots {
   line-height: 16px;
