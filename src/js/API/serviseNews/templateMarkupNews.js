@@ -6,7 +6,7 @@ export function templateMarkupNews(newsDateResp) {
       const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
         oneNewsItem;
       return `
-    <div class="newsHomePage-card" key='${_id}'>
+    <div class="newsHomePage-card" data-id='${_id}'>
     <div class="card-picture">
         <img
           class="newsHomePage-image"
