@@ -148,7 +148,6 @@ body {
   width: 288px;
   height: 470px;
   background-color: var(--accent-color);
-  margin-bottom: 28px;
   mix-blend-mode: normal;
   border-radius: 4px;
   @media screen and (min-width: 768px) {
@@ -230,6 +229,7 @@ body {
     flex-direction: row-reverse;
     width: 768px;
     gap: 30px;
+    margin: 0;
     justify-content: flex-end;
   }
 }
@@ -251,6 +251,10 @@ body {
 .card-picture {
   position: relative;
   margin-bottom: 20px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 353px;
+    height: 395px;
+  }
 }
 .newsHomePage-image {
   height: 395px;
