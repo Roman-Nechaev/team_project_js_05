@@ -14,25 +14,35 @@ body {
   --marked-read-color: #00dd73;
 }
 .home-page-container {
-  max-width: 100%;
   margin: 0 auto;
-}
-// .home-page-container:not(:first-child) {
-//   @media screen and (min-width: 768px) and (max-width: 1279px) {
-//     display: flex;
-//     flex-wrap: wrap;
-//   }
-// }
-.items-to-choose {
+  padding-left: 16px;
+  padding-right: 16px;
   @media screen and (min-width: 320px) and (max-width: 767px) {
-    margin-bottom: 40px;
-    margin-top: 24px;
-    display: flex;
-    justify-content: space-between;
+    width: 320px;
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    display: flex;
-    gap: 40px;
+    width: 768px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
+.items-to-choose {
+  display: flex;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 28px;
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 28px;
+    margin-bottom: 60px;
+    justify-content: center;
   }
 }
 .newsHP-categories,
@@ -48,6 +58,24 @@ body {
   justify-content: center;
   align-items: center;
 }
+.newsHP-calendar {
+  margin-left: auto;
+  cursor: pointer;
+}
+.api-calendar {
+  margin-left: auto;
+  display: flex;
+  gap: 37px;
+}
+.desktop-show {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.38;
+  color: var(--main-text-color);
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+}
 .newsHP-categories:focus,
 .newsHP-calendar:focus {
   background-color: var(--accent-color);
@@ -60,14 +88,15 @@ body {
 }
 ///////////teblet buttons
 .articles-to-choose-tablet {
+  display: flex;
   @media screen and (max-width: 767px) {
     display: none;
   }
-  @media screen and (min-width: 768px) {
-    display: flex;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     gap: 14px;
-    margin-top: 28px;
-    margin-bottom: 48px;
+  }
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
   }
 }
 .article-btn {
@@ -80,12 +109,15 @@ body {
   display: flex;
   justify-content: center;
   height: 31px;
+  cursor: pointer;
 }
+
 .article-btn:focus {
   background-color: var(--accent-color);
   color: var(--extra-color);
 }
-.categ-arrow-down {
+.categ-arrow-down,
+.others-arrow-down {
   margin-left: 10px;
   fill: var(--accent-color);
 }
@@ -93,21 +125,17 @@ body {
   margin-left: 14px;
   fill: var(--light-color);
 }
-.others-arrow-down {
-  margin-left: 10px;
-
-  fill: var(--accent-color);
-}
-.others-arrow-up {
-  opacity: 0;
+.others-arrow-up,
+.calendar-arrow-up {
+  display: none;
 }
 .others:focus .others-arrow-down {
-  visibility: hidden;
-  margin-left: 0;
+  display: none;
 }
 .others:focus .others-arrow-up {
   fill: var(--extra-color);
-  opacity: 1;
+  margin-left: 14px;
+  display: inline;
 }
 .newsHP-calendar:focus .calendar-svg {
   fill: var(--extra-color);
@@ -117,37 +145,80 @@ body {
   fill: var(--accent-color);
 }
 
+.newsHP-calendar:focus .calendar-arrow-down {
+  display: none;
+}
+.newsHP-calendar:focus .calendar-arrow-up {
+  display: inline;
+  margin-left: 14px;
+  fill: var(--extra-color);
+}
+/////////////виджет погоды
+
 .weather-app {
-  width: 288px;
-  height: 470px;
   background-color: var(--accent-color);
-  margin-bottom: 28px;
   mix-blend-mode: normal;
   border-radius: 4px;
+  @media screen and (max-width: 767px) {
+    width: 288px;
+    height: 470px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    height: 675px;
+    width: 353px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 675px;
+  }
 }
+
 .weather-info {
-  display: inline-flex;
+  display: flex;
   margin: 32px 36px 40px 36px;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    justify-content: center;
+    margin-bottom: 90px;
+  }
 }
 .degrees {
   font-family: 'Roboto';
   font-size: 55px;
   line-height: 1.16;
   color: var(--extra-color);
+  @media screen and (min-width: 768px) {
+    font-size: 84px;
+    line-height: 1.17;
+  }
 }
 
-.info-border {
-  width: 60px;
-  height: 0px;
-  border: 1px solid #ffffff;
-  transform: rotate(90deg);
-  margin-top: 32px;
-}
-.whats-the-weather {
-  font-family: 'Roboto';
-  font-size: 24px;
-  line-height: 1.16;
+.city {
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1.15;
   color: var(--extra-color);
+  background: rgba(254, 254, 255, 0.3);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 17px;
+  padding-left: 7px;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    font-size: 34px;
+  }
+}
+.geo-loc {
+  margin-right: 8px;
+}
+.info-border {
+  width: 0px;
+  height: 80px;
+  border: 1px solid #ffffff;
+  margin-left: 15px;
+  margin-right: 10px;
 }
 
 .sun-moon {
@@ -158,50 +229,107 @@ body {
   box-shadow: inset 0px 20px 65px #fa6c21;
   border-radius: 50%;
   margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 90px;
+  }
 }
-
 .week-day,
 .weather-date {
   font-family: 'Roboto';
   font-size: 28px;
-  line-height: 33px;
+  line-height: 1.17;
   color: var(--extra-color);
   text-align: center;
+  @media screen and (min-width: 768px) {
+    font-size: 46px;
+    line-height: 1.16;
+  }
 }
 .weather-date {
   margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 28px;
+  }
 }
 .weatherApp-link {
   text-decoration: none;
+  cursor: pointer;
   border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.18;
   padding: 8px 14px;
   color: var(--extra-color);
   background-color: var(--light-color);
   opacity: 0.8;
   margin-bottom: 32px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+    font-size: 20px;
+    line-height: 1.15;
+  }
 }
+.sinoptik {
+  text-align: center;
+}
+///////////////////////////////////////
 .gallery {
   display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-bottom: 40px;
-  width: 288px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 40px;
+    width: 288px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    width: 768px;
+    gap: 30px;
+    margin: 0;
+    justify-content: flex-end;
+  }
+  @media screen and (min-width: 1280px) {
+    row-gap: 32px;
+    column-gap: 40px;
+    width: 1280px;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
 }
 
+.newsHomePage-card {
+  height: 630px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 353px;
+    height: 675px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 675px;
+  }
+}
 .categories-mobile {
   padding: 13px;
   background-color: var(--accent-color);
   border: 1px solid var(--accent-color);
   border-radius: 20px;
 }
-.newsHP-calendar {
-  padding: 12px;
-}
+
 .card-picture {
   position: relative;
   margin-bottom: 20px;
 }
-
+.newsHomePage-image {
+  height: 395px;
+  width: 288px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 353px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+  }
+}
 .newsHomePage-search-category {
   position: absolute;
   left: 0px;
@@ -216,17 +344,26 @@ body {
 .newsHomePage-status-read {
   font-weight: 700;
   position: absolute;
-  left: 167px;
-  top: 14px;
   color: var(--marked-read-color);
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 167px;
+    top: 14px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    left: 225px;
+    top: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    left: 267px;
+    top: 20px;
+  }
 }
 .add-to-favBtn {
   position: absolute;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
+  cursor: pointer;
   gap: 4px;
-  left: 154px;
-  top: 355px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.14;
@@ -236,43 +373,65 @@ body {
   border-bottom-width: 0;
   border-right-width: 0;
   padding: 6px 12px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 154px;
+    top: 355px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    left: 215px;
+    top: 355px;
+  }
+  @media screen and (min-width: 1280px) {
+    left: 257px;
+    top: 355px;
+  }
 }
 .remove-from-favourite {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border-bottom-width: 0;
-  border-right-width: 0;
-  left: 154px;
-  top: 305px;
-  width: 124px;
+  cursor: pointer;
+  flex-direction: row;
+  border-width: 0;
+  left: 12px;
+  top: 355px;
   padding: 6px 12px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.14;
   border-radius: 20px;
 }
+.add-to-favBtn:active,
 .add-to-favBtn:focus {
-  opacity: 0;
+  // opacity: 0;
 }
 
-.add-to-favBtn:focus .remove-from-favourite {
-  visibility: visible;
+.add-to-favBtn:active .remove-from-favourite {
+  ///
 }
 .newsHomePage-title {
   font-weight: 700;
-  font-size: 24px;
-  line-height: 33px;
+  line-height: 1.37;
   letter-spacing: -0.01em;
   margin-bottom: 20px;
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    font-size: 24px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
 }
 .newsHomePage-text {
   margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 .homePage-readMore {
   display: flex;
+
   justify-content: space-between;
+  @media screen and (min-width: 1280px) {
+    font-size: 16px;
+  }
 }
 .newsHomePage-date {
   color: var(--light-color);
@@ -284,23 +443,52 @@ body {
 
 /////////////pagination
 .pagination-buttons {
-  margin-bottom: 60px;
+  text-align: center;
+  margin: 0 auto 60px;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    margin-bottom: 100px;
+    margin-top: 48px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 60px;
+    margin-bottom: 150px;
+  }
 }
 .prew-btn {
   margin-right: 10px;
   border: 1px solid var(--accent-color);
+  color: #111321;
   cursor: pointer;
   height: 28px;
+  outline: none;
+  @media screen and (min-width: 1280px) {
+    margin-right: 18px;
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
 .changePage-btn {
   margin-left: 4px;
   margin-right: 4px;
+  border: 1px solid var(--accent-color);
   width: 28px;
   height: 28px;
   cursor: pointer;
+  color: #111321;
+  font-weight: 500;
+  font-size: 16px;
+  @media screen and (min-width: 1280px) {
+    width: 33px;
+    height: 31px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
 }
-.changePage-btn:focus {
+.changePage-btn:focus,
+.prew-btn:focus,
+.next-btn:focus {
   background-color: var(--accent-color);
+  color: var(--extra-color);
 }
 .btn-dots {
   line-height: 16px;
@@ -311,4 +499,9 @@ body {
   border: 1px solid var(--accent-color);
   cursor: pointer;
   height: 28px;
+  @media screen and (min-width: 1280px) {
+    margin-left: 18px;
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
