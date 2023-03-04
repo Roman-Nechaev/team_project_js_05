@@ -21,192 +21,208 @@
                 </svg>
             </button>
         </div>
+
+
+
+
         <div class="calendar-form">
             <p class="calendar-form__text">Search date news</p>
-            <div class="calendarPicker">
-                <button class="choseDataButton" id="choseDataButton" data-time=""></button>
-                <svg class="calendar-icon" width="20" height="20">
-                    <use href="/assets/svg/symbol-defs.svg#icon-calendar"></use>
-                </svg>
-                <svg class="dropdown-icon" width="14" height="14">
-                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
-                </svg>
-                <div class="container-calendar">
-                    <div class="calendar" id="calendar">
-                        <div class="calendar-header">
-                            <div class="header-left-block">
-                                <span class="mounth-year-display" id="mounth-year-display"></span>
-                                <button class="year-change" id="next-year">
-                                    <svg width="12" height="12">
-                                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
-                                    </svg>
-                                </button>
-                                <div>
-                                    <div class="year-list"></div>
-                                </div>
+            <div class="calendar-picker">
+                <div class="input-form" data-modal-open data-modal-close>
+                    <svg class="calendar__button-calendar" width="20" height="20">
+                        <use href="/assets/svg/symbol-defs.svg#icon-calendar"></use>
+                    </svg>
+                    <input readonly id="input-picker" class="calendar-input datepicker-here"
+                        placeholder="Choose a date" />
+                    <svg class="calendar__button-arrow" width="14" height="14">
+                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+                    </svg>
+                </div>
+                <div class="calendar-wrapper is-hidden-wrapper" data-modal>
+                    <div class="calendar-wrapper__container">
+                        <div class="calendar-switcher">
+                            <p class="current-date"></p>
+                            <span id='next-year' class="calendar-icons year-change"><svg class="current-date__icon"
+                                    width="12" height="12" transform="rotate(270)">
+                                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+                                </svg>
+                            </span>
+                            <div>
+                                <div class="year-list"></div>
                             </div>
-                            <div class="mounth-picker" id="mounth-picker">
-                                <button class="month-change" id="pre-month">
-                                    <svg class="month-change-prev" width="17" height="17">
+                            <div class="calendar-icons">
+                                <span id="prev" class="material-symbols-rounded">
+                                    <svg class="calendar__button-arrow-icon" width="14" height="14"
+                                        transform="rotate(90)">
                                         <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
                                     </svg>
-                                </button>
-                                <button class="month-change" id="next-month">
-                                    <svg class="month-change-next" width="17" height="17">
+                                </span>
+                                <span id="next" class="material-symbols-rounded">
+                                    <svg class="calendar__button-arrow-icon" width="14" height="14"
+                                        transform="rotate(270)">
                                         <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
                                     </svg>
-                                </button>
+                                </span>
                             </div>
                         </div>
-
-                        <div class="calendar-body">
-                            <div class="calendar-week-days"></div>
-                            <div class="calendar-days"></div>
-                            <div class="calendar-footer"></div>
+                        <div class="calendar">
+                            <ul class="calendar-weeks__list">
+                                <li class="calendar-weeks__item">Sun</li>
+                                <li class="calendar-weeks__item">Mon</li>
+                                <li class="calendar-weeks__item">Tue</li>
+                                <li class="calendar-weeks__item">Wed</li>
+                                <li class="calendar-weeks__item">Thu</li>
+                                <li class="calendar-weeks__item">Fri</li>
+                                <li class="calendar-weeks__item">Sat</li>
+                            </ul>
+                            <ul class="days">
+                                <li class="calendar-days"></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-    </div>
-    <div class="gallery">
-        <div class="weather-app">
-            <div class="weather-info">
-                <h2 class="degrees">23°</h2>
-                <span class="info-border"></span>
-                <div class="location">
-                    <p class="whats-the-weather">Sunny</p>
-                    <a class="city" href=""><svg class="weather-icon" width="19" height="24">
-                            <use href="/assets/svg/symbol-defs.svg#icon-geolocation"></use>
-                        </svg>
-                        Kyiv</a>
-                </div>
-            </div>
-            <div class="sun-moon"></div>
-            <p class="week-day">Fri</p>
-            <p class="weather-date">3 March 2023</p>
-            <div class="sinoptik">
-                <a class="weatherApp-link"
-                    href="https://ua.sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%B8%D1%97%D0%B2">weather
-                    for
-                    week</a>
-            </div>
-        </div>
-        <div class="newsHomePage-card">
-            <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/H1-desktop.jpg" alt="news cover">
-                <p class="newsHomePage-status-read">Already read
-                    <svg class="marked-read" width="18" height="18">
-                        <use href="/assets/svg/symbol-defs.svg#icon-untitled"></use>
-                    </svg>
-                </p>
-                <p class="newsHomePage-search-category">Job searching</p>
-                <button class="remove-from-favourite" type="button">Remove from favourite
-                    <svg class="remove-heart" width="16" height="16">
-                        <use href="/assets/svg/symbol-defs.svg#icon-clicked_heart"></use>
-                    </svg>
-                </button>
-                <button class="add-to-favBtn" type="button">Add to favourite
-                    <svg class="heart" width="16" height="16">
-                        <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart"></use>
-                    </svg>
-                </button>
 
-            </div>
-            <div>
-                <h2 class="newsHomePage-title">8 tips for passing an online interview that will help you get a job
-                </h2>
-                <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
-                    yourself
-                    with the job prospects offered
-                    by these...</p>
-            </div>
-            <div class="homePage-readMore">
-                <p class="newsHomePage-date">24/02/2023</p>
-                <a class="newsHomePage-readMore-link" href="">Read more</a>
+</div>
+</div>
+<div class="gallery">
+    <div class="weather-app">
+        <div class="weather-info">
+            <h2 class="degrees">23°</h2>
+            <span class="info-border"></span>
+            <div class="location">
+                <p class="whats-the-weather">Sunny</p>
+                <a class="city" href=""><svg class="weather-icon" width="19" height="24">
+                        <use href="/assets/svg/symbol-defs.svg#icon-geolocation"></use>
+                    </svg>
+                    Kyiv</a>
             </div>
         </div>
-        <div class="newsHomePage-card">
-            <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/H2-desktop.jpg" alt="news cover">
-                <p class="newsHomePage-status-read">Already read</p>
-                <p class="newsHomePage-search-category">Job searching</p>
-                <button class="add-to-favBtn" type="button">Add to favourite
-                    <svg class="heart" width="16" height="16">
-                        <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
-                        </use>
-                    </svg>
-                </button>
-            </div>
-            <div>
-                <h2 class="newsHomePage-title">How to create an effective work-at-home policy</h2>
-                <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
-                    yourself
-                    with the job prospects offered by these...</p>
-            </div>
-            <div class="homePage-readMore">
-                <p class="newsHomePage-date">24/02/2023</p>
-                <a class="newsHomePage-readMore-link" href="">Read more</a>
-            </div>
-        </div>
-        <div class="newsHomePage-card">
-            <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/H3-desktop.jpg" alt="news cover">
-                <p class="newsHomePage-search-category">Job searching</p>
-                <button class="add-to-favBtn" type="button">Add to favourite
-                    <svg class="heart" width="16" height="16">
-                        <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
-                        </use>
-                    </svg>
-                </button>
-            </div>
-            <div>
-                <h2 class="newsHomePage-title">8 tips for passing an online interview that will help you get a job
-                </h2>
-                <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
-                    yourself
-                    with the job prospects offered
-                    by these...</p>
-            </div>
-            <div class="homePage-readMore">
-                <p class="newsHomePage-date">24/02/2023</p>
-                <a class="newsHomePage-readMore-link" href="">Read more</a>
-            </div>
-        </div>
-        <div class="newsHomePage-card">
-            <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/H4-desktop.jpg" alt="news cover">
-                <p class="newsHomePage-search-category">Job searching</p>
-                <button class="add-to-favBtn" type="button">Add to favourite
-                    <svg class="heart" width="16" height="16">
-                        <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
-                        </use>
-                    </svg>
-                </button>
-            </div>
-            <div>
-                <h2 class="newsHomePage-title">8 tips for passing an online interview that will help you get a job
-                </h2>
-                <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
-                    yourself
-                    with the job prospects offered
-                    by these...</p>
-            </div>
-            <div class="homePage-readMore">
-                <p class="newsHomePage-date">24/02/2023</p>
-                <a class="newsHomePage-readMore-link" href="">Read more</a>
-            </div>
+        <div class="sun-moon"></div>
+        <p class="week-day">Fri</p>
+        <p class="weather-date">3 March 2023</p>
+        <div class="sinoptik">
+            <a class="weatherApp-link"
+                href="https://ua.sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%B8%D1%97%D0%B2">weather
+                for
+                week</a>
         </div>
     </div>
-    <div class="pagination-buttons">
-        <button class="prew-btn" type="button">Prew</button>
-        <button class="changePage-btn" type="button">1</button>
-        <span class="btn-dots">...</span>
-        <button class="changePage-btn" type="button">4</button>
-        <span class="btn-dots">...</span>
-        <button class="changePage-btn" type="button">20</button>
-        <button class="next-btn" type="button">Next</button>
+    <div class="newsHomePage-card">
+        <div class="card-picture">
+            <img class="newsHomePage-image" src="/assets/H1-desktop.jpg" alt="news cover">
+            <p class="newsHomePage-status-read">Already read
+                <svg class="marked-read" width="18" height="18">
+                    <use href="/assets/svg/symbol-defs.svg#icon-untitled"></use>
+                </svg>
+            </p>
+            <p class="newsHomePage-search-category">Job searching</p>
+            <button class="remove-from-favourite" type="button">Remove from favourite
+                <svg class="remove-heart" width="16" height="16">
+                    <use href="/assets/svg/symbol-defs.svg#icon-clicked_heart"></use>
+                </svg>
+            </button>
+            <button class="add-to-favBtn" type="button">Add to favourite
+                <svg class="heart" width="16" height="16">
+                    <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart"></use>
+                </svg>
+            </button>
+
+        </div>
+        <div>
+            <h2 class="newsHomePage-title">8 tips for passing an online interview that will help you get a job
+            </h2>
+            <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
+                yourself
+                with the job prospects offered
+                by these...</p>
+        </div>
+        <div class="homePage-readMore">
+            <p class="newsHomePage-date">24/02/2023</p>
+            <a class="newsHomePage-readMore-link" href="">Read more</a>
+        </div>
     </div>
+    <div class="newsHomePage-card">
+        <div class="card-picture">
+            <img class="newsHomePage-image" src="/assets/H2-desktop.jpg" alt="news cover">
+            <p class="newsHomePage-status-read">Already read</p>
+            <p class="newsHomePage-search-category">Job searching</p>
+            <button class="add-to-favBtn" type="button">Add to favourite
+                <svg class="heart" width="16" height="16">
+                    <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
+                    </use>
+                </svg>
+            </button>
+        </div>
+        <div>
+            <h2 class="newsHomePage-title">How to create an effective work-at-home policy</h2>
+            <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
+                yourself
+                with the job prospects offered by these...</p>
+        </div>
+        <div class="homePage-readMore">
+            <p class="newsHomePage-date">24/02/2023</p>
+            <a class="newsHomePage-readMore-link" href="">Read more</a>
+        </div>
+    </div>
+    <div class="newsHomePage-card">
+        <div class="card-picture">
+            <img class="newsHomePage-image" src="/assets/H3-desktop.jpg" alt="news cover">
+            <p class="newsHomePage-search-category">Job searching</p>
+            <button class="add-to-favBtn" type="button">Add to favourite
+                <svg class="heart" width="16" height="16">
+                    <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
+                    </use>
+                </svg>
+            </button>
+        </div>
+        <div>
+            <h2 class="newsHomePage-title">8 tips for passing an online interview that will help you get a job
+            </h2>
+            <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
+                yourself
+                with the job prospects offered
+                by these...</p>
+        </div>
+        <div class="homePage-readMore">
+            <p class="newsHomePage-date">24/02/2023</p>
+            <a class="newsHomePage-readMore-link" href="">Read more</a>
+        </div>
+    </div>
+    <div class="newsHomePage-card">
+        <div class="card-picture">
+            <img class="newsHomePage-image" src="/assets/H4-desktop.jpg" alt="news cover">
+            <p class="newsHomePage-search-category">Job searching</p>
+            <button class="add-to-favBtn" type="button">Add to favourite
+                <svg class="heart" width="16" height="16">
+                    <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
+                    </use>
+                </svg>
+            </button>
+        </div>
+        <div>
+            <h2 class="newsHomePage-title">8 tips for passing an online interview that will help you get a job
+            </h2>
+            <p class="newsHomePage-text">Before you start looking for a job, it is useful to familiarize
+                yourself
+                with the job prospects offered
+                by these...</p>
+        </div>
+        <div class="homePage-readMore">
+            <p class="newsHomePage-date">24/02/2023</p>
+            <a class="newsHomePage-readMore-link" href="">Read more</a>
+        </div>
+    </div>
+</div>
+<div class="pagination-buttons">
+    <button class="prew-btn" type="button">Prew</button>
+    <button class="changePage-btn" type="button">1</button>
+    <span class="btn-dots">...</span>
+    <button class="changePage-btn" type="button">4</button>
+    <span class="btn-dots">...</span>
+    <button class="changePage-btn" type="button">20</button>
+    <button class="next-btn" type="button">Next</button>
+</div>
 </div>
