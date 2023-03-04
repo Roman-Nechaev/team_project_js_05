@@ -22,7 +22,7 @@ export default function onSearchForm(e) {
   }
 
   value = value.trim();
-  console.log(value);
+  // console.log(value);
   clearGalleryInterface();
   newsApiServis.query = value;
   requestToServer();
