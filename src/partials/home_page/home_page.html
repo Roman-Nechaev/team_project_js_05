@@ -22,6 +22,7 @@
             </button>
         </div>
         <div class="api-calendar">
+            <p class="desktop-show">Search date news</p>
             <button class="newsHP-calendar">
                 <svg class="calendar-svg" width="19" height="19">
                     <use href="/assets/svg/symbol-defs.svg#icon-calendar">
@@ -31,31 +32,41 @@
                 <svg class="calendar-arrow-down" width="14" height="14">
                     <use href="/assets/svg/symbol-defs.svg#icon-arrow-down">
                     </use>
-                </svg></button>
+                </svg>
+                <svg class="calendar-arrow-up" width="14" height="14">
+                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-up">
+                    </use>
+                </svg>
+            </button>
         </div>
     </div>
     <div class="gallery">
         <div class="weather-app">
             <div class="weather-info">
                 <h2 class="degrees">23°</h2>
-                <span class="info-border">|</span>
+                <span class="info-border"></span>
                 <div class="location">
-                    <p class="whats-the-weather">Sunny</p>
-                    <a
-                        href="https://www.google.com.ua/maps/place/%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.4021368,30.2525089,10z/data=!3m1!4b1!4m6!3m5!1s0x40d4cf4ee15a4505:0x5f251d1397901804!8m2!3d50.4501!4d30.5234!16s%2Fg%2F1tjwg7y4?hl=ru">Kyiv</a>
+                    <a class="city"
+                        href="https://www.google.com.ua/maps/place/%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.4021368,30.2525089,10z/data=!3m1!4b1!4m6!3m5!1s0x40d4cf4ee15a4505:0x5f251d1397901804!8m2!3d50.4501!4d30.5234!16s%2Fg%2F1tjwg7y4?hl=ru"><svg
+                            class="geo-loc" width="19" height="24">
+                            <use href="/assets/svg/symbol-defs.svg#icon-geolocation"></use>
+                        </svg>
+                        Kyiv</a>
                 </div>
             </div>
             <div class="sun-moon"></div>
             <p class="week-day">Fri</p>
             <p class="weather-date">3 March 2023</p>
-            <a class="weatherApp-link"
-                href="https://ua.sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%B8%D1%97%D0%B2">weather
-                for
-                week</a>
+            <div class="sinoptik">
+                <a class="weatherApp-link"
+                    href="https://ua.sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%B8%D1%97%D0%B2">weather
+                    for
+                    week</a>
+            </div>
         </div>
         <div class="newsHomePage-card">
             <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/HP-1.jpg" alt="news cover" width="288" height="395">
+                <img class="newsHomePage-image" src="/assets/HP-1.jpg" alt="news cover">
                 <p class="newsHomePage-status-read">Already read</p>
                 <p class="newsHomePage-search-category">Job searching</p>
                 <button class="remove-from-favourite" type="button">Remove from favourite
@@ -85,7 +96,7 @@
         </div>
         <div class="newsHomePage-card">
             <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/HP-2.jpg" alt="news cover" width="288" height="395">
+                <img class="newsHomePage-image" src="/assets/HP-2.jpg" alt="news cover">
                 <p class="newsHomePage-status-read">Already read</p>
                 <p class="newsHomePage-search-category">Job searching</p>
                 <button class="add-to-favBtn" type="button">Add to favourite
@@ -108,7 +119,7 @@
         </div>
         <div class="newsHomePage-card">
             <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/HP-3.jpg" alt="news cover" width="288" height="395">
+                <img class="newsHomePage-image" src="/assets/HP-3.jpg" alt="news cover">
                 <p class="newsHomePage-search-category">Job searching</p>
                 <button class="add-to-favBtn" type="button">Add to favourite
                     <svg class="heart" width="16" height="16">
@@ -132,7 +143,7 @@
         </div>
         <div class="newsHomePage-card">
             <div class="card-picture">
-                <img class="newsHomePage-image" src="/assets/HP-4.jpg" alt="news cover" width="288" height="395">
+                <img class="newsHomePage-image" src="/assets/HP-4.jpg" alt="news cover">
                 <p class="newsHomePage-search-category">Job searching</p>
                 <button class="add-to-favBtn" type="button">Add to favourite
                     <svg class="heart" width="16" height="16">
