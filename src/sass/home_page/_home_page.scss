@@ -319,9 +319,9 @@ body {
   line-height: 1.14;
   border-radius: 20px;
 }
-// .add-to-favBtn:focus {
-//   opacity: 0;
-// }
+.add-to-favBtn:focus {
+  opacity: 0;
+}
 
 .add-to-favBtn:focus .remove-from-favourite {
   visibility: visible;
