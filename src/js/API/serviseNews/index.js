@@ -78,6 +78,32 @@ Notify.init({
   },
 });
 
+const cardRef = document.querySelector('.gallery');
+
+cardRef.addEventListener('click', onClickCard);
+
+function onClickCard(evt) {
+  if (evt.target.nodeName === 'BUTTON') {
+    // console.log('УРАА КНОПКА!!');
+
+    const clickOneCards = document.querySelectorAll('.newsHomePage-card');
+
+    for (const card of clickOneCards) {
+      card.addEventListener('click', e => {
+        const id = e.currentTarget;
+
+        const testing = id.outerHTML;
+
+        localStorage.setItem('savedNews', JSON.stringify(testing));
+      });
+    }
+    return;
+  } else {
+    // console.log('Click!!!!!!!!!!!');
+    return;
+  }
+}
+
 // ========================================
 // function testFavorit(arrId) {
 //   // console.log(arrId);
@@ -98,30 +124,4 @@ Notify.init({
 //   console.log(`Вибраний ID: ${selectedId}`);
 // }
 
-const cardRef = document.querySelector('.gallery');
-
-cardRef.addEventListener('click', onClickCard);
-
-function onClickCard(evt) {
-  if (evt.target.nodeName === 'BUTTON') {
-    console.log('УРАА КНОПКА!!');
-    // console.log();
-    const clickOneCards = document.querySelectorAll('.newsHomePage-card');
-
-    for (const card of clickOneCards) {
-      card.addEventListener('click', e => {
-        const id = e.currentTarget;
-        console.log(id);
-        const testing = id.outerHTML;
-
-        localStorage.setItem('savedNews', JSON.stringify(testing));
-      });
-    }
-    return;
-  } else {
-    console.log('Click!!!!!!!!!!!');
-    return;
-  }
-}
-
-let foo = JSON.parse(localStorage.getItem('savedNews'));
+// let foo = JSON.parse(localStorage.getItem('savedNews'));

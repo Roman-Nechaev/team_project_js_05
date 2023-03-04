@@ -1,14 +1,12 @@
 import dateFormat, { masks } from 'dateformat';
 
 export function templateMarkupNews(newsDateResp) {
-  // const { abstract, lead_paragraph, web_url } = evt;
-
   return newsDateResp
     .map(oneNewsItem => {
       const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
         oneNewsItem;
 
-      function checkUrkImg(params) {
+      function checkUrkImg() {
         const urlImage = oneNewsItem.multimedia;
 
         if (!urlImage.length) {

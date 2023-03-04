@@ -1,3 +1,3 @@
 import { fetchWeatherData } from './fetchWeatherData';
 fetchWeatherData();
-// console.log(fetchWeatherData);
+console.log(fetchWeatherData);
