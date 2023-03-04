@@ -91,6 +91,10 @@ body {
   justify-content: center;
   height: 31px;
   cursor: pointer;
+  @media screen and (min-width: 1280px) {
+    padding: 8px 22.5px;
+    font-size: 14px;
+  }
 }
 
 .article-btn:focus {
@@ -174,7 +178,10 @@ body {
     line-height: 1.17;
   }
 }
-
+.whats-the-weather {
+  font-size: 36px;
+  line-height: 42px;
+}
 .city {
   text-decoration: none;
   font-size: 20px;
@@ -191,7 +198,7 @@ body {
     font-size: 34px;
   }
 }
-.geo-loc {
+.weather-icon {
   margin-right: 8px;
 }
 .info-border {
@@ -304,6 +311,7 @@ body {
 .newsHomePage-image {
   height: 395px;
   width: 288px;
+  background-size: contain;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
   }
@@ -363,13 +371,14 @@ body {
     top: 355px;
   }
   @media screen and (min-width: 1280px) {
-    left: 257px;
+    left: 256px;
     top: 355px;
   }
 }
 .remove-from-favourite {
   position: absolute;
   cursor: pointer;
+  display: flex;
   flex-direction: row;
   border-width: 0;
   left: 12px;
