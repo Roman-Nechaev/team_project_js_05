@@ -22,7 +22,7 @@ export default class NewsApiServis {
 
     const gatherData = await response.data;
 
-    console.log(gatherData);
+    // console.log(gatherData);
     return gatherData;
   }
 
