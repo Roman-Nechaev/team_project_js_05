@@ -1,3 +1,5 @@
+import dateFormat, { masks } from 'dateformat';
+
 export function templateMarkupNews(newsDateResp) {
   // const { abstract, lead_paragraph, web_url } = evt;
 
@@ -44,7 +46,7 @@ export function templateMarkupNews(newsDateResp) {
         </p>
       </div>
       <div class="homePage-readMore">
-        <p class="newsHomePage-date">${pub_date}</p>
+        <p class="newsHomePage-date">${firmatDate(pub_date)}</p>
         <a class="newsHomePage-readMore-link" target = "_blank" href="${web_url}">Read more</a>
       </div>
     </div>
@@ -61,4 +63,7 @@ function formatingDerscription(description) {
   return newFormat;
 }
 
-// pub_date - дата публикации
+function firmatDate(date) {
+  const now = new Date(date);
+  return dateFormat(now, 'dd/mm/yyyy');
+}

@@ -1,1 +1,0 @@
-function markupFovor(params) {}
