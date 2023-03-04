@@ -21,39 +21,93 @@
         </svg>
       </button>
     </div>
-    <div class="api-calendar">
-      <button class="newsHP-calendar">
-        <svg class="calendar-svg" width="19" height="19">
+    <div class="calendar-form">
+      <p class="calendar-form__text">Search date news</p>
+
+      <div class="calendarPicker">
+        <button
+          class="choseDataButton"
+          id="choseDataButton"
+          data-time=""
+        ></button>
+        <svg class="calendar-icon" width="14" height="14">
           <use href="/assets/svg/symbol-defs.svg#icon-calendar"></use>
         </svg>
-        20/02/2023
-        <svg class="calendar-arrow-down" width="14" height="14">
+        <svg class="dropdown-icon" width="14" height="14">
           <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
         </svg>
-      </button>
+
+        <div class="container-calendar">
+          <div class="calendar" id="calendar">
+            <div class="calendar-header">
+              <div class="header-left-block">
+                <span
+                  class="mounth-year-display"
+                  id="mounth-year-display"
+                ></span>
+                <button class="year-change" id="next-year">
+                  <svg width="12" height="12">
+                    <use
+                      href="/assets/svg/symbol-defs.svg#icon-arrow-down"
+                    ></use>
+                  </svg>
+                </button>
+                <div>
+                  <div class="year-list"></div>
+                </div>
+              </div>
+              <div class="mounth-picker" id="mounth-picker">
+                <button class="month-change" id="pre-month">
+                  <svg class="month-change-prev" width="17" height="17">
+                    <use
+                      href="/assets/svg/symbol-defs.svg#icon-arrow-down"
+                    ></use>
+                  </svg>
+                </button>
+                <button class="month-change" id="next-month">
+                  <svg class="month-change-next" width="17" height="17">
+                    <use
+                      href="/assets/svg/symbol-defs.svg#icon-arrow-down"
+                    ></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="calendar-body">
+              <div class="calendar-week-days"></div>
+              <div class="calendar-days"></div>
+              <div class="calendar-footer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="gallery">
     <div class="weather-app">
       <div class="weather-info">
         <h2 class="degrees">23°</h2>
+
         <span class="info-border">|</span>
-        <div class="location">
+        <div class="">
+          <p class="location">Kyiv</p>
           <p class="whats-the-weather">Sunny</p>
           <a
             href="https://www.google.com.ua/maps/place/%D0%B3%D0%BE%D1%80%D0%BE%D0%B4+%D0%9A%D0%B8%D0%B5%D0%B2,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.4021368,30.2525089,10z/data=!3m1!4b1!4m6!3m5!1s0x40d4cf4ee15a4505:0x5f251d1397901804!8m2!3d50.4501!4d30.5234!16s%2Fg%2F1tjwg7y4?hl=ru"
-            >Kyiv</a
-          >
+          ></a>
         </div>
       </div>
       <div class="sun-moon"></div>
       <p class="week-day">Fri</p>
       <p class="weather-date">3 March 2023</p>
-      <a
-        class="weatherApp-link"
-        href="https://ua.sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%B8%D1%97%D0%B2"
-        >weather for week</a
-      >
+      <div class="sinoptik">
+        <a
+          class="weatherApp-link"
+          href="https://ua.sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%B8%D1%97%D0%B2"
+          >weather for week</a
+        >
+      </div>
     </div>
     <div class="newsHomePage-card">
       <div class="card-picture">
@@ -61,8 +115,6 @@
           class="newsHomePage-image"
           src="/assets/HP-1.jpg"
           alt="news cover"
-          width="288"
-          height="395"
         />
         <p class="newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">Job searching</p>
@@ -99,8 +151,6 @@
           class="newsHomePage-image"
           src="/assets/HP-2.jpg"
           alt="news cover"
-          width="288"
-          height="395"
         />
         <p class="newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">Job searching</p>
@@ -131,8 +181,6 @@
           class="newsHomePage-image"
           src="/assets/HP-3.jpg"
           alt="news cover"
-          width="288"
-          height="395"
         />
         <p class="newsHomePage-search-category">Job searching</p>
         <button class="add-to-favBtn" type="button">
@@ -162,8 +210,6 @@
           class="newsHomePage-image"
           src="/assets/HP-4.jpg"
           alt="news cover"
-          width="288"
-          height="395"
         />
         <p class="newsHomePage-search-category">Job searching</p>
         <button class="add-to-favBtn" type="button">
