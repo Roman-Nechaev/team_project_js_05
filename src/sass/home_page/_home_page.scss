@@ -254,9 +254,6 @@ body {
 .weatherApp-link {
   text-decoration: none;
   cursor: pointer;
-  display: inline-flex;
-
-  justify-content: center;
   border-radius: 10px;
   font-size: 16px;
   line-height: 1.18;
@@ -270,6 +267,9 @@ body {
     font-size: 20px;
     line-height: 1.15;
   }
+}
+.sinoptik {
+  text-align: center;
 }
 ///////////////////////////////////////
 .gallery {
@@ -360,7 +360,7 @@ body {
 }
 .add-to-favBtn {
   position: absolute;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   cursor: pointer;
   gap: 4px;
@@ -389,24 +389,23 @@ body {
 .remove-from-favourite {
   position: absolute;
   cursor: pointer;
-  display: inline-flex;
   flex-direction: row;
   border-width: 0;
-  left: 112px;
+  left: 12px;
   top: 355px;
-  width: 124px;
   padding: 6px 12px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.14;
   border-radius: 20px;
 }
+.add-to-favBtn:active,
 .add-to-favBtn:focus {
-  display: none;
+  // opacity: 0;
 }
 
-.add-to-favBtn:focus .remove-from-favourite {
-  display: inline;
+.add-to-favBtn:active .remove-from-favourite {
+  ///
 }
 .newsHomePage-title {
   font-weight: 700;
