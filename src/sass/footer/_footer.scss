@@ -1,0 +1,121 @@
+.footer {
+    background-color: #f4f4f4;
+    height: 146px;
+    width: 100%;
+    border-top: rgba(0, 0, 0, 0.2) 1px solid;
+}
+
+.footer-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.footer-social-list {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-social-item:not(:first-child) {
+    margin-left: 10px;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 44px;
+    height: 44px;
+    float: left;
+    background:#fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 0 50px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    color:#000;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-social-link svg {
+    fill: #A8A8A8;
+}
+
+.footer-social-link:hover svg,
+.footer-social-link:focus svg {
+    fill: #fff;
+}
+
+.github a:hover,
+.github a:focus {
+    background:#191919;
+    }
+
+.twitter a:hover,
+.twitter a:focus {
+    background:#00acee;
+}
+
+.instagram a:hover,
+.instagram a:focus {
+    background:#3f729b;
+}
+
+.facebook a:hover,
+.facebook a:focus {
+    background:#3b5998;
+}
+
+.linkedin a:hover,
+.linkedin a:focus {
+    background:#0e76a8;
+}
+
+
+
+
+.subscription-wrap {
+    display: flex;
+    align-items: baseline;
+        margin-top: 5px;
+}
+        
+.subscription-wrap input {
+    border: none;
+    height: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), inset 0 0 50px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    outline: none;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.subscription-wrap input::placeholder {
+    color: #111321;
+    padding-left: 10px;
+    font-size: 14px;
+    line-height: 1.14;
+
+}
+
+.subscription-wrap input:focus {
+    border: 1px solid #4440F6;
+}
+
+.btn-footer {
+    display: flex;
+    border: 1px solid #4B48DB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    background-color: #4B48DB;
+    color: #f4f4f4;
+    height: 28px;
+    border-radius: 20px;
+    justify-content: center;
+    padding: 8px 21px;
+    margin-left: 15px;
+    font-size: 12px;
+    line-height: 1.14;
+    cursor: pointer;
+}
