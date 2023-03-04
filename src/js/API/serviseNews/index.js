@@ -84,7 +84,7 @@ cardRef.addEventListener('click', onClickCard);
 
 function onClickCard(evt) {
   if (evt.target.nodeName === 'BUTTON') {
-    // console.log('УРАА КНОПКА!!');
+    console.log('УРАА КНОПКА!!');
 
     const clickOneCards = document.querySelectorAll('.newsHomePage-card');
 
