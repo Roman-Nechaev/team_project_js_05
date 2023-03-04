@@ -59,7 +59,7 @@ function getPosition() {
     navigator.geolocation.getCurrentPosition(
       position => resolve(position),
       error => {
-        console.log(error);
+        // console.log(error);
 
         const defaultPosition = {
           coords: { latitude: 51.5072, longitude: -0.1276 },

@@ -5,12 +5,23 @@ export function templateMarkupNews(newsDateResp) {
     .map(oneNewsItem => {
       const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
         oneNewsItem;
+
+      function checkUrkImg(params) {
+        const urlImage = oneNewsItem.multimedia;
+
+        if (!urlImage.length) {
+          return 'https://placehold.co/400x400?text=NO+IMAGE';
+        }
+
+        return `https://static01.nyt.com/${oneNewsItem.multimedia[0].url}`;
+      }
+
       return `
     <div class="newsHomePage-card" data-id=${_id}>
     <div class="card-picture">
         <img
           class="newsHomePage-image"
-          src="https://static01.nyt.com/${oneNewsItem.multimedia[0].url}"
+          src="${checkUrkImg()}"
           alt="news cover"
           width="288"
           height="395"
@@ -19,7 +30,7 @@ export function templateMarkupNews(newsDateResp) {
         <p class="newsHomePage-search-category">${news_desk}</p>
         <button class="add-to-favBtn" type="button">Add to favourite
                     <svg class="heart" width="16" height="16">
-                        <use href="./assets/svg/symbol-defs.svg#icon-unclicked_heart">
+                        <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
                         </use>
                     </svg>
                 </button>
@@ -34,7 +45,7 @@ export function templateMarkupNews(newsDateResp) {
       </div>
       <div class="homePage-readMore">
         <p class="newsHomePage-date">${pub_date}</p>
-        <a class="newsHomePage-readMore-link" href="${web_url}">Read more</a>
+        <a class="newsHomePage-readMore-link" target = "_blank" href="${web_url}">Read more</a>
       </div>
     </div>
     </div>`;
@@ -49,4 +60,5 @@ function formatingDerscription(description) {
   }
   return newFormat;
 }
+
 // pub_date - дата публикации
