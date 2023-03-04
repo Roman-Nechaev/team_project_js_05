@@ -20,6 +20,9 @@ export default function onSearchForm(e) {
     Notify.warning('The search field should not be empty!');
     return;
   }
+
+  value = value.trim();
+  console.log(value);
   clearGalleryInterface();
   newsApiServis.query = value;
   requestToServer();
