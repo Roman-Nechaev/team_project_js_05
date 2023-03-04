@@ -21,23 +21,52 @@
                 </svg>
             </button>
         </div>
-        <div class="api-calendar">
-            <p class="desktop-show">Search date news</p>
-            <button class="newsHP-calendar">
-                <svg class="calendar-svg" width="19" height="19">
-                    <use href="/assets/svg/symbol-defs.svg#icon-calendar">
-                    </use>
+        <div class="calendar-form">
+            <p class="calendar-form__text">Search date news</p>
+            <div class="calendarPicker">
+                <button class="choseDataButton" id="choseDataButton" data-time=""></button>
+                <svg class="calendar-icon" width="20" height="20">
+                    <use href="/assets/svg/symbol-defs.svg#icon-calendar"></use>
                 </svg>
-                20/02/2023
-                <svg class="calendar-arrow-down" width="14" height="14">
-                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down">
-                    </use>
+                <svg class="dropdown-icon" width="14" height="14">
+                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
                 </svg>
-                <svg class="calendar-arrow-up" width="14" height="14">
-                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-up">
-                    </use>
-                </svg>
-            </button>
+                <div class="container-calendar">
+                    <div class="calendar" id="calendar">
+                        <div class="calendar-header">
+                            <div class="header-left-block">
+                                <span class="mounth-year-display" id="mounth-year-display"></span>
+                                <button class="year-change" id="next-year">
+                                    <svg width="12" height="12">
+                                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+                                    </svg>
+                                </button>
+                                <div>
+                                    <div class="year-list"></div>
+                                </div>
+                            </div>
+                            <div class="mounth-picker" id="mounth-picker">
+                                <button class="month-change" id="pre-month">
+                                    <svg class="month-change-prev" width="17" height="17">
+                                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+                                    </svg>
+                                </button>
+                                <button class="month-change" id="next-month">
+                                    <svg class="month-change-next" width="17" height="17">
+                                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="calendar-body">
+                            <div class="calendar-week-days"></div>
+                            <div class="calendar-days"></div>
+                            <div class="calendar-footer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="gallery">
@@ -46,7 +75,7 @@
                 <h2 class="degrees">23°</h2>
 
                 <span class="info-border">|</span>
-                <div class=""> 
+                <div class="">
                     <p class="location">Kyiv</p>
                     <p class="whats-the-weather">Sunny</p>
                     <a
