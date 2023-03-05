@@ -400,6 +400,7 @@ body {
   display: flex;
   gap: 5px;
   border-width: 0;
+  width: 168px;
   left: 12px;
   top: 355px;
   padding: 6px 12px;
@@ -441,69 +442,4 @@ body {
 .newsHomePage-readMore-link {
   color: var(--accent-color);
   text-decoration: none;
-}
-
-/////////////pagination
-.pagination-buttons {
-  text-align: center;
-  margin: 0 auto 60px;
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    margin-bottom: 100px;
-    margin-top: 48px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-top: 60px;
-    margin-bottom: 150px;
-  }
-}
-.prew-btn {
-  margin-right: 10px;
-  border: 1px solid var(--accent-color);
-  color: #111321;
-  cursor: pointer;
-  height: 28px;
-  outline: none;
-  @media screen and (min-width: 1280px) {
-    margin-right: 18px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-}
-.changePage-btn {
-  margin-left: 4px;
-  margin-right: 4px;
-  border: 1px solid var(--accent-color);
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-  color: #111321;
-  font-weight: 500;
-  font-size: 16px;
-  @media screen and (min-width: 1280px) {
-    width: 33px;
-    height: 31px;
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-}
-.changePage-btn:focus,
-.prew-btn:focus,
-.next-btn:focus {
-  background-color: var(--accent-color);
-  color: var(--extra-color);
-}
-.btn-dots {
-  line-height: 16px;
-}
-
-.next-btn {
-  margin-left: 10px;
-  border: 1px solid var(--accent-color);
-  cursor: pointer;
-  height: 28px;
-  @media screen and (min-width: 1280px) {
-    margin-left: 18px;
-    font-size: 16px;
-    font-weight: 500;
-  }
 }
