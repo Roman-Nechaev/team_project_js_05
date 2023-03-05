@@ -5,7 +5,7 @@ async function getCurrentWeather(lat, lon, api_key) {
   try {
     const response = await axios.get(url);
     const data = response.data;
-    console.log(data);
+    // console.log(data);
 
     const date = new Date();
     const options = {
@@ -53,14 +53,16 @@ async function getWeatherForecast(lat, lon, api_key) {
   try {
     const response = await axios.get(url);
     const data = response.data;
-    console.log(data);
-    console.log(
-      `5-day weather forecast for the location: ${data.city.name}, ${data.city.country}`
-    );
+    // console.log(data);
+    // console.log(
+    //   `5-day weather forecast for the location: ${data.city.name}, ${data.city.country}`
+    // );
     const forecastList = data.list;
     forecastList.forEach(forecast => {
       const date = new Date(forecast.dt * 1000);
     });
+    const buttonEl = document.querySelector('.show-on-map');
+    buttonEl.addEventListener('click', () => openGoogleMaps(data.city.name));
   } catch (error) {
     console.log(error);
   }
@@ -79,7 +81,7 @@ export const weatherService = async () => {
     const api_key = 'ba95449c69063d2989b1d45f265b0f98';
 
     const cityName = await getCityName(lat, lon);
-    console.log(`Location: ${cityName}`);
+    // console.log(`Location: ${cityName}`);
     const locationEl = document.querySelector('.location');
     locationEl.innerHTML = cityName;
 
@@ -100,4 +102,9 @@ function getPosition() {
       }
     );
   });
+}
+
+function openGoogleMaps(cityName) {
+  const url = `https://www.google.com/maps/place/${cityName}`;
+  window.open(url, '_blank');
 }
