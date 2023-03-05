@@ -29,27 +29,3 @@ function samplingById(params) {
     });
   });
 }
-
-// renderTemplateFavo(arrayOfCardsSelectedById);
-
-// ========================================
-// function testFavorit(cardIdLocal, arrId) {
-//   console.log(arrId);
-
-//   const reservedId = cardIdLocal; // зарезервований ID
-
-//   const arr = cardIdLocal; // масив ID
-//   let selectedId = null;
-
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === reservedId) {
-//       console.log(arr[i]);
-//       selectedId = arr[i];
-//       break;
-//     }
-//   }
-
-//   console.log(`Вибраний ID: ${selectedId}`);
-// }
-
-//

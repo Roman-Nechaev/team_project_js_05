@@ -17,11 +17,10 @@ function onClikTest(e) {
   let foo = localStorage.getItem('testObject');
   let cardsLocal = JSON.parse(foo);
   const filter = cardsLocal.filter(news => news._id !== idCardsFov);
-  console.log(filter);
+
   localStorage.setItem('testObject', JSON.stringify(filter));
 
   refCards.forEach(idCards => {
-    console.log(idCards);
     if (idCards.dataset.id === idCardsFov) {
       idCards.remove();
     }
