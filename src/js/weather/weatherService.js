@@ -61,6 +61,8 @@ async function getWeatherForecast(lat, lon, api_key) {
     forecastList.forEach(forecast => {
       const date = new Date(forecast.dt * 1000);
     });
+    const buttonEl = document.querySelector('.show-on-map');
+    buttonEl.addEventListener('click', () => openGoogleMaps(data.city.name));
   } catch (error) {
     console.log(error);
   }
@@ -100,4 +102,12 @@ function getPosition() {
       }
     );
   });
+}
+
+function openGoogleMaps(cityName) {
+  if (cityName === undefined) {
+    cityName = 'Kyiv';
+  }
+  const url = `https://www.google.com/maps/place/${cityName}`;
+  window.open(url, '_blank');
 }

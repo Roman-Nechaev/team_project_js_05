@@ -1,0 +1,148 @@
+a {
+    text-decoration: none;
+}
+
+.header {
+
+    position: relative;
+
+    @media screen and (max-width: 767px) {
+        padding-top: 16px;
+
+    }
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.burg-menu.is-open {
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+}
+
+.burg-menu {
+
+    @media screen and (max-width: 767px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        background-color: #F4F4F4;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+
+}
+
+.burg-menu-container {
+
+    height: 100%;
+
+}
+
+.burgeropen {
+    @media screen and (max-width: 767px) {
+        display: block;
+        position: absolute;
+        right: 0;
+        transform: translateY(-25%);
+    }
+}
+
+.closeburgmenu {
+    outline: none;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: var(--txt-col);
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: fill 250ms var(--timing-funcion);
+
+}
+
+.burgmenu__navlist {
+    list-style: none;
+    padding: 0;
+
+    @media screen and (max-width: 767px) {
+
+        margin-top: 125px;
+
+    }
+
+}
+
+.burgmenu__navlink {
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 28px;
+    }
+
+    &:hover {
+        background-color: #4440F6;
+
+        .burg__icon {
+            border-color: #F4F4F4;
+        }
+    }
+
+}
+
+.burgmenu__link {
+    @media screen and (max-width: 767px) {
+        display: flex;
+        gap: 13px;
+        align-items: center;
+        text-align: left;
+
+
+    }
+
+}
+
+// .burg__icon {
+//     &:hover {
+//         fill: #F4F4F4;
+//         // border: 1px #F4F4F4;;
+//         // border-radius: 50%;
+//         }
+
+
+// }
+
+.burgmenu__link-text {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.38;
+    color: #111321;
+
+    &:hover {
+        color: #F4F4F4;
+    }
+}
+
+.burg__shevron {
+    margin-left: auto;
+}
