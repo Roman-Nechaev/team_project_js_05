@@ -22,6 +22,7 @@ ul {
     display: flex;
 }
 .calendar-form__text {
+  margin: -5px;
   
   display: inline;
   align-items: center;
@@ -49,22 +50,31 @@ ul {
 .desktop-show {
     margin-right: 37px;
     font-family: Manrope;
-    font-weight: 700;}
-
+    font-weight: 700;
+  }
+  .calendar-input::placeholder {
+    margin: -5px;
+  }
 // isActive ----------
 .calendar-input.isActive::placeholder {
+
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #fff;
+  margin: -5px;
+  
+  
 }
 
 .calendar-input.isActive {
+  
   background-color: var(--accent-color);
   color: #fff;
   border-color: var(--accent-color);
   border: 1px solid #4440f7;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 250ms;
+  
 }
 
 .calendar-wrapper.is-hidden-wrapper {
@@ -114,6 +124,7 @@ ul {
   width: 152px;
   height: 31px;
   padding: 5px 12px;
+  
   border: 1px solid var(--accent-color);
   border-radius: 20px;
 
@@ -142,6 +153,15 @@ ul {
     gap: 18px;
   }
 }
+.calendar-input:hover,
+.calendar-input:focus,
+.calendar-input:active {
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid #4440f6;
+ 
+}
+
 
 .calendar__button-calendar {
   position: absolute;
@@ -153,6 +173,8 @@ ul {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
 
 .calendar__button-calendar.switchedColor {
   z-index: 1;
@@ -176,8 +198,7 @@ ul {
   position: absolute;
   z-index: 1;
   fill: var(--accent-color);
-  right: 12px;
-
+  right: 8px;
   cursor: pointer;
 
   rotate: 0;

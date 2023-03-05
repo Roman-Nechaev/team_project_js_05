@@ -43,7 +43,7 @@ let yearsListArr = [];
   }
 
   function hideModals(evt) {
-    let dataValue = document.getElementById('input-picker').value;
+    // let dataValue = document.getElementById('input-picker').value;
 
     if (evt.target.closest('.calendar-form')) {
       return;
