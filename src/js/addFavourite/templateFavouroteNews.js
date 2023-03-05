@@ -1,6 +1,6 @@
 import dateFormat, { masks } from 'dateformat';
 
-export function templateMarkupNews(newsDateResp) {
+export function templateFavouroteNews(newsDateResp) {
   return newsDateResp
     .map(oneNewsItem => {
       const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
@@ -29,10 +29,9 @@ export function templateMarkupNews(newsDateResp) {
         <p class="newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">${news_desk}</p>
         
-        <button class="add-to-favBtn" type="button" data-id=${_id}>Add to favourite
-                    <svg class="heart" width="16" height="16">
-                        <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
-                        </use>
+        <button class="remove-from-favourite" type="button" data-id=${_id} >Remove from favourite
+                    <svg class="remove-heart" width="16" height="16">
+                        <use href="/assets/svg/symbol-defs.svg#icon-clicked_heart"></use>
                     </svg>
                 </button>
       </div>

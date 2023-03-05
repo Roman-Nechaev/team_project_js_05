@@ -4,6 +4,8 @@ import NewsApiServis from './serviseNewsSearch';
 
 import { templateMarkupNews } from './templateMarkupNews';
 
+import addFavourite from '../../addFavourite/addFavourite';
+
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 
@@ -11,7 +13,7 @@ const searchFormRef = document.querySelector('#search-form');
 const prewBtn = document.querySelector('.prew-btn');
 const nextBtn = document.querySelector('.next-btn');
 // prewBtn.addEventListener('click', onClickPrew);
-nextBtn.addEventListener('click', onClickNext);
+// nextBtn.addEventListener('click', onClickNext);
 // ================= Pagination ===========
 
 searchFormRef.addEventListener('submit', onSearchForm);
@@ -36,11 +38,15 @@ export default function onSearchForm(e) {
   requestToServer();
 }
 
+requestToServer();
+
 async function requestToServer() {
   let arr = [];
   try {
     const data = await newsApiServis.fetchNewsApi();
+
     const newsDateResponse = await data.response.docs;
+
     if (newsDateResponse.length <= 0) {
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'
@@ -49,9 +55,8 @@ async function requestToServer() {
 
     renderTemplate(newsDateResponse);
 
-    const useID = newsDateResponse.map(onId => arr.push(onId._id));
-
-    testFavorit(arr);
+    // const useID = newsDateResponse.map(onId => arr.push(onId._id));
+    addFavourite(newsDateResponse);
   } catch (error) {}
 }
 

@@ -70,7 +70,7 @@ if (savedNews) {
     // Додаємо картку новини до галереї на сторінці
     gallery.appendChild(newsCard);
 
-    // Знаходимо кнопку "RemoveFromFavorite"
+    //todo Знаходимо кнопку "RemoveFromFavorite"  ==============
     const removeFromFavBtn = document.querySelector('.add-to-favBtn');
 
     // Додаємо обробник події на кнопку "RemoveFromFavorite"

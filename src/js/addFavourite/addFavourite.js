@@ -1,53 +1,47 @@
-// ============================add
-const cardRef = document.querySelector('.gallery');
-const favoriteRef = document.querySelector('.gallery-favorite');
+import { renderTemplateFavo } from './renderFavourite';
 
-cardRef.addEventListener('click', onClickCard);
+// ===================================
+export default function addFavourite(newsDateResponse) {
+  newsDateResponse.map(oneCards => {
+    const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
+      oneCards;
 
-export default function onClickCard(evt) {
-  let saveCards = {};
-
-  const clickOneCards = document.querySelectorAll('.newsHomePage-card');
-
-  clickOneCards.forEach(card => {
-    card.addEventListener('click', e => {
-      const id = e.currentTarget;
-
-      const test = id;
-
-      // saveCards.push(testing);
-      console.log(test.outerHTML);
-
-      localStorage.setItem('savedNews', JSON.stringify(test.outerHTML));
-    });
+    samplingById(oneCards);
   });
-  let foo = JSON.parse(localStorage.getItem('savedNews'));
-
-  console.log('getItem', foo);
-  const tesfRend = foo;
-  console.log('tesfRend :>> ', tesfRend);
-  // cardRef.innerHTML = tesfRend;
-
-  // if (evt.target.nodeName === 'BUTTON') {
-  //   console.log('УРАА КНОПКА!!addFavourite');
-
-  //   return;
-
-  // } else {
-
-  //   // console.log('Click!!!!!!!!!!!');
-  //   return;
-
-  // }
 }
 
+let arrayOfCardsSelectedById =
+  JSON.parse(localStorage.getItem('testObject')) || [];
+
+// логика добавления массива выбранных карточек
+function samplingById(params) {
+  // console.log(params);
+  const clickOneCards = document.querySelectorAll('.add-to-favBtn');
+
+  clickOneCards.forEach(oneCards => {
+    oneCards.addEventListener('click', e => {
+      // console.log(e.target.dataset.id); //при крике на кнопку add-to-favBtn забираем id
+
+      if (e.target.dataset.id === params._id) {
+        arrayOfCardsSelectedById.push(params);
+        localStorage.setItem(
+          'testObject',
+          JSON.stringify(arrayOfCardsSelectedById)
+        );
+      }
+    });
+  });
+}
+
+renderTemplateFavo(arrayOfCardsSelectedById);
+
 // ========================================
-// function testFavorit(arrId) {
-//   // console.log(arrId);
+// function testFavorit(cardIdLocal, arrId) {
+//   console.log(arrId);
 
-//   const reservedId = 'nyt://article/606a4ef1-13b8-5136-bc59-e8a5463ec075'; // зарезервований ID
+//   const reservedId = cardIdLocal; // зарезервований ID
 
-//   const arr = arrId; // масив ID
+//   const arr = cardIdLocal; // масив ID
 //   let selectedId = null;
 
 //   for (let i = 0; i < arr.length; i++) {
