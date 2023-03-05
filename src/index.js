@@ -9,3 +9,7 @@ import './js/header/headerTheme';
 import './js/readRevisionDate/readRevisionDate';
 
 // import './js/allLogicSearch/index';
+
+// import './js/API/serviseNews/index';
+import './js/allLogicSearch/markupNews/renderNews'
+
