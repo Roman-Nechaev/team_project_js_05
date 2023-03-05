@@ -56,17 +56,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.newsHP-categories:focus {
-  background-color: var(--accent-color);
-  color: var(--extra-color);
-}
-.newsHP-categories {
   @media screen and (min-width: 768px) {
     display: none;
   }
 }
+.newsHP-categories:focus {
+  background-color: var(--accent-color);
+  color: var(--extra-color);
+}
+.newsHP-categories:focus .categ-arrow-down {
+  rotate: 0;
+  transition: all 250ms ease-in-out;
+}
+.newsHP-categories:focus .switch-arrows {
+  fill: #fff;
+  transform: rotate(180deg);
+}
+
 ///////////teblet buttons
 .articles-to-choose-tablet {
   display: flex;
@@ -179,10 +185,16 @@ body {
   }
 }
 .whats-the-weather {
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 24px;
+  line-height: 1.16;
+  color: var(--extra-color);
+  margin-bottom: 15px;
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+    line-height: 1.16;
+  }
 }
-.city {
+.location {
   text-decoration: none;
   font-size: 20px;
   line-height: 1.15;
@@ -262,6 +274,7 @@ body {
 ///////////////////////////////////////
 .gallery {
   display: flex;
+  margin: 0 auto;
   @media screen and (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
     gap: 28px;
@@ -273,7 +286,6 @@ body {
     flex-direction: row-reverse;
     width: 768px;
     gap: 30px;
-    margin: 0;
     justify-content: flex-end;
   }
   @media screen and (min-width: 1280px) {
@@ -297,12 +309,15 @@ body {
     height: 675px;
   }
 }
-.categories-mobile {
-  padding: 13px;
-  background-color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  border-radius: 20px;
+.marked-opacity {
+  opacity: 0.7;
 }
+// .categories-mobile {
+//   padding: 13px;
+//   background-color: var(--accent-color);
+//   border: 1px solid var(--accent-color);
+//   border-radius: 20px;
+// }
 
 .card-picture {
   position: relative;
@@ -347,12 +362,15 @@ body {
     top: 20px;
   }
 }
+.marked-read {
+  text-align: center;
+}
 .add-to-favBtn {
   position: absolute;
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  gap: 4px;
+  gap: 5px;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.14;
@@ -378,8 +396,9 @@ body {
 .remove-from-favourite {
   position: absolute;
   cursor: pointer;
+  align-items: center;
   display: flex;
-  flex-direction: row;
+  gap: 5px;
   border-width: 0;
   left: 12px;
   top: 355px;
@@ -389,14 +408,7 @@ body {
   line-height: 1.14;
   border-radius: 20px;
 }
-.add-to-favBtn:active,
-.add-to-favBtn:focus {
-  // opacity: 0;
-}
 
-.add-to-favBtn:active .remove-from-favourite {
-  ///
-}
 .newsHomePage-title {
   font-weight: 700;
   line-height: 1.37;
