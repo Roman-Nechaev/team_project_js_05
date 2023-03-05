@@ -38,7 +38,7 @@ export default function onSearchForm(e) {
   requestToServer();
 }
 
-requestToServer();
+// requestToServer();
 
 async function requestToServer() {
   let arr = [];

@@ -15,25 +15,22 @@ let arrayOfCardsSelectedById =
 
 // логика добавления массива выбранных карточек
 function samplingById(params) {
-  // console.log(params);
   const clickOneCards = document.querySelectorAll('.add-to-favBtn');
 
   clickOneCards.forEach(oneCards => {
     oneCards.addEventListener('click', e => {
-      // console.log(e.target.dataset.id); //при крике на кнопку add-to-favBtn забираем id
-
       if (e.target.dataset.id === params._id) {
         arrayOfCardsSelectedById.push(params);
-        localStorage.setItem(
-          'testObject',
-          JSON.stringify(arrayOfCardsSelectedById)
-        );
       }
+      localStorage.setItem(
+        'testObject',
+        JSON.stringify(arrayOfCardsSelectedById)
+      );
     });
   });
 }
 
-renderTemplateFavo(arrayOfCardsSelectedById);
+// renderTemplateFavo(arrayOfCardsSelectedById);
 
 // ========================================
 // function testFavorit(cardIdLocal, arrId) {
