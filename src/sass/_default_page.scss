@@ -1,16 +1,7 @@
 .container.default-news{
 max-width: 320px;
 }
-@media screen and (min-width: 1200px) {
-    .container.default-news {
-        max-width: 1200px;
-    }
-}
-  @media screen and (min-width: 768px) {
-    .container.default-news{
-        max-width: 768px;
-    }
-}
+
 .default-news-title{
     margin: 40px 0 40px 0;
 
