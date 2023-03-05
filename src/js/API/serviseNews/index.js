@@ -7,6 +7,13 @@ import { templateMarkupNews } from './templateMarkupNews';
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 
+// ================= Pagination ===========
+const prewBtn = document.querySelector('.prew-btn');
+const nextBtn = document.querySelector('.next-btn');
+// prewBtn.addEventListener('click', onClickPrew);
+nextBtn.addEventListener('click', onClickNext);
+// ================= Pagination ===========
+
 searchFormRef.addEventListener('submit', onSearchForm);
 
 const newsApiServis = new NewsApiServis();
@@ -25,6 +32,7 @@ export default function onSearchForm(e) {
   // console.log(value);
   clearGalleryInterface();
   newsApiServis.query = value;
+  onClickNext();
   requestToServer();
 }
 
@@ -81,50 +89,8 @@ Notify.init({
   },
 });
 
-const cardRef = document.querySelector('.gallery');
-
-cardRef.addEventListener('click', onClickCard);
-
-function onClickCard(evt) {
-  if (evt.target.nodeName === 'BUTTON') {
-    // console.log('УРАА КНОПКА!!');
-
-    const clickOneCards = document.querySelectorAll('.newsHomePage-card');
-
-    for (const card of clickOneCards) {
-      card.addEventListener('click', e => {
-        const id = e.currentTarget;
-
-        const testing = id.outerHTML;
-
-        localStorage.setItem('savedNews', JSON.stringify(testing));
-      });
-    }
-    return;
-  } else {
-    // console.log('Click!!!!!!!!!!!');
-    return;
-  }
+// ================= Pagination ===========
+function onClickNext() {
+  newsApiServis.incrementPage();
+  requestToServer();
 }
-
-// ========================================
-// function testFavorit(arrId) {
-//   // console.log(arrId);
-
-//   const reservedId = 'nyt://article/606a4ef1-13b8-5136-bc59-e8a5463ec075'; // зарезервований ID
-
-//   const arr = arrId; // масив ID
-//   let selectedId = null;
-
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === reservedId) {
-//       console.log(arr[i]);
-//       selectedId = arr[i];
-//       break;
-//     }
-//   }
-
-//   console.log(`Вибраний ID: ${selectedId}`);
-// }
-
-// let foo = JSON.parse(localStorage.getItem('savedNews'));
