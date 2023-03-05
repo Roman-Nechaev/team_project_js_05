@@ -8,6 +8,11 @@ header {
   border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
 }
 
+.header_dark {
+  background-color: #686868;
+  border-bottom: #F4F4F4 20 % 1px solid;
+}
+
 @media screen and (min-width: 768px) {
   header {
     height: 106px;
@@ -34,6 +39,10 @@ header {
   color: #111321;
   line-height: 33px;
   text-decoration: none;
+}
+
+.header_dark .logo a {
+  color: #F4F4F4;
 }
 
 @media screen and (min-width: 768px) {
@@ -89,6 +98,10 @@ nav ul {
   text-align: center;
 }
 
+.header_dark .current::after {
+  background-color: #4440F6;
+}
+
 @media screen and (min-width: 768px) {
   .current::after {
     margin-top: 8px;
@@ -106,6 +119,10 @@ nav a {
   font-style: normal;
   color: #111321;
   text-decoration: none;
+}
+
+.header_dark nav a {
+  color: #F4F4F4;
 }
 
 @media screen and (min-width: 768px) {
@@ -145,10 +162,18 @@ nav a {
   background-color: #ffffff;
 }
 
+.header_dark .search-form__button {
+  background-color: #686868;
+}
+
 .search input {
     border: #111321 1px solid;
   border-radius: 20px;
   height: 31px;
+}
+
+.header_dark .search input {
+  border: #F4F4F4 1px solid;
 }
 
 @media screen and (min-width: 768px) {
@@ -171,8 +196,16 @@ nav a {
   border: #007bff 2px solid;
 }
 
+.header_dark .search input[type='text']:hover {
+  border: #4440F6 2px solid;
+}
+
 .search-input:hover + .search-btn .search-icon {
   fill: #007bff;
+}
+
+.header_dark .search-input:hover + .search-btn .search-icon {
+  fill: #4440F6;
 }
 
 input::placeholder {
@@ -183,9 +216,19 @@ input::placeholder {
   opacity: 40%;
 }
 
+.header_dark input::placeholder {
+  color: #F4F4F4;
+  opacity: 40%;
+}
+
 input:hover::placeholder {
   color: #007bff;
 }
+
+.header_dark input:hover::placeholder {
+  color: #4440F6;
+}
+//------------------------------------------------------//
 
 .switch-btn {
   display: none;
@@ -206,6 +249,11 @@ input:hover::placeholder {
     position: relative;
     transition-duration: 300ms;
   }
+
+  .header_dark .switch-btn {
+    background: #4B48DB;
+    border: 0.6 solid white;
+}
 }
 
 .switch-btn::after {
@@ -215,15 +263,17 @@ input:hover::placeholder {
   border-radius: 20px;
   background: #4b48db;
   top: 1px;
-  left: 0px;
+  right: 21px;
   transition-duration: 300ms;
   position: absolute;
   z-index: 1;
 }
 
-.switch-on::after {
+.header_dark .switch-btn::after {
+  background: white;
   left: 21px;
 }
+
 
 .switch-btn_choice {
   display: flex;
@@ -244,6 +294,10 @@ input:hover::placeholder {
   color: #4b48db;
 }
 
+.header_dark .switch-btn_choice_light {
+  color: white;
+}
+
 .switch-btn_choice_dark {
   margin-left: 13px;
   font-family: Poppins;
@@ -255,6 +309,63 @@ input:hover::placeholder {
   align-items: left;
   color: black;
 }
+
+.header_dark .switch-btn_choice_dark {
+  color: #4440F7;
+}
+
+.switch-btn_choice_icon {
+  display: none;
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.5;
+}
+
+
+.switch-btn_choice_dark-icon {
+  margin-left: 11px;
+  stroke: #5F6775;
+}
+
+.header_dark .switch-btn_choice_dark-icon {
+  stroke: #4B48DB;
+}
+
+.switch-btn_choice_ligh-icon {
+  margin-right: 11px;
+  stroke: #4B48DB;
+}
+
+.header_dark .switch-btn_choice_ligh-icon {
+  stroke: white;
+}
+
+.switch-btn_choice_text {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .switch-btn_choice_icon {
+    display: block;
+    margin-right: 11px;
+  }
+
+  .switch-btn_choice_text {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .switch-btn_choice_text {
+    display: block;
+  }
+
+  .switch-btn_choice_icon {
+    display: none;
+  }
+}
+
+//------------------------------------------------------//
 
 .search {
   position: relative;
@@ -294,43 +405,7 @@ input:hover::placeholder {
   height: 15px;
 }
 
-.switch-btn_choice_icon {
-  display: none;
-  width: 19px;
-  height: 19px;
-}
 
-.switch-btn_choice_dark-icon {
-  margin-left: 11px;
-}
-
-.switch-btn_choice_light-icon {
-  margin-right: 11px;
-}
-
-.switch-btn_choice_text {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .switch-btn_choice_icon {
-    display: block;
-    margin-right: 11px;
-  }
-
-  .switch-btn_choice_text {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .switch-btn_choice_text {
-    display: block;
-  }
-  .switch-btn_choice_icon {
-    display: none;
-  }
-}
 
 .burger-btn {
   display: block;
