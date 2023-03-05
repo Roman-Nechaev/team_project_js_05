@@ -105,6 +105,9 @@ function getPosition() {
 }
 
 function openGoogleMaps(cityName) {
+  if (cityName === undefined) {
+    cityName = 'Kyiv';
+  }
   const url = `https://www.google.com/maps/place/${cityName}`;
   window.open(url, '_blank');
 }
