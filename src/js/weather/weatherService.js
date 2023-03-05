@@ -81,7 +81,7 @@ export const weatherService = async () => {
     const api_key = 'ba95449c69063d2989b1d45f265b0f98';
 
     const cityName = await getCityName(lat, lon);
-    // console.log(`Location: ${cityName}`);
+    console.log(`Location: ${cityName}`);
     const locationEl = document.querySelector('.location');
     locationEl.innerHTML = cityName;
 
