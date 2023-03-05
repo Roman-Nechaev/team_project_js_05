@@ -1,0 +1,37 @@
+.default-news-title{
+    margin: 40px 0 40px 0;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    
+    color: #111321;
+
+    @media screen and (min-width: 1200px) {
+    font-size: 40px;
+    line-height: 55px;
+    }
+    
+    @media screen and (min-width: 768px) {
+        font-size: 40px;
+        line-height: 55px;
+    }
+}
+.default-news-img{
+    margin: 0 auto  ;
+    // display: block;
+    // text-align: center;
+width: 248px;
+height: 198px;
+
+@media screen and (min-width: 1200px) {
+    width: 601px;
+    height: 478px;
+}
+ @media screen and (min-width: 768px) {
+    width: 560px;
+    height: 444px;
+ }
+}
