@@ -1,4 +1,6 @@
+import './markupNews/markupNewsCards';
 import './searchNewsByQuery/serachNewsByQuery';
 import './loadPopularNews/loadPopularNews';
-import './markupNews/markupNewsCards';
+import './markupNews/renderNews'
+
 
