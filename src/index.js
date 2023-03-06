@@ -6,3 +6,4 @@ import './js/readRevisionDate/readRevisionDate';
 // import './js/allLogicSearch/index';
 
 import './js/API/serviseNews/index';
+import './js/category/categories';
