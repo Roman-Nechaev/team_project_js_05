@@ -8,7 +8,7 @@ header {
   border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
 }
 
-.header_dark {
+.dark .header {
   background-color: #686868;
   border-bottom: #F4F4F4 20 % 1px solid;
 }
@@ -41,7 +41,7 @@ header {
   text-decoration: none;
 }
 
-.header_dark .logo a {
+.dark .logo a {
   color: #F4F4F4;
 }
 
@@ -98,7 +98,7 @@ nav ul {
   text-align: center;
 }
 
-.header_dark .current::after {
+.dark .current::after {
   background-color: #4440F6;
 }
 
@@ -121,7 +121,7 @@ nav a {
   text-decoration: none;
 }
 
-.header_dark nav a {
+.dark nav a {
   color: #F4F4F4;
 }
 
@@ -156,13 +156,17 @@ nav a {
   display: none;
   padding-left: 48px;
 }
+.dark .search-input {
+  background-color: #686868;
+  color: #F4F4F4;
+}
 
 .search-form__button {
   border: none;
   background-color: #ffffff;
 }
 
-.header_dark .search-form__button {
+.dark .search-form__button {
   background-color: #686868;
 }
 
@@ -172,7 +176,7 @@ nav a {
   height: 31px;
 }
 
-.header_dark .search input {
+.dark .search input {
   border: #F4F4F4 1px solid;
 }
 
@@ -194,9 +198,10 @@ nav a {
 
 .search input[type='text']:hover {
   border: #007bff 2px solid;
+
 }
 
-.header_dark .search input[type='text']:hover {
+.dark .search input[type='text']:hover {
   border: #4440F6 2px solid;
 }
 
@@ -204,7 +209,7 @@ nav a {
   fill: #007bff;
 }
 
-.header_dark .search-input:hover + .search-btn .search-icon {
+.dark .search-input:hover + .search-btn .search-icon {
   fill: #4440F6;
 }
 
@@ -213,10 +218,10 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #111321;
-  opacity: 40%;
+  opacity: 40%;  
 }
 
-.header_dark input::placeholder {
+.dark input::placeholder {
   color: #F4F4F4;
   opacity: 40%;
 }
@@ -225,7 +230,7 @@ input:hover::placeholder {
   color: #007bff;
 }
 
-.header_dark input:hover::placeholder {
+.dark input:hover::placeholder {
   color: #4440F6;
 }
 //------------------------------------------------------//
@@ -250,7 +255,7 @@ input:hover::placeholder {
     transition-duration: 300ms;
   }
 
-  .header_dark .switch-btn {
+  .dark .switch-btn {
     background: #4B48DB;
     border: 0.6 solid white;
 }
@@ -262,14 +267,14 @@ input:hover::placeholder {
   width: 16px;
   border-radius: 20px;
   background: #4b48db;
-  top: 1px;
+  top: 0.5px;
   right: 21px;
   transition-duration: 300ms;
   position: absolute;
   z-index: 1;
 }
 
-.header_dark .switch-btn::after {
+.dark .switch-btn::after {
   background: white;
   left: 21px;
 }
@@ -294,7 +299,7 @@ input:hover::placeholder {
   color: #4b48db;
 }
 
-.header_dark .switch-btn_choice_light {
+.dark .switch-btn_choice_light {
   color: white;
 }
 
@@ -310,7 +315,7 @@ input:hover::placeholder {
   color: black;
 }
 
-.header_dark .switch-btn_choice_dark {
+.dark .switch-btn_choice_dark {
   color: #4440F7;
 }
 
@@ -327,7 +332,7 @@ input:hover::placeholder {
   stroke: #5F6775;
 }
 
-.header_dark .switch-btn_choice_dark-icon {
+.dark .switch-btn_choice_dark-icon {
   stroke: #4B48DB;
 }
 
@@ -336,7 +341,7 @@ input:hover::placeholder {
   stroke: #4B48DB;
 }
 
-.header_dark .switch-btn_choice_ligh-icon {
+.dark .switch-btn_choice_ligh-icon {
   stroke: white;
 }
 
@@ -383,6 +388,10 @@ input:hover::placeholder {
   cursor: pointer;
 }
 
+.dark .search-btn {
+  background-color: #686868;
+}
+
 @media screen and (min-width: 768px) {
   .search-btn {
     left: 14px;
@@ -405,6 +414,10 @@ input:hover::placeholder {
   height: 15px;
 }
 
+.dark .search-icon {
+  fill: #F4F4F4;
+}
+
 
 
 .burger-btn {
@@ -413,6 +426,11 @@ input:hover::placeholder {
   width: 24px;
   height: 24px;
   border: none;
+}
+
+.dark .burger-btn {
+  // stroke: white;
+  background-color: #686868;
 }
 
 @media screen and (min-width: 768px) {
@@ -430,6 +448,11 @@ input:hover::placeholder {
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+.dark .burger-btn-icon {
+  // stroke: white;
+  fill: #F4F4F4;
 }
 
 @media screen and (min-width: 768px) {
