@@ -178,7 +178,7 @@ prevNextIcon.forEach(icon => {
     });
   });
 });
-//открытие массива годов списком//////////////////////////////////////////////
+//открытие массива годов списком////////////////////////////////////////////
 yearListButton.addEventListener('click', generateYearList);
 
 function generateYearList() {
