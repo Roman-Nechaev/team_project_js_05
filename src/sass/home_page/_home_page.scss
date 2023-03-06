@@ -136,24 +136,37 @@ body {
   fill: var(--accent-color);
 }
 
-.newsHP-calendar:focus .calendar-arrow-down {
-  display: none;
-}
-.newsHP-calendar:focus .calendar-arrow-up {
-  display: inline;
-  margin-left: 14px;
-  fill: var(--extra-color);
-}
+// .newsHP-calendar:focus .calendar-arrow-down {
+//   display: none;
+// }
+// .newsHP-calendar:focus .calendar-arrow-up {
+//   display: inline;
+//   margin-left: 14px;
+//   fill: var(--extra-color);
+// }
 /////////////виджет погоды
+.weather-position {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    float: right;
+    padding-right: 16px;
+    height: 675px;
+    width: 353px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 675px;
+    float: right;
+  }
+}
 
 .weather-app {
   background-image: url(/assets/window.jpg);
   border-radius: 4px;
-  padding-right: 16px;
-
-  margin-bottom: 28px;
-  position: sticky;
-
+  margin: auto;
   @media screen and (max-width: 767px) {
     width: 288px;
     height: 470px;
@@ -161,10 +174,12 @@ body {
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     height: 675px;
     width: 353px;
+    float: right;
   }
   @media screen and (min-width: 1280px) {
     width: 395px;
     height: 675px;
+    float: right;
   }
 }
 
@@ -299,6 +314,7 @@ body {
   justify-content: center;
   position: relative;
   margin: 0 auto;
+  gap: 28px;
   @media screen and (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
     column-gap: 28px;
@@ -310,7 +326,6 @@ body {
     width: 768px;
     gap: 30px;
     flex-direction: row-reverse;
-    justify-content: flex-end;
   }
   @media screen and (min-width: 1280px) {
     row-gap: 32px;
@@ -327,10 +342,12 @@ body {
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
     height: 675px;
+    // display: inline-block;
   }
   @media screen and (min-width: 1280px) {
     width: 395px;
     height: 675px;
+    // display: inline-block;
   }
 }
 .marked-opacity {
