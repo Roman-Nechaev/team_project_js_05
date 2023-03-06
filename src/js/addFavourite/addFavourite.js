@@ -1,11 +1,8 @@
 import { renderTemplateFavo } from './renderFavourite';
+import { getMostPopularData } from '../allLogicSearch/loadPopularNews/loadPopularNews';
 
-// ===================================
 export default function addFavourite(newsDateResponse) {
   newsDateResponse.map(oneCards => {
-    const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
-      oneCards;
-
     samplingById(oneCards);
   });
 }
@@ -13,9 +10,33 @@ export default function addFavourite(newsDateResponse) {
 let arrayOfCardsSelectedById =
   JSON.parse(localStorage.getItem('testObject')) || [];
 
-// логика добавления массива выбранных карточек
+let incomingСardsHome;
+export function comeCardsHome(cardsHome) {
+  incomingСardsHome = cardsHome;
+}
+
+const galleryHomeRef = document.querySelector('.gallery');
+if (galleryHomeRef) {
+  galleryHomeRef.addEventListener('click', onClikGalleryHome);
+}
+
+function onClikGalleryHome(e) {
+  const cardsHomeId = e.target.dataset.id;
+
+  styleModificationAddBtn();
+  incomingСardsHome.map(news => {
+    if (news.id == cardsHomeId) {
+      arrayOfCardsSelectedById.push(news);
+      localStorage.setItem(
+        'testObject',
+        JSON.stringify(arrayOfCardsSelectedById)
+      );
+    }
+  });
+}
+
 function samplingById(params) {
-  const clickOneCards = document.querySelectorAll('.add-to-favBtn');
+  const clickOneCards = document.querySelectorAll('.test-favBtn');
 
   clickOneCards.forEach(oneCards => {
     oneCards.addEventListener('click', e => {
@@ -29,3 +50,5 @@ function samplingById(params) {
     });
   });
 }
+
+// =====================

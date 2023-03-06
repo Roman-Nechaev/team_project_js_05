@@ -14,9 +14,17 @@ const refCards = document.querySelectorAll('.newsHomePage-card');
 
 function onClikTest(e) {
   const idCardsFov = e.target.dataset.id;
-  let foo = localStorage.getItem('testObject');
-  let cardsLocal = JSON.parse(foo);
-  const filter = cardsLocal.filter(news => news._id !== idCardsFov);
+
+  let localStorageGetKey = localStorage.getItem('testObject');
+  let cardsLocalParse = JSON.parse(localStorageGetKey);
+  let filter = [];
+  cardsLocalParse.forEach(on => {
+    const allid = on.id || on._id;
+
+    if (allid != idCardsFov) {
+      filter.push(on);
+    }
+  });
 
   localStorage.setItem('testObject', JSON.stringify(filter));
 
@@ -27,8 +35,8 @@ function onClikTest(e) {
   });
 }
 
-export function renderTemplateFavo(savedNews) {
+export function renderTemplateFavo(newsDateResp) {
   if (galleryFavouriteRef) {
-    galleryFavouriteRef.innerHTML = templateFavouroteNews(savedNews);
+    galleryFavouriteRef.innerHTML = templateFavouroteNews(newsDateResp);
   }
 }
