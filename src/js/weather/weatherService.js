@@ -101,10 +101,19 @@ function getPosition() {
         resolve(null);
       }
     );
+  }).then(position => {
+    if (position) {
+      return position;
+    } else {
+      return { coords: { latitude: 50.4501, longitude: 30.5234 } };
+    }
   });
 }
 
 function openGoogleMaps(cityName) {
+  if (cityName === undefined) {
+    cityName = 'Kyiv';
+  }
   const url = `https://www.google.com/maps/place/${cityName}`;
   window.open(url, '_blank');
 }

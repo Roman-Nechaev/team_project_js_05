@@ -1,24 +1,17 @@
-import { newsMarkup } from "./markupNewsCards"
-import { loadPopularData } from "../loadPopularNews/loadPopularNews"
+import { newsCardMarkup } from '../markupNews/markupNewsCards';
+import { fetchPopularData } from '../loadPopularNews/loadPopularNews';
+import { getMostPopularData } from '../loadPopularNews/loadPopularNews';
 
-const root = document.querySelector('.gallery')
-function renderPopularNews() {
-     loadPopularData().then(data => {
-    root.innerHTML = newsMarkup(data)
-})
+const root = document.querySelector('.gallery');
+
+export function renderPopularNews() {
+  fetchPopularData().then(data => {
+    getMostPopularData(data).then(data => {
+      if (root) {
+        root.innerHTML = data.map(item => newsCardMarkup(item)).join('');
+      }
+    });
+  });
 }
- 
-export const loadPopularData = async () => {
-  const populerData = await fetch(
-    `${BASE_URL}api-key=${API_KEY}`
-  );
 
-  if (populerData.ok) {
-      const popular = await populerData.json();
-      console.log(popular)
-    return popular.results;
-  }
-  throw new Error(populerData.statusText);
-};
-
-renderPopularNews()
+renderPopularNews();
