@@ -1,130 +1,103 @@
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-// import NewsApiServis from './serviseNewsSearch';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-// import { templateMarkupNews } from './templateMarkupNews';
+import NewsApiServis from './serviseNewsSearch';
 
-// const galleryRef = document.querySelector('.gallery');
-// const searchFormRef = document.querySelector('#search-form');
+import { templateMarkupNews } from './templateMarkupNews';
 
-// searchFormRef.addEventListener('submit', onSearchForm);
+import addFavourite from '../../addFavourite/addFavourite';
 
-// const newsApiServis = new NewsApiServis();
+const galleryRef = document.querySelector('.gallery');
+const searchFormRef = document.querySelector('#search-form');
 
-// export default function onSearchForm(e) {
-//   e.preventDefault();
-//   let { value } = e.target.searchQuery;
+// ================= Pagination ===========
+const prewBtn = document.querySelector('.prew-btn');
+const nextBtn = document.querySelector('.next-btn');
+// prewBtn.addEventListener('click', onClickPrew);
+// nextBtn.addEventListener('click', onClickNext);
+// ================= Pagination ===========
 
-//   value = value.trim();
-//   if (!value) {
-//     Notify.warning('The search field should not be empty!');
-//     return;
-//   }
+searchFormRef.addEventListener('submit', onSearchForm);
 
-//   value = value.trim();
-//   // console.log(value);
-//   clearGalleryInterface();
-//   newsApiServis.query = value;
-//   requestToServer();
-// }
+const newsApiServis = new NewsApiServis();
 
-// async function requestToServer() {
-//   let arr = [];
-//   try {
-//     const data = await newsApiServis.fetchNewsApi();
-//     const newsDateResponse = await data.response.docs;
-//     if (newsDateResponse.length <= 0) {
-//       Notify.info(
-//         'Sorry, there are no news matching your search query. Please try again.'
-//       );
-//     }
+export default function onSearchForm(e) {
+  e.preventDefault();
+  let { value } = e.target.searchQuery;
 
-//     renderTemplate(newsDateResponse);
+  value = value.trim();
+  if (!value) {
+    Notify.warning('The search field should not be empty!');
+    return;
+  }
 
-//     const useID = newsDateResponse.map(onId => arr.push(onId._id));
+  value = value.trim();
+  // console.log(value);
+  clearGalleryInterface();
+  newsApiServis.query = value;
+  onClickNext();
+  requestToServer();
+}
 
-//     testFavorit(arr);
-//   } catch (error) {}
-// }
+// requestToServer();
 
-// function renderTemplate(e) {
-//   galleryRef.innerHTML = templateMarkupNews(e);
-// }
+async function requestToServer() {
+  let arr = [];
+  try {
+    const data = await newsApiServis.fetchNewsApi();
 
-// function clearGalleryInterface() {
-//   galleryRef.innerHTML = '';
-// }
+    const newsDateResponse = await data.response.docs;
 
-// Notify.init({
-//   width: '300px',
+    if (newsDateResponse.length <= 0) {
+      Notify.info(
+        'Sorry, there are no news matching your search query. Please try again.'
+      );
+    }
 
-//   position: 'center-top',
-//   distance: '80px',
+    renderTemplate(newsDateResponse);
 
-//   warning: {
-//     background: 'rgba(68,64,247,0.7)',
-//     textColor: '#FFFFFF',
-//     childClassName: 'notiflix-notify-warning',
-//     notiflixIconColor: '#FFFFFF',
-//     fontAwesomeClassName: 'fas fa-exclamation-circle',
-//     fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
-//     backOverlayColor: 'rgba(238,191,49,0.2)',
-//   },
-//   info: {
-//     background: 'rgba(68,64,247,0.7)',
-//     textColor: '#FFFFFF',
-//     childClassName: 'notiflix-notify-info',
-//     notiflixIconColor: '#FFFFFF',
-//     fontAwesomeClassName: 'fas fa-info-circle',
-//     fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
-//     backOverlayColor: 'rgba(38,192,211,0.2)',
-//   },
-// });
+    // const useID = newsDateResponse.map(onId => arr.push(onId._id));
+    addFavourite(newsDateResponse);
+  } catch (error) {}
+}
 
-// const cardRef = document.querySelector('.gallery');
+function renderTemplate(e) {
+  galleryRef.innerHTML = templateMarkupNews(e);
+}
 
-// cardRef.addEventListener('click', onClickCard);
+function clearGalleryInterface() {
+  galleryRef.innerHTML = '';
+}
 
-// function onClickCard(evt) {
-//   if (evt.target.nodeName === 'BUTTON') {
-//     // console.log('УРАА КНОПКА!!');
+Notify.init({
+  width: '300px',
 
-//     const clickOneCards = document.querySelectorAll('.newsHomePage-card');
+  position: 'center-top',
+  distance: '80px',
 
-//     for (const card of clickOneCards) {
-//       card.addEventListener('click', e => {
-//         const id = e.currentTarget;
+  warning: {
+    background: 'rgba(68,64,247,0.7)',
+    textColor: '#FFFFFF',
+    childClassName: 'notiflix-notify-warning',
+    notiflixIconColor: '#FFFFFF',
+    fontAwesomeClassName: 'fas fa-exclamation-circle',
+    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
+    backOverlayColor: 'rgba(238,191,49,0.2)',
+  },
+  info: {
+    background: 'rgba(68,64,247,0.7)',
+    textColor: '#FFFFFF',
+    childClassName: 'notiflix-notify-info',
+    notiflixIconColor: '#FFFFFF',
+    fontAwesomeClassName: 'fas fa-info-circle',
+    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
+    backOverlayColor: 'rgba(38,192,211,0.2)',
+  },
+});
 
-//         const testing = id.outerHTML;
+// ================= Pagination ===========
+function onClickNext() {
+  newsApiServis.incrementPage();
+  requestToServer();
+}
 
-//         localStorage.setItem('savedNews', JSON.stringify(testing));
-//       });
-//     }
-//     return;
-//   } else {
-//     // console.log('Click!!!!!!!!!!!');
-//     return;
-//   }
-// }
-
-// // ========================================
-// // function testFavorit(arrId) {
-// //   // console.log(arrId);
-
-// //   const reservedId = 'nyt://article/606a4ef1-13b8-5136-bc59-e8a5463ec075'; // зарезервований ID
-
-// //   const arr = arrId; // масив ID
-// //   let selectedId = null;
-
-// //   for (let i = 0; i < arr.length; i++) {
-// //     if (arr[i] === reservedId) {
-// //       console.log(arr[i]);
-// //       selectedId = arr[i];
-// //       break;
-// //     }
-// //   }
-
-// //   console.log(`Вибраний ID: ${selectedId}`);
-// // }
-
-// // let foo = JSON.parse(localStorage.getItem('savedNews'));
