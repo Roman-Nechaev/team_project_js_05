@@ -2,66 +2,22 @@
 import SimpleBar from 'simplebar';
 import 'simplebar/dist/simplebar.css';
 
-const daysTag = document.querySelector('.days'),
-  currentDate = document.querySelector('.current-date'),
-  prevNextIcon = document.querySelectorAll('.calendar-icons span');
+let date = new Date();
+let currDay = date.getDate();
+let month = date.getMonth();
+let year = date.getFullYear();
 
-// получение новой даты, текущего года и месяца
-let date = new Date(),
-  currDay = date.getDate(),
-  currMonth = date.getMonth(),
-  currYear = date.getFullYear();
-function showCurrentDate() {
-  let value1 = currYear + '-' + (currMonth + 1) + '-' + currDay;
-  document.getElementById('input-picker').value = value1;
-}
-//кнопка года
+let dateElement = document.querySelector('#calendar .calendar-days');
+let monthInCalendar = document.querySelector('.mounth-year-display');
+let daysInCalendar = document.querySelector('.calendar-week-days');
+const singleBtn = document.querySelector('#choseDataButton');
+const calendarContainer = document.querySelector('.container-calendar');
+const calendarIcon = document.querySelector('.calendar-icon');
+const dropdownIcon = document.querySelector('.dropdown-icon');
 const yearListButton = document.querySelector('.year-change');
 let yearList = document.querySelector('.year-list');
 let yearsListArr = [];
-//активные кнопки
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('body'),
-    modal: document.querySelector('[data-modal]'),
-    input: document.querySelector('.calendar-input'),
-    arrow: document.querySelector('.calendar__button-arrow'),
-    calendarBtn: document.querySelector('.calendar__button-calendar'),
-  };
-
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  document.addEventListener('click', hideModals);
-  //   function cleanInput() {
-  //     refs.input.classList.remove('isActive');
-  //   }
-  function toggleModal() {
-    refs.modal.classList.toggle('is-hidden-wrapper');
-    refs.input.classList.toggle('isActive');
-    refs.arrow.classList.toggle('switched');
-    refs.calendarBtn.classList.toggle('switchedColor');
-    // showCurrentDate();
-  }
-
-  function hideModals(evt) {
-    // let dataValue = document.getElementById('input-picker').value;
-
-    if (evt.target.closest('.calendar-form')) {
-      return;
-    }
-    if (refs.input.classList.contains('isActive')) {
-      refs.modal.classList.add('is-hidden-wrapper');
-      refs.input.classList.remove('isActive');
-      refs.arrow.classList.remove('switched');
-      refs.calendarBtn.classList.remove('switchedColor');
-      document.getElementById('input-picker').value = '';
-      localStorage.removeItem('VALUE');
-      localStorage.removeItem('date');
-    }
-  }
-})();
-
-const months = [
+let monthNames = [
   'January',
   'February',
   'March',
@@ -75,117 +31,97 @@ const months = [
   'November',
   'December',
 ];
-const renderCalendar = number => {
-  // получение первого дня месяца
-  let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
-    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
-    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
-    // получение последней даты предыдущего месяца
-    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-  let liTag = '';
-  for (let i = firstDayofMonth; i > 0; i--) {
-    // создал и спрятал дни Прошлого  месяц
-    liTag += `<li  class="inactive visually-hidden">${
-      lastDateofLastMonth - i + 1
-    }</li>`;
+
+const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+let temp = [];
+
+//порядок отображения даты день/месяц/год
+singleBtn.innerHTML = `${dateFix(currDay)}/${dateFix(month + 1)}/${year}`;
+
+// массив с правильным порядком дней недели в текущем месяце
+function getFirstDayOfTheMonth() {
+  let firstDayInChosenMonth = new Date(year, month, 1);
+  let result = firstDayInChosenMonth.getDay();
+
+  temp = dayNames;
+
+  //Двигаем неделю с правыльными числами
+  temp = [].concat(temp.slice(result), temp.slice(0, result));
+  //
+}
+
+//рендр дней недели
+function plotWeek() {
+  daysInCalendar.innerHTML = '';
+  for (let i = 0; i <= 6; i++) {
+    daysInCalendar.innerHTML += `<li class="calendar-week">${temp[i]}</li>`;
   }
-  // текущий месяц
-  for (let i = 1; i <= lastDateofMonth; i++) {
-    // добавление активного класса если текущий день, месяц и год совпадают
-    let isToday =
-      i === date.getDate() &&
-      currMonth === new Date().getMonth() &&
-      currYear === new Date().getFullYear();
+}
 
-    liTag += `<li  class="${isToday}">${i}</li>`;
-  }
-  for (let i = lastDayofMonth; i < 6; i++) {
-    // создал и спрятал дни Следующий месяц
-    liTag += `<li style="display: none" class="inactive">${
-      i - lastDayofMonth + 1
-    }</li>`;
-  }
-  // передача текущего месяца и года как текст
-  currentDate.innerText = `${months[currMonth]} ${currYear}`;
-  daysTag.innerHTML = liTag;
-
-  const dayChange = document.querySelector('.days');
-  // function addChangingDayListener() {
-
-  dayChange.addEventListener('click', evt => {
-    [...evt.currentTarget.children].forEach(item => {
-      item.classList.remove('active');
-    });
-
-    evt.target.classList.add('active');
-    let newValueDay = evt.target.textContent;
-    if (evt.target.textContent.length > 10) {
-      return;
-    }
-    //отображение выбранной даты день, мес, год
-    let month = (currMonth + 1).toString();
-    document.getElementById('input-picker').value =
-      newValueDay.padStart(2, '0') +
-      '/' +
-      month.padStart(2, '0') +
-      '/' +
-      currYear;
-
-    localStorage.setItem('VALUE', JSON.stringify(newValueDay));
-
-    let inputDateValue = document.querySelector('.calendar-input').value;
-
-    localStorage.setItem('date', JSON.stringify(inputDateValue));
-    document.querySelector('[data-modal]').classList.add('is-hidden-wrapper');
-    document.querySelector('.calendar-input').classList.remove('isActive');
-    document
-      .querySelector('.calendar__button-arrow')
-      .classList.remove('switched');
-    document
-      .querySelector('.calendar__button-calendar')
-      .classList.remove('switchedColor');
-  });
+// получение и рендр чисел в текущем месяце
+const getDays = (year, month) => {
+  return new Date(year, month, 0).getDate();
 };
 
-renderCalendar();
-let findUl = document.querySelector('.days');
-inputDateValue = document.querySelector('.calendar-input').value;
+function getNumberOfDates() {
+  return getDays(date.getFullYear(), month + 1);
+}
 
-prevNextIcon.forEach(icon => {
-  // получение предыдущей и следующей стрелки переключения месяца
-  icon.addEventListener('click', () => {
-    currMonth = icon.id === 'prev' ? currMonth - 1 : currMonth + 1;
-    if (currMonth < 0 || currMonth > 11) {
-      // создание новой даты текущего года и месяца и передача ее как значения даты
-      date = new Date(currYear, currMonth, new Date().getDate());
-
-      // обновление текущего года с новой датой года
-      currYear = date.getFullYear();
-
-      //обновление текущего месяца с новой датой меся
-      currMonth = date.getMonth();
+function plotDays() {
+  let count = 1;
+  dateElement.innerHTML = '';
+  for (let i = 0; i < getNumberOfDates(); i++) {
+    if (count === currDay) {
+      // проверяем, равны ли числа
+      dateElement.innerHTML += `<li class="calendar-dates-day ">${count++}</li>`;
     } else {
-      // передать текущую дату как значение даты
-      date = new Date();
+      dateElement.innerHTML += `<li class="calendar-dates-day">${count++}</li>`;
     }
-    renderCalendar();
-    let test = JSON.parse(localStorage.getItem('VALUE'));
-    let reachUl = daysTag.childNodes;
-    reachUl.forEach(elem => {
-      if (elem.textContent === test) {
-        // console.log(elem.textContent);
-        elem.classList.add('active');
-      }
+  }
+}
+
+// кнопка открытия календаря
+singleBtn.addEventListener('click', handleClick);
+
+function handleClick() {
+  singleBtn.classList.toggle('choseDataButton-active');
+  calendarContainer.classList.toggle('container-calendar--active');
+  calendarIcon.classList.toggle('calendar-icon--active');
+  dropdownIcon.classList.toggle('dropdown-icon--active');
+  updateRender();
+  monthInCalendar.innerHTML = `${monthNames[month]} ${year}`;
+}
+
+// получение даты месяца по нажатию на число в календаре
+let choosenDateButtons = document.querySelectorAll('.calendar-dates-day');
+
+function addEventForDates() {
+  choosenDateButtons.forEach(el => {
+    el.addEventListener('click', e => {
+      let currentBtn = e.currentTarget;
+      singleBtn.classList.toggle('choseDataButton-active');
+      calendarContainer.classList.toggle('container-calendar--active');
+
+      calendarIcon.classList.toggle('calendar-icon--active');
+      dropdownIcon.classList.toggle('dropdown-icon--active');
+      singleBtn.innerHTML = `${dateFix(currentBtn.innerHTML)}/${dateFix(
+        month + 1
+      )}/${year}`;
+      singleBtn.setAttribute(
+        'data-time',
+        `${year}-${dateFix(month + 1)}-${dateFix(currentBtn.innerHTML)}`
+      );
     });
   });
-});
-//открытие массива годов списком//////////////////////////////////////////////
+}
+
+//открытие массива годов списком
 yearListButton.addEventListener('click', generateYearList);
 
 function generateYearList() {
   yearList.classList.toggle('year-list--active');
   if (yearsListArr.length == 0) {
-    for (let i = 1991; i <= 2050; i++) {
+    for (let i = 1990; i <= 2030; i++) {
       yearsListArr.push(i);
     }
     for (let i = 0; i < yearsListArr.length; i++) {
@@ -201,13 +137,53 @@ function addListenerToYearButtons() {
   yearListAllButtons.forEach(event => {
     event.addEventListener('click', e => {
       let eventButton = e.currentTarget;
-      currYear = Number(eventButton.innerHTML);
+      year = Number(eventButton.innerHTML);
       yearList.classList.toggle('year-list--active');
-      renderCalendar();
+      updateRender();
     });
   });
 }
-/////
-localStorage.removeItem('VALUE');
-localStorage.removeItem('date');
+
+
+// смена месяца кнопками
+const preMonth = document.querySelector('#pre-month');
+preMonth.addEventListener('click', decrementMonth);
+
+const nextMonth = document.querySelector('#next-month');
+nextMonth.addEventListener('click', incrementMonth);
+
+function decrementMonth() {
+  if (month > 0) {
+    month -= 1;
+  } else {
+    month = 11;
+    year -= 1;
+  }
+
+  updateRender();
+}
+
+function incrementMonth() {
+  if (month < 11) {
+    month += 1;
+  } else {
+    month = 0;
+    year += 1;
+  }
+  updateRender();
+}
+
+function updateRender() {
+  getFirstDayOfTheMonth();
+  plotWeek();
+  plotDays();
+  choosenDateButtons = document.querySelectorAll('.calendar-dates-day');
+  addEventForDates();
+  monthInCalendar.innerHTML = `${monthNames[month]} ${year}`;
+}
+
+//фикс формата числа
+function dateFix(e) {
+  return (e + '').padStart(2, '0'); // добавляем 0 для чисел с одной цифрой
+}
 
