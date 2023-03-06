@@ -1,91 +1,79 @@
 <div class="home-page-container">
     <div class="items-to-choose">
-        <div class="div-newsHP-categories">
-            <button class="newsHP-categories">Categories
-                <svg class="categ-arrow-down switch-arrows" width="14" height="14">
-                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+        <button class="newsHP-categories">Categories
+            <svg class="categ-arrow-down switch-arrows" width="14" height="14">
+                <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+            </svg>
+        </button>
+        <div class="articles-to-choose-tablet">
+            <button class="article-btn" type="button">Admin</button>
+            <button class="article-btn" type="button">Arts</button>
+            <button class="article-btn" type="button">Automobiles</button>
+            <button class="article-btn" type="button">Books</button>
+            <button class="article-btn others" type="button">Others
+                <svg class="others-arrow-down" width="14" height="14">
+                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down">
+                    </use>
+                </svg>
+                <svg class="others-arrow-up" width="14" height="14">
+                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-up">
+                    </use>
                 </svg>
             </button>
-            <ul class="categories-list categoriesList"></ul>
-        </div>
-        <div class="articles-to-choose-tablet">
-            <button class="article-btn category" type="button">Admin</button>
-            <button class="article-btn category" type="button">Arts</button>
-            <button class="article-btn category" type="button">Automobiles</button>
-            <button class="article-btn category" type="button">Books</button>
-            <div class="div-newsHP-categories">
-                <button class="article-btn others" type="button">Others
-                    <svg class="others-arrow-down" width="14" height="14">
-                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down">
-                        </use>
-                    </svg>
-                </button>
-                <ul class="categories-table-list categoriesList"></ul>
-
-            </div>
-        </div>
-        <div class="articles-to-choose-desktop">
-            <button class="article-btn category" type="button">Admin</button>
-            <button class="article-btn category" type="button">Arts</button>
-            <button class="article-btn category" type="button">Automobiles</button>
-            <button class="article-btn category" type="button">Books</button>
-            <button class="article-btn category" type="button">Briefing</button>
-            <button class="article-btn category" type="button">Business</button>
-            <div class="div-newsHP-categories">
-                <button class="article-btn others" type="button">Others
-                    <svg class="others-arrow-down" width="14" height="14">
-                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down">
-                        </use>
-                    </svg>
-                </button>
-                <ul class="categories-desktop-list categoriesList"></ul>
-
-            </div>
         </div>
         <div class="calendar-form">
             <p class="calendar-form__text">Search date news</p>
-
-            <div class="calendarPicker">
-                <button class="choseDataButton" id="choseDataButton" data-time=""></button>
-                <svg class="calendar-icon" width="20" height="20">
-                    <use href="/assets/svg/symbol-defs.svg#icon-calendar"></use>
-                </svg>
-                <svg class="dropdown-icon" width="14" height="14">
-                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
-                </svg>
-
-                <div class="container-calendar">
-                    <div class="calendar" id="calendar">
-                        <div class="calendar-header">
-                            <div class="header-left-block">
-                                <span class="mounth-year-display" id="mounth-year-display"></span>
-                                <button class="year-change" id="next-year">
-                                    <svg width="12" height="12">
-                                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
-                                    </svg>
-                                </button>
-                                <div>
-                                    <div class="year-list"></div>
-                                </div>
+            <div class="calendar-picker">
+                <div class="input-form" data-modal-open data-modal-close>
+                    <svg class="calendar__button-calendar" width="20" height="20">
+                        <use href="/assets/svg/symbol-defs.svg#icon-calendar"></use>
+                    </svg>
+                    <input readonly id="input-picker" class="calendar-input datepicker-here"
+                        placeholder="Choose a date" />
+                    <svg class="calendar__button-arrow" width="14" height="14">
+                        <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+                    </svg>
+                </div>
+                <div class="calendar-wrapper is-hidden-wrapper" data-modal>
+                    <div class="calendar-wrapper__container">
+                        <div class="calendar-switcher">
+                            <p class="current-date"></p>
+                            <span id="next-year" class="calendar-icons year-change"><svg class="current-date__icon"
+                                    width="12" height="12" transform="rotate(270)">
+                                    <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
+                                </svg>
+                            </span>
+                            <div class="">
+                                <div class="year-list"></div>
                             </div>
-                            <div class="mounth-picker" id="mounth-picker">
-                                <button class="month-change" id="pre-month">
-                                    <svg class="month-change-prev" width="17" height="17">
+                            <div class="calendar-icons">
+                                <span id="prev" class="material-symbols-rounded">
+                                    <svg class="calendar__button-arrow-icon" width="14" height="14"
+                                        transform="rotate(90)">
                                         <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
                                     </svg>
-                                </button>
-                                <button class="month-change" id="next-month">
-                                    <svg class="month-change-next" width="17" height="17">
+                                </span>
+                                <span id="next" class="material-symbols-rounded">
+                                    <svg class="calendar__button-arrow-icon" width="14" height="14"
+                                        transform="rotate(270)">
                                         <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
                                     </svg>
-                                </button>
+                                </span>
                             </div>
                         </div>
-
-                        <div class="calendar-body">
-                            <ul class="calendar-week-days"></ul>
-                            <ul class="calendar-days"></ul>
-                            <div class="calendar-footer"></div>
+                        <div class="calendar">
+                            <ul class="calendar-weeks__list">
+                                <li class="calendar-weeks__item">Sun</li>
+                                <li class="calendar-weeks__item">Mon</li>
+                                <li class="calendar-weeks__item">Tue</li>
+                                <li class="calendar-weeks__item">Wed</li>
+                                <li class="calendar-weeks__item">Thu</li>
+                                <li class="calendar-weeks__item">Fri</li>
+                                <li class="calendar-weeks__item">Sat</li>
+                            </ul>
+                            <ul class="days">
+                                <li class="calendar-days"></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -93,10 +81,8 @@
         </div>
     </div>
 </div>
-
 </div>
-</div>
-<div class="gallery">
+<!-- <div class="weather-block-hp">
     <div class="weather-app">
         <div class="weather-info">
             <h2 class="degrees"></h2>
@@ -104,19 +90,16 @@
             <div class="location-block">
                 <p class="whats-the-weather"></p>
                 <button class="show-on-map">
-
-                    <p class="location"><svg class="weather-icon" width="19" height="24">
-                            <use href="/assets/svg/symbol-defs.svg#icon-geolocation">Kyiv</use>
-                        </svg>
-                        </p>
-
+                    <svg class="geolocation-icon" width="19" height="24">
+                        <use href="/assets/svg/symbol-defs.svg#icon-geolocation"></use>
+                    </svg>
+                    <p class="location"></p>
                 </button>
             </div>
         </div>
         <div class="sun-moon">
             <img class="weather-icon" src="http://openweathermap.org/img/w/01d.png" alt="Weather icon">
         </div>
-
         <p class="week-day">Fri</p>
         <p class="weather-date">3 March 2023</p>
         <div class="sinoptik">
@@ -126,9 +109,36 @@
                 week</a>
         </div>
     </div>
+</div> -->
 
-    <div class="newsHomePage-card marked-opacity">
-
+<div class="gallery">
+    <div class="weather-app weather-order">
+        <div class="weather-info">
+            <h2 class="degrees"></h2>
+            <span class="info-border"></span>
+            <div class="location-block">
+                <p class="whats-the-weather"></p>
+                <button class="show-on-map">
+                    <svg class="geolocation-icon" width="19" height="24">
+                        <use href="/assets/svg/symbol-defs.svg#icon-geolocation"></use>
+                    </svg>
+                    <p class="location"></p>
+                </button>
+            </div>
+        </div>
+        <div class="sun-moon">
+            <img class="weather-icon" src="http://openweathermap.org/img/w/01d.png" alt="Weather icon">
+        </div>
+        <p class="week-day">Fri</p>
+        <p class="weather-date">3 March 2023</p>
+        <div class="sinoptik">
+            <a class="weatherApp-link"
+                href="https://ua.sinoptik.ua/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D0%BA%D0%B8%D1%97%D0%B2">weather
+                for
+                week</a>
+        </div>
+    </div>
+    <div class="newsHomePage-card marked-opacity card-order">
         <div class="card-picture">
             <img class="newsHomePage-image" src="/assets/H1-desktop.jpg" alt="news cover">
             <p class="newsHomePage-status-read">Already read
@@ -233,5 +243,4 @@
         </div>
     </div>
 </div>
-<div id="pagination-container"></div>   
 </div>

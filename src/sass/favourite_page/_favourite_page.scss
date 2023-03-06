@@ -118,8 +118,11 @@
 .remove-from-favourite {
   position: absolute;
   cursor: pointer;
-  flex-direction: row;
+  align-items: center;
+  display: flex;
+  gap: 5px;
   border-width: 0;
+  width: 168px;
   left: 12px;
   top: 355px;
   padding: 6px 12px;
