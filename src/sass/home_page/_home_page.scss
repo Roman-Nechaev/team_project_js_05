@@ -147,7 +147,8 @@ body {
 /////////////виджет погоды
 
 .weather-app {
-  background-color: var(--accent-color);
+  background-image: url(/assets/window.jpg);
+  // background-color: var(--accent-color);
   mix-blend-mode: normal;
   border-radius: 4px;
   @media screen and (max-width: 767px) {
@@ -180,8 +181,9 @@ body {
   line-height: 1.16;
   color: var(--extra-color);
   @media screen and (min-width: 768px) {
-    font-size: 84px;
+    font-size: 74px;
     line-height: 1.17;
+    padding-left: 10px;
   }
 }
 .whats-the-weather {
@@ -190,29 +192,41 @@ body {
   color: var(--extra-color);
   margin-bottom: 15px;
   @media screen and (min-width: 768px) {
-    font-size: 36px;
+    font-size: 34px;
     line-height: 1.16;
   }
 }
-.location {
-  text-decoration: none;
-  font-size: 20px;
-  line-height: 1.15;
+
+.show-on-map {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
   color: var(--extra-color);
-  background: rgba(254, 254, 255, 0.3);
+  background: linear-gradient(
+    90deg,
+    rgba(164, 146, 154, 1) 8%,
+    rgba(61, 103, 215, 1) 100%
+  );
   border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 17px;
-  padding-left: 7px;
-  text-align: center;
-  @media screen and (min-width: 768px) {
-    font-size: 34px;
+  font-size: 16px;
+  line-height: 1.15;
+  border-style: none;
+  padding: 9px 17px 7px;
+  @media screen and (min-width: 768px) and (max-width) {
+    font-size: 22px;
+    padding: 10px 17px 7px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 30px;
   }
 }
-.weather-icon {
-  margin-right: 8px;
+.geolocation-icon {
+  margin-right: 4px;
+  @media screen and (min-width: 768px) {
+    margin-right: 8px;
+  }
 }
+
 .info-border {
   width: 0px;
   height: 80px;
@@ -223,15 +237,15 @@ body {
 
 .sun-moon {
   margin: 0 auto;
-  width: 128px;
-  height: 121px;
-  background: linear-gradient(180deg, #fa6c21 0%, rgba(255, 211, 88, 0.2) 100%);
-  box-shadow: inset 0px 20px 65px #fa6c21;
-  border-radius: 50%;
-  margin-bottom: 40px;
+  width: 148px;
+  height: 141px;
+  // margin-bottom: 30px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 90px;
+    margin-bottom: 70px;
   }
+}
+.weather-icon {
+  margin-bottom: 30px;
 }
 .week-day,
 .weather-date {
@@ -259,7 +273,12 @@ body {
   line-height: 1.18;
   padding: 8px 14px;
   color: var(--extra-color);
-  background-color: var(--light-color);
+  background: rgb(164, 146, 154);
+  background: linear-gradient(
+    90deg,
+    rgba(164, 146, 154, 1) 8%,
+    rgba(61, 103, 215, 1) 100%
+  );
   opacity: 0.8;
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
@@ -430,8 +449,6 @@ body {
 }
 .homePage-readMore {
   display: flex;
-
-  justify-content: space-between;
   @media screen and (min-width: 1280px) {
     font-size: 16px;
   }

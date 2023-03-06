@@ -38,12 +38,12 @@
                     <div class="calendar-wrapper__container">
                         <div class="calendar-switcher">
                             <p class="current-date"></p>
-                            <span id='next-year' class="calendar-icons year-change"><svg class="current-date__icon"
+                            <span id="next-year" class="calendar-icons year-change"><svg class="current-date__icon"
                                     width="12" height="12" transform="rotate(270)">
                                     <use href="/assets/svg/symbol-defs.svg#icon-arrow-down"></use>
                                 </svg>
                             </span>
-                            <div>
+                            <div class="">
                                 <div class="year-list"></div>
                             </div>
                             <div class="calendar-icons">
@@ -91,14 +91,16 @@
             <div class="location-block">
                 <p class="whats-the-weather"></p>
                 <button class="show-on-map">
-                    <p class="location"><svg class="weather-icon" width="19" height="24">
-                            <use href="/assets/svg/symbol-defs.svg#icon-geolocation">Kyiv</use>
-                        </svg>
-                        </з>
+                    <svg class="geolocation-icon" width="19" height="24">
+                        <use href="/assets/svg/symbol-defs.svg#icon-geolocation"></use>
+                    </svg>
+                    <p class="location"></p>
                 </button>
             </div>
         </div>
         <div class="sun-moon">
+            <!-- <img class="clouds" src="/assets/—Pngtree—realistic white fluffy cloud isolated_8540610.png" alt=""
+                width="600"> -->
             <img class="weather-icon" src="http://openweathermap.org/img/w/01d.png" alt="Weather icon">
         </div>
 
@@ -150,8 +152,6 @@
     <div class="newsHomePage-card">
         <div class="card-picture">
             <img class="newsHomePage-image" src="/assets/H2-desktop.jpg" alt="news cover">
-
-
             <p class="newsHomePage-search-category">Job searching</p>
             <button class="add-to-favBtn" type="button">Add to favourite
                 <svg class="heart" width="16" height="16">
