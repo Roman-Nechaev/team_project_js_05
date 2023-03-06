@@ -1,3 +1,4 @@
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import NewsApiServis from './serviseNewsSearch';
@@ -99,3 +100,4 @@ function onClickNext() {
   newsApiServis.incrementPage();
   requestToServer();
 }
+

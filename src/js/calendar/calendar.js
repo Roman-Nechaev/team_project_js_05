@@ -1,3 +1,4 @@
+
 import SimpleBar from 'simplebar';
 import 'simplebar/dist/simplebar.css';
 
@@ -209,3 +210,4 @@ function addListenerToYearButtons() {
 /////
 localStorage.removeItem('VALUE');
 localStorage.removeItem('date');
+
