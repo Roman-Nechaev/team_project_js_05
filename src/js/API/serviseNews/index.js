@@ -4,11 +4,13 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import NewsApiServis from './serviseNewsSearch';
 
 import { templateMarkupNews } from './templateMarkupNews';
+import InitPagination from '../../pagination/pagination'; //Pagination Simak
 
 import addFavourite from '../../addFavourite/addFavourite';
 
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
+let currentPage; //Pagination Simak
 
 // ================= Pagination ===========
 const prewBtn = document.querySelector('.prew-btn');
@@ -20,7 +22,6 @@ const nextBtn = document.querySelector('.next-btn');
 searchFormRef.addEventListener('submit', onSearchForm);
 
 const newsApiServis = new NewsApiServis();
-
 export default function onSearchForm(e) {
   e.preventDefault();
   let { value } = e.target.searchQuery;
@@ -37,6 +38,7 @@ export default function onSearchForm(e) {
   newsApiServis.query = value;
   onClickNext();
   requestToServer();
+  InitPagination.init(value, currentPage = 1); //Pagination Simak
 }
 
 // requestToServer();
@@ -55,9 +57,9 @@ async function requestToServer() {
     }
 
     renderTemplate(newsDateResponse);
-
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
     addFavourite(newsDateResponse);
+
   } catch (error) {}
 }
 
