@@ -1,3 +1,4 @@
+
 import SimpleBar from 'simplebar';
 import 'simplebar/dist/simplebar.css';
 
@@ -143,6 +144,7 @@ function addListenerToYearButtons() {
   });
 }
 
+
 // смена месяца кнопками
 const preMonth = document.querySelector('#pre-month');
 preMonth.addEventListener('click', decrementMonth);
@@ -184,3 +186,4 @@ function updateRender() {
 function dateFix(e) {
   return (e + '').padStart(2, '0'); // добавляем 0 для чисел с одной цифрой
 }
+
