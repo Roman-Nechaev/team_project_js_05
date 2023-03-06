@@ -101,6 +101,12 @@ function getPosition() {
         resolve(null);
       }
     );
+  }).then(position => {
+    if (position) {
+      return position;
+    } else {
+      return { coords: { latitude: 50.4501, longitude: 30.5234 } };
+    }
   });
 }
 
