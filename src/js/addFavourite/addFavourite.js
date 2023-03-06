@@ -11,13 +11,6 @@ export default function addFavourite(cardsSearch) {
   incomingСardsSearch = cardsSearch;
 }
 
-// ===============СТАРАЯ ВЕРСИЯ ЧЕРЕЗ КНОПКУ=========
-// export default function addFavourite(newsDateResponse) {
-//   newsDateResponse.map(oneCards => {
-//     samplingById(oneCards);
-//   });
-// }
-
 let arrayOfCardsSelectedById =
   JSON.parse(localStorage.getItem('testObject')) || [];
 
@@ -56,8 +49,6 @@ function onClikGalleryHome(e) {
   // =========================Search========================
   if (incomingСardsSearch) {
     incomingСardsSearch.map(news => {
-      console.log(news);
-      console.log('HOME');
       if (news._id == cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
@@ -75,23 +66,3 @@ function onClikGalleryHome(e) {
     });
   }
 }
-
-// =================Search OLD BTN=================
-
-// function samplingById(params) {
-//   const clickOneCards = document.querySelectorAll('.test-favBtn');
-
-//   clickOneCards.forEach(oneCards => {
-//     oneCards.addEventListener('click', e => {
-//       if (e.target.dataset.id === params._id) {
-//         arrayOfCardsSelectedById.push(params);
-//       }
-//       localStorage.setItem(
-//         'testObject',
-//         JSON.stringify(arrayOfCardsSelectedById)
-//       );
-//     });
-//   });
-// }
-
-// =====================
