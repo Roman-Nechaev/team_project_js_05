@@ -1,3 +1,5 @@
+import { comeCardsHome } from '../../addFavourite/addFavourite';
+
 const API_KEY = '13J2OJQdfSen9tQqVIHpzfTVNgWWH6dm';
 const BASE_URL = `https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?`;
 
@@ -6,6 +8,7 @@ export const fetchPopularData = async () => {
 
   if (populerData.ok) {
     const popular = await populerData.json();
+
     return popular.results;
   }
   throw new Error(populerData.statusText);
@@ -16,16 +19,9 @@ export async function getMostPopularData() {
     const data = await fetchPopularData();
 
     const normalizedData = data.map(oneNewItem => {
-      const {
-        title,
-        abstract,
-        published_date,
-        url,
-        section,
-        media,
-        id } =
+      const { title, abstract, published_date, url, section, media, id } =
         oneNewItem;
-      
+
       const image_url = media[0]
         ? media[0]['media-metadata'][2].url
         : 'https://placehold.co/400x400?text=NO+IMAGE';
@@ -39,8 +35,11 @@ export async function getMostPopularData() {
         image_url,
         id,
       };
+
       return onewNewsFormatedData;
     });
+
+    comeCardsHome(normalizedData);
     return normalizedData;
   } catch (error) {
     console.error(error);
@@ -56,5 +55,9 @@ function formatingDerscription(description) {
 }
 
 function formatingDate(dateToFormating) {
-  return new Date(dateToFormating).toLocaleString().slice(0, 10).split('.').join('/');
+  return new Date(dateToFormating)
+    .toLocaleString()
+    .slice(0, 10)
+    .split('.')
+    .join('/');
 }

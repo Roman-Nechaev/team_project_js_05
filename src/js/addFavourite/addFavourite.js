@@ -1,31 +1,68 @@
 import { renderTemplateFavo } from './renderFavourite';
+import { getMostPopularData } from '../allLogicSearch/loadPopularNews/loadPopularNews';
 
-// ===================================
-export default function addFavourite(newsDateResponse) {
-  newsDateResponse.map(oneCards => {
-    const { _id, news_desk, headline, lead_paragraph, pub_date, web_url } =
-      oneCards;
+let incomingСardsHome;
+export function comeCardsHome(cardsHome) {
+  incomingСardsHome = cardsHome;
+}
 
-    samplingById(oneCards);
-  });
+let incomingСardsSearch;
+export default function addFavourite(cardsSearch) {
+  incomingСardsSearch = cardsSearch;
 }
 
 let arrayOfCardsSelectedById =
   JSON.parse(localStorage.getItem('testObject')) || [];
 
-// логика добавления массива выбранных карточек
-function samplingById(params) {
-  const clickOneCards = document.querySelectorAll('.add-to-favBtn');
+let arrayOfCardsSelectedByReadMoreLink =
+  JSON.parse(localStorage.getItem('readMore')) || [];
 
-  clickOneCards.forEach(oneCards => {
-    oneCards.addEventListener('click', e => {
-      if (e.target.dataset.id === params._id) {
-        arrayOfCardsSelectedById.push(params);
+const galleryHomeRef = document.querySelector('.gallery');
+if (galleryHomeRef) {
+  galleryHomeRef.addEventListener('click', onClikGalleryHome);
+  // galleryHomeRef.addEventListener('click', onClikGallerySearch);
+}
+
+// =========================HOME========================
+function onClikGalleryHome(e) {
+  const cardsHomeId = e.target.dataset.id;
+  const cardsHomeReadLink = e.target.href;
+
+  if (incomingСardsHome) {
+    incomingСardsHome.map(news => {
+      if (news.id == cardsHomeId) {
+        arrayOfCardsSelectedById.push(news);
+        localStorage.setItem(
+          'testObject',
+          JSON.stringify(arrayOfCardsSelectedById)
+        );
       }
-      localStorage.setItem(
-        'testObject',
-        JSON.stringify(arrayOfCardsSelectedById)
-      );
+      if (news.url == cardsHomeReadLink) {
+        arrayOfCardsSelectedByReadMoreLink.push(news);
+        localStorage.setItem(
+          'readMore',
+          JSON.stringify(arrayOfCardsSelectedByReadMoreLink)
+        );
+      }
     });
-  });
+  }
+  // =========================Search========================
+  if (incomingСardsSearch) {
+    incomingСardsSearch.map(news => {
+      if (news._id == cardsHomeId) {
+        arrayOfCardsSelectedById.push(news);
+        localStorage.setItem(
+          'testObject',
+          JSON.stringify(arrayOfCardsSelectedById)
+        );
+      }
+      if (news.web_url == cardsHomeReadLink) {
+        arrayOfCardsSelectedByReadMoreLink.push(news);
+        localStorage.setItem(
+          'readMore',
+          JSON.stringify(arrayOfCardsSelectedByReadMoreLink)
+        );
+      }
+    });
+  }
 }

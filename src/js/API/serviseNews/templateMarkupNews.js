@@ -29,7 +29,7 @@ export function templateMarkupNews(newsDateResp) {
         <p class="newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">${news_desk}</p>
         
-        <button class="add-to-favBtn" type="button" data-id=${_id}>Add to favourite
+        <button class="add-to-favBtn test-favBtn" type="button" data-id=${_id}>Add to favourite
                     <svg class="heart" width="16" height="16">
                         <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
                         </use>
