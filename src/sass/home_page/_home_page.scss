@@ -491,18 +491,18 @@ body {
 }
 
 /////////////pagination
-.pagination-buttons {
-  text-align: center;
-  margin: 0 auto 60px;
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    margin-bottom: 100px;
-    margin-top: 48px;
-  }
-  @media screen and (min-width: 1280px) {
-    margin-top: 60px;
-    margin-bottom: 150px;
-  }
-}
+// .pagination-buttons {
+//   text-align: center;
+//   margin: 0 auto 60px;
+//   @media screen and (min-width: 768px) and (max-width: 1279px) {
+//     margin-bottom: 100px;
+//     margin-top: 48px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     margin-top: 60px;
+//     margin-bottom: 150px;
+//   }
+// }
 .prew-btn {
   margin-right: 10px;
   border: 1px solid var(--accent-color);

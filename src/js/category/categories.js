@@ -1,7 +1,9 @@
 import { newsMarkup } from './markup';
 import { getCategoriesFromApi } from './api-categories';
 import { NewsApiCategories } from './api-categories';
+import InitPagination from '../pagination/pagination'; //Pagination Simak
 const newsApiCategories = new NewsApiCategories();
+let currentPage; //Pagination Simak
 
 export async function getCategories() {
   try {
