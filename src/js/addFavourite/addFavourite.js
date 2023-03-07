@@ -2,15 +2,21 @@ import { renderTemplateFavo } from './renderFavourite';
 import { getMostPopularData } from '../allLogicSearch/loadPopularNews/loadPopularNews';
 import { renderTemplateRead } from './renderReadMore';
 
+import { chectPage } from '../defaultPage/defaultPageHome';
+
 // ==============
 let incomingСardsHome;
 export function comeCardsHome(cardsHome) {
   incomingСardsHome = cardsHome;
+
+  chectPage(cardsHome);
 }
 
 let incomingСardsSearch;
 export default function addFavourite(cardsSearch) {
   incomingСardsSearch = cardsSearch;
+
+  chectPage(cardsSearch);
 }
 // chectPage(incomingСardsHome, incomingСardsSearch);
 let arrayOfCardsSelectedById =
