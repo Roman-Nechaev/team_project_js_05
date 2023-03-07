@@ -36,13 +36,13 @@ export default function onSearchForm(e) {
   clearGalleryInterface();
   newsApiServis.query = value;
   onClickNext();
-  requestToServer(value);
+  requestToServer();
   InitPagination.init(value, currentPage = 1); //Pagination Simak
 }
 
 // requestToServer();
 
-async function requestToServer(value) {
+async function requestToServer() {
   let arr = [];
   try {
     const data = await newsApiServis.fetchNewsApi();
