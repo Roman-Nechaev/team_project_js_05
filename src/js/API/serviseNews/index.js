@@ -1,4 +1,3 @@
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import NewsApiServis from './serviseNewsSearch';
@@ -38,7 +37,7 @@ export default function onSearchForm(e) {
   newsApiServis.query = value;
   onClickNext();
   requestToServer();
-  InitPagination.init(value, currentPage = 1); //Pagination Simak
+  InitPagination.init(value, (currentPage = 1)); //Pagination Simak
 }
 
 // requestToServer();
@@ -59,7 +58,6 @@ async function requestToServer() {
     renderTemplate(newsDateResponse);
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
     addFavourite(newsDateResponse);
-
   } catch (error) {}
 }
 
@@ -102,4 +100,3 @@ function onClickNext() {
   newsApiServis.incrementPage();
   requestToServer();
 }
-
