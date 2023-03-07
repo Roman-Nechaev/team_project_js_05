@@ -88,8 +88,8 @@ let Pagination = {
   // Fetch
 
   FetchNext: async function (pageNumBtn) {
-    const res = await API.fetchNews(Pagination.name, pageNumBtn);
-    console.log(pageNumBtn);
+    let name = Pagination.name;
+    const res = await API.fetchNews(name, pageNumBtn);
     render.addListNews(res.response.docs);
   },
 
@@ -205,7 +205,7 @@ let Pagination = {
       '<button class="next-button">Next</button>', // next button
     ];
 
-    // e.innerHTML = html.join('');
+    e.innerHTML = html.join('');
     Pagination.e = e.getElementsByTagName('div')[0];
     Pagination.Buttons(e);
   },

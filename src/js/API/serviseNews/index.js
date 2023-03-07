@@ -37,7 +37,7 @@ export default function onSearchForm(e) {
   newsApiServis.query = value;
   onClickNext();
   requestToServer();
-  InitPagination.init(value, (currentPage = 1)); //Pagination Simak
+  InitPagination.init(value, currentPage = 1); //Pagination Simak
 }
 
 // requestToServer();
