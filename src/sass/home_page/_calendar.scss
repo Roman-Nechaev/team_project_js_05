@@ -81,7 +81,7 @@ ul {
   display: flex;
   align-items: center;
   height: 31px;
-  border: 1px solid var(--accent-color);
+  border: 1px solid rgba(17, 19, 33, 1);
   outline: var(--accent-color);
   border-radius: 20px;
    text-align: center;
@@ -93,10 +93,15 @@ ul {
   cursor: pointer;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  
   @media screen and (min-width: 768px) {
     height: 31px;
     font-size: 14px;
     line-height: 1.5;
+  }
+  &:hover,
+  &:focus {
+    border-color: var(--accent-color);
   }
 }
 
@@ -112,7 +117,7 @@ ul {
 
 .calendar__button-calendar.switchedColor {
   z-index: 1;
-  fill: #ffffff;
+  fill: var(--main-calendar-background);
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -122,6 +127,7 @@ ul {
   background-color: #F4F4F4;
   display: flex;
   align-items: center;
+  border-radius: 25px;
 }
 
 .calendar__button-arrow {
@@ -129,21 +135,36 @@ ul {
   display: flex;
   position: absolute;
   z-index: 1;
-  fill: var(--accent-color);
+  fill: rgba(162, 162, 162, 1);
   right: 12px;
   cursor: pointer;
   rotate: 0;
   transition: all 250ms ease-in-out;
 }
-
-.calendar__button-arrow-icon {
-  cursor: pointer;
+.calendar__button-arrow.switched {
+  fill: var(--main-calendar-background);
+    transform: rotate(180deg);
 }
 
 
-.calendar__button-arrow.switched {
-  fill: #fff;
-  transform: rotate(180deg);
+
+
+.calendar__button-arrow-icon {
+   cursor: pointer;
+   fill: var(--accent-color);
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    rotate: none;
+    transition: fill 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    fill: var(--inactive-text);
+  }
 }
 
 .calendar__button-back {
@@ -201,8 +222,10 @@ ul {
 
 .calendar-icons {
   display: flex;
+
   color: var(--accent-color);
 }
+
 
 .calendar-icons span {
   width: 38px;
@@ -214,17 +237,38 @@ ul {
   border-radius: 50%;
   fill: var(--accent-color);
   display: flex;
+  transition: all 250ms ease-in-out;
 }
 
 .calendar-icons span:last-child {
   margin-right: -10px;
 }
 
-.calendar-icons span:hover {
-  background: var(--white-color);
+.calendar-icons span:hover, {
+  background: var(--main-calendar-background);
 }
+
+
 .year-change{
   fill: var(--accent-color);
+  
+    display: flex;
+    rotate: 0deg;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    transition: all 250ms ease-in-out;
+    
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+    fill: var(--main-calendar-background);
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
 }
 
 .calendar ul {
@@ -262,15 +306,19 @@ ul {
   letter-spacing: 0.38px;
   color: var(--text-color);
   z-index: 1;
+  border-radius: 25%;
   cursor: pointer;
   position: relative;
   margin-bottom: 12px;
+  transition: all 250ms ease-in-out;
+  
+  &:hover,
+  &:focus {
+    background-color: var(--inactive-text);
+    color: #fff;
+  }
 }
-.calendar .days li:hover{
-  background-color: #4440f6;
-  color: #fff;
-border-radius: 20%;
-}
+
 
 .calendar .days li:nth-last-child(-n + 7) {
   margin-bottom: 0;
@@ -335,28 +383,70 @@ border-radius: 20%;
     
   }
 }
-.simplebar-wrapper {
-  position: fixed;
+
+.year-list[data-simplebar] {
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: -10px;
+  right: 175px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 10px 5px;
+  background-color: var(--main-calendar-background);
+  position: absolute;
+  height: 240px;
+  overflow: auto;
 }
+
+.year-list--active[data-simplebar] {
+  visibility: visible;
+  opacity: 1;
+
+  .simplebar-scrollbar::before {
+    width: 5px;
+    background-color: var(--accent-color);
+  }
+
+  .simplebar-scrollbar.simplebar-visible::before {
+    opacity: 0.7;
+  }
+}
+
 .simplebar-content {
-  position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #f8f8f8;
+}
+
+.yearListButtons {
+  margin-bottom: 5px;
+  width: 70px;
+  border-radius: 5px;
+  transition: all 250ms ease-in-out;
+  &:hover,
+  &:focus{
+    color: var(--main-calendar-background);
+    background-color: var(--accent-color);
+    cursor: pointer;
+  }
 }
 
 .yearListButtons {
   margin-bottom: 10px;
   width: 70px;
-  border-radius: 10px;
-  border: 0;
+  border-radius: 0;
+  border: 2px;
   background-color: #f8f8f8;
-
-}
-.yearListButtons:hover,
-  .yearListButtons:focus {
+  transition: all 250ms ease-in-out;
+  
+  &:hover,
+  &:focus {
     color: #fff;
     background-color: #4440f6;
     cursor: pointer;
-    
   }
+}

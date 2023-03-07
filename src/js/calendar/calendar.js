@@ -11,7 +11,7 @@ let date = new Date(),
   currMonth = date.getMonth(),
   currYear = date.getFullYear();
 function showCurrentDate() {
-  let value1 = currYear + '-' + (currMonth + 1) + '-' + currDay;
+  let value1 = currDay + '-' + (currMonth + 1) + '-' + currYear;
   document.getElementById('input-picker').value = value1;
 }
 //кнопка года
@@ -39,7 +39,7 @@ let yearsListArr = [];
     refs.input.classList.toggle('isActive');
     refs.arrow.classList.toggle('switched');
     refs.calendarBtn.classList.toggle('switchedColor');
-    // showCurrentDate();
+    // showCurrentDate();/
   }
 
   function hideModals(evt) {
@@ -148,7 +148,6 @@ const renderCalendar = number => {
 
 renderCalendar();
 let findUl = document.querySelector('.days');
-inputDateValue = document.querySelector('.calendar-input').value;
 
 prevNextIcon.forEach(icon => {
   // получение предыдущей и следующей стрелки переключения месяца
@@ -184,7 +183,7 @@ yearListButton.addEventListener('click', generateYearList);
 function generateYearList() {
   yearList.classList.toggle('year-list--active');
   if (yearsListArr.length == 0) {
-    for (let i = 1991; i <= 2050; i++) {
+    for (let i = 1991; i <= 2035; i++) {
       yearsListArr.push(i);
     }
     for (let i = 0; i < yearsListArr.length; i++) {
