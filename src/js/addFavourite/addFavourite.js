@@ -1,6 +1,8 @@
 import { renderTemplateFavo } from './renderFavourite';
 import { getMostPopularData } from '../allLogicSearch/loadPopularNews/loadPopularNews';
+import { renderTemplateRead } from './renderReadMore';
 
+// ==============
 let incomingСardsHome;
 export function comeCardsHome(cardsHome) {
   incomingСardsHome = cardsHome;
@@ -20,7 +22,6 @@ let arrayOfCardsSelectedByReadMoreLink =
 const galleryHomeRef = document.querySelector('.gallery');
 if (galleryHomeRef) {
   galleryHomeRef.addEventListener('click', onClikGalleryHome);
-  // galleryHomeRef.addEventListener('click', onClikGallerySearch);
 }
 
 // =========================HOME========================
@@ -29,7 +30,7 @@ function onClikGalleryHome(e) {
   const cardsHomeReadLink = e.target.href;
 
   if (incomingСardsHome) {
-    incomingСardsHome.map(news => {
+    incomingСardsHome.forEach(news => {
       if (news.id == cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
@@ -37,7 +38,7 @@ function onClikGalleryHome(e) {
           JSON.stringify(arrayOfCardsSelectedById)
         );
       }
-      if (news.url == cardsHomeReadLink) {
+      if (news.url === cardsHomeReadLink) {
         arrayOfCardsSelectedByReadMoreLink.push(news);
         localStorage.setItem(
           'readMore',
@@ -48,15 +49,15 @@ function onClikGalleryHome(e) {
   }
   // =========================Search========================
   if (incomingСardsSearch) {
-    incomingСardsSearch.map(news => {
-      if (news._id == cardsHomeId) {
+    incomingСardsSearch.forEach(news => {
+      if (news._id === cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
           'testObject',
           JSON.stringify(arrayOfCardsSelectedById)
         );
       }
-      if (news.web_url == cardsHomeReadLink) {
+      if (news.web_url === cardsHomeReadLink) {
         arrayOfCardsSelectedByReadMoreLink.push(news);
         localStorage.setItem(
           'readMore',
