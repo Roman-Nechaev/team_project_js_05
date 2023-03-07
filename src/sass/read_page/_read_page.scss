@@ -1,46 +1,50 @@
-.revision-date-title{
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 24px;
-	/* or 171% */
+.revision-date-title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
 
-	letter-spacing: 0.02em;
-	padding-bottom: 12px;
+  letter-spacing: 0.02em;
+  padding-bottom: 12px;
 
-	color: #111321;border-bottom: 1px solid #929292;	
+  color: #111321;
+  border-bottom: 1px solid #929292;
 }
 
-.revision-date-arrow{
-	border:solid #111321;
-	border-width: 0 2px 2px 0;
-	display: inline-block;
-	padding: 4px;
+.revision-date-arrow {
+  border: solid #111321;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
 }
 
-.down{
-	position: relative;
-	top: 5px;
-	left: 6px;
-	transform: rotate(135deg);
-	-webkit-transform: rotate(-135deg);
-// transform: matrix(0, 1, 1, 0, 0, 0);
+.down {
+  position: relative;
+  top: 5px;
+  left: 6px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(-135deg);
+  // transform: matrix(0, 1, 1, 0, 0, 0);
 }
 
-.up {	
-	position: relative;
-	top: -3px;
-	left: 6px;
-	transform: rotate(45deg);
-	-webkit-transform: rotate(45deg);
-	// transform: rotate(-90deg);
+.up {
+  position: relative;
+  top: -3px;
+  left: 6px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  // transform: rotate(-90deg);
 }
 
-.gallery-text{ 
-	transition:0.7s ease-in-out ;
-	max-height: 0;
-	overflow: hidden;
-	margin-top: 28px;
+.gallery-text {
+  transition: 0.7s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 28px;
 }
 
+.dis-none {
+  display: none;
+}

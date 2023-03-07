@@ -12,7 +12,7 @@ let incomingСardsSearch;
 export default function addFavourite(cardsSearch) {
   incomingСardsSearch = cardsSearch;
 }
-
+// chectPage(incomingСardsHome, incomingСardsSearch);
 let arrayOfCardsSelectedById =
   JSON.parse(localStorage.getItem('FavouriteStorage')) || [];
 
@@ -30,7 +30,7 @@ function onClikGalleryHome(e) {
 
   if (incomingСardsHome) {
     incomingСardsHome.forEach(news => {
-      testLocal(arrayOfCardsSelectedById, cardsHomeId);
+      console.log(testLocal(arrayOfCardsSelectedById, cardsHomeId));
       if (news.id == cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
@@ -71,10 +71,15 @@ function onClikGalleryHome(e) {
 
 function testLocal(arr, idCardsClick) {
   // console.log('arr :>> ', arr);
-  // console.log(idCardsClick);
+
   let allIdCards;
-  arr.map(ons => {
+  let contr;
+  return arr.filter(ons => {
     allIdCards = ons.id || ons._id;
+    const foo = allIdCards == idCardsClick;
+    console.log(foo);
+    if (foo) {
+      return;
+    }
   });
-  // console.log(idCardsClick == allIdCards);
 }
