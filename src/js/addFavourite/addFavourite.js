@@ -14,11 +14,10 @@ export default function addFavourite(cardsSearch) {
 }
 
 let arrayOfCardsSelectedById =
-  JSON.parse(localStorage.getItem('testObject')) || [];
+  JSON.parse(localStorage.getItem('FavouriteStorage')) || [];
 
 let arrayOfCardsSelectedByReadMoreLink =
   JSON.parse(localStorage.getItem('readMore')) || [];
-
 const galleryHomeRef = document.querySelector('.gallery');
 if (galleryHomeRef) {
   galleryHomeRef.addEventListener('click', onClikGalleryHome);
@@ -31,10 +30,11 @@ function onClikGalleryHome(e) {
 
   if (incomingСardsHome) {
     incomingСardsHome.forEach(news => {
+      testLocal(arrayOfCardsSelectedById, cardsHomeId);
       if (news.id == cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
-          'testObject',
+          'FavouriteStorage',
           JSON.stringify(arrayOfCardsSelectedById)
         );
       }
@@ -47,13 +47,14 @@ function onClikGalleryHome(e) {
       }
     });
   }
+
   // =========================Search========================
   if (incomingСardsSearch) {
     incomingСardsSearch.forEach(news => {
       if (news._id === cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
-          'testObject',
+          'FavouriteStorage',
           JSON.stringify(arrayOfCardsSelectedById)
         );
       }
@@ -66,4 +67,14 @@ function onClikGalleryHome(e) {
       }
     });
   }
+}
+
+function testLocal(arr, idCardsClick) {
+  // console.log('arr :>> ', arr);
+  // console.log(idCardsClick);
+  let allIdCards;
+  arr.map(ons => {
+    allIdCards = ons.id || ons._id;
+  });
+  // console.log(idCardsClick == allIdCards);
 }
