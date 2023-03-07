@@ -36,19 +36,17 @@ export default function onSearchForm(e) {
   clearGalleryInterface();
   newsApiServis.query = value;
   onClickNext();
-  requestToServer();
+  requestToServer(value);
   InitPagination.init(value, currentPage = 1); //Pagination Simak
 }
 
 // requestToServer();
 
-async function requestToServer() {
+async function requestToServer(value) {
   let arr = [];
   try {
     const data = await newsApiServis.fetchNewsApi();
-
     const newsDateResponse = await data.response.docs;
-
     if (newsDateResponse.length <= 0) {
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'
