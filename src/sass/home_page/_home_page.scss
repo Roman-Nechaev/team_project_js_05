@@ -150,18 +150,10 @@ body {
   margin-left: 14px;
   fill: var(--light-color);
 }
-// .others-arrow-up,
 .calendar-arrow-up {
   display: none;
 }
-// .others:focus .others-arrow-down {
-//   display: none;
-// }
-// .others:focus .others-arrow-up {
-//   fill: var(--extra-color);
-//   margin-left: 14px;
-//   display: inline;
-// }
+
 .newsHP-calendar:focus .calendar-svg {
   fill: var(--extra-color);
 }
@@ -170,30 +162,25 @@ body {
   fill: var(--accent-color);
 }
 
-// .newsHP-calendar:focus .calendar-arrow-down {
-//   display: none;
-// }
-// .newsHP-calendar:focus .calendar-arrow-up {
-//   display: inline;
-//   margin-left: 14px;
-//   fill: var(--extra-color);
-// }
 /////////////виджет погоды
+
 .weather-position {
+  width: 353px;
+  height: 675px;
+
+  @media screen and (max-width: 767px) {
+    width: 288px;
+    height: 470px;
+    margin: 0 auto 28px;
+  }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    float: right;
-    padding-right: 16px;
-    height: 675px;
     width: 353px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
+    height: 675px;
+    float: right;
   }
   @media screen and (min-width: 1280px) {
-    width: 395px;
+    width: 353px;
     height: 675px;
-    float: right;
   }
 }
 
@@ -346,7 +333,7 @@ body {
 .gallery {
   display: flex;
   justify-content: center;
-  position: relative;
+  // position: relative;
   margin: 0 auto;
   gap: 28px;
   @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -401,7 +388,7 @@ body {
 .newsHomePage-image {
   height: 395px;
   width: 288px;
-  background-size: contain;
+  overflow: hidden;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
   }
