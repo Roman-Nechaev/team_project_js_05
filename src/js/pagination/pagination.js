@@ -91,6 +91,7 @@ let Pagination = {
     let name = Pagination.name;
     const res = await API.fetchNews(name, pageNumBtn);
     render.addListNews(res.response.docs);
+
   },
 
   // change page
@@ -144,6 +145,22 @@ let Pagination = {
   // write pagination
   Finish: function () {
     Pagination.e.innerHTML = Pagination.code;
+
+    // let paginationButtons = document.querySelectorAll('.pagination-button');
+    //   paginationButtons.forEach( paginationButton => {
+
+    //    if(queryMobile.matches) {
+    //     if(Pagination.size >=1000) {
+    //       paginationButton.style.width = "50px"
+    //     }
+    //    } else {
+    //     if(Pagination.size >=1000) {
+    //       paginationButton.style.width = "53px"
+    //     }
+    //    }
+
+    //   });
+
     Pagination.code = '';
     Pagination.Bind();
   },
@@ -219,10 +236,9 @@ let Pagination = {
 };
 
 // Initialization
-const paginationTotal = 99;
 let init = function (queryName, pageNum) {
   Pagination.Init(document.getElementById('pagination-container'), {
-    size: paginationTotal, // pages size
+    size: 200, // pages size
     page: pageNum, // selected page
     step: 3, // pages before and after current
     name: queryName, // queryName
