@@ -25,5 +25,5 @@ function currentDate() {
 
   return (dataTitleRef.firstChild.textContent = dateFormat(now, 'dd/mm/yyyy'));
 }
-// console.log(currentDate());
+
 currentDate();
