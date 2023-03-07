@@ -6,7 +6,7 @@ if (galleryFavouriteRef) {
   galleryFavouriteRef.addEventListener('click', onClikTest);
 }
 
-const savedNews = JSON.parse(localStorage.getItem('testObject')) || [];
+const savedNews = JSON.parse(localStorage.getItem('FavouriteStorage')) || [];
 
 renderTemplateFavo(savedNews);
 
@@ -15,7 +15,7 @@ const refCards = document.querySelectorAll('.newsHomePage-card');
 function onClikTest(e) {
   const idCardsFov = e.target.dataset.id;
 
-  let localStorageGetKey = localStorage.getItem('testObject');
+  let localStorageGetKey = localStorage.getItem('FavouriteStorage');
   let cardsLocalParse = JSON.parse(localStorageGetKey);
   let filter = [];
   cardsLocalParse.forEach(on => {
@@ -26,7 +26,7 @@ function onClikTest(e) {
     }
   });
 
-  localStorage.setItem('testObject', JSON.stringify(filter));
+  localStorage.setItem('FavouriteStorage', JSON.stringify(filter));
 
   refCards.forEach(idCards => {
     if (idCards.dataset.id === idCardsFov) {
