@@ -164,30 +164,10 @@ body {
 
 /////////////виджет погоды
 
-.weather-position {
-  width: 353px;
-  height: 675px;
-
-  @media screen and (max-width: 767px) {
-    width: 288px;
-    height: 470px;
-    margin: 0 auto 28px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    width: 353px;
-    height: 675px;
-    float: right;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 353px;
-    height: 675px;
-  }
-}
-
 .weather-app {
   background-image: url(/assets/window.jpg);
   border-radius: 4px;
-  margin: auto;
+
   @media screen and (max-width: 767px) {
     width: 288px;
     height: 470px;
@@ -333,7 +313,6 @@ body {
 .gallery {
   display: flex;
   justify-content: center;
-  // position: relative;
   margin: 0 auto;
   gap: 28px;
   @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -363,23 +342,15 @@ body {
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
     height: 675px;
-    // display: inline-block;
   }
   @media screen and (min-width: 1280px) {
     width: 395px;
     height: 675px;
-    // display: inline-block;
   }
 }
 .marked-opacity {
   opacity: 0.7;
 }
-// .categories-mobile {
-//   padding: 13px;
-//   background-color: var(--accent-color);
-//   border: 1px solid var(--accent-color);
-//   border-radius: 20px;
-// }
 
 .card-picture {
   position: relative;
@@ -473,6 +444,8 @@ body {
 }
 
 .newsHomePage-title {
+  height: 130px;
+  overflow: hidden;
   font-weight: 700;
   line-height: 1.37;
   letter-spacing: -0.01em;
@@ -481,19 +454,21 @@ body {
     font-size: 24px;
   }
   @media screen and (min-width: 768px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 .newsHomePage-text {
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     font-size: 16px;
+    height: 66px;
   }
 }
 .homePage-readMore {
   display: flex;
   @media screen and (min-width: 1280px) {
     font-size: 16px;
+    height: 22px;
   }
 }
 .newsHomePage-date {
