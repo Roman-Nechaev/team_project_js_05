@@ -1,9 +1,7 @@
 import { newsMarkup } from './markup';
 import { getCategoriesFromApi } from './api-categories';
 import { NewsApiCategories } from './api-categories';
-import InitPagination from '../pagination/pagination'; //Pagination Simak
 const newsApiCategories = new NewsApiCategories();
-let currentPage; //Pagination Simak
 
 export async function getCategories() {
   try {
@@ -33,10 +31,10 @@ export async function getCategories() {
 
     const categoriesTable = document.querySelector('.categories-table-list');
     categoriesTable.innerHTML = markupOthersDiv.join('');
-    const categoriesDesktop = document.querySelector(
-      '.categories-desktop-list'
-    );
-    categoriesDesktop.innerHTML = markupOthersDiv.join('');
+    // const categoriesDesktop = document.querySelector(
+    //   '.categories-desktop-list'
+    // );
+    // categoriesDesktop.innerHTML = markupOthersDiv.join('');
     const othersBtn = document.querySelector('button.others');
     othersBtn.addEventListener('click', onClick);
     categoriesBtn.addEventListener('click', onCategoryOthers);

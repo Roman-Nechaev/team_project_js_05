@@ -8,7 +8,10 @@ export function renderPopularNews() {
   fetchPopularData().then(data => {
     getMostPopularData(data).then(data => {
       if (root) {
-        root.innerHTML = data.map(item => newsCardMarkup(item)).join('');
+        root.insertAdjacentHTML(
+          'beforeend',
+          data.map(item => newsCardMarkup(item)).join('')
+        );
       }
     });
   });

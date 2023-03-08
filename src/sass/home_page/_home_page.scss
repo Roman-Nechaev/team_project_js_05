@@ -59,32 +59,26 @@ body {
     display: none;
   }
 }
-// .newsHP-categories:focus {
-//   background-color: var(--accent-color);
-//   color: var(--extra-color);
-// }
-.div-newsHP-categories:hover {
-  .newsHP-categories {
-    background-color: var(--accent-color);
-    color: var(--extra-color);
-  }
+
+.newsHP-categories:hover {
+  background-color: var(--accent-color);
+  color: var(--extra-color);
+
   svg.categ-arrow-down.switch-arrows {
     fill: #fff;
     transform: rotate(180deg);
   }
-  .categoriesList {
-    display: block;
-  }
-
-  // .newsHP-categories.categ-arrow-down {
-  //   rotate: 0;
-  //   transition: all 250ms ease-in-out;
-  // }
-  // .newsHP-categories.switch-arrows {
-  //   fill: #fff;
-  //   transform: rotate(180deg);
-  // }
 }
+
+.newsHP-categories.categ-arrow-down {
+  rotate: 0;
+  transition: all 250ms ease-in-out;
+}
+.newsHP-categories:focus .switch-arrows {
+  fill: #fff;
+  transform: rotate(180deg);
+}
+
 // .categ-svg-active {
 //   .categ-arrow-down.switch-arrows {
 //     transform: rotate(180deg);
@@ -101,8 +95,7 @@ body {
     gap: 14px;
   }
   @media screen and (min-width: 1280px) {
-    // gap: 16px;
-    display: none;
+    gap: 16px;
   }
 }
 .article-btn.others {
@@ -110,18 +103,7 @@ body {
     display: block;
   }
 }
-.articles-to-choose-desktop {
-  display: flex;
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    display: none;
-  }
-  @media screen and (min-width: 1280px) {
-    gap: 14px;
-  }
-}
+
 .article-btn {
   font-size: 12px;
   line-height: 1.14;
@@ -139,9 +121,13 @@ body {
   }
 }
 
-.article-btn.category:hover {
-  background-color: var(--accent-color);
-  color: var(--extra-color);
+.desktop-btn {
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    display: inline-flex;
+  }
 }
 .article-btn:hover {
   background-color: var(--accent-color);
@@ -163,18 +149,10 @@ body {
   margin-left: 14px;
   fill: var(--light-color);
 }
-// .others-arrow-up,
 .calendar-arrow-up {
   display: none;
 }
-// .others:focus .others-arrow-down {
-//   display: none;
-// }
-// .others:focus .others-arrow-up {
-//   fill: var(--extra-color);
-//   margin-left: 14px;
-//   display: inline;
-// }
+
 .newsHP-calendar:focus .calendar-svg {
   fill: var(--extra-color);
 }
@@ -183,37 +161,12 @@ body {
   fill: var(--accent-color);
 }
 
-// .newsHP-calendar:focus .calendar-arrow-down {
-//   display: none;
-// }
-// .newsHP-calendar:focus .calendar-arrow-up {
-//   display: inline;
-//   margin-left: 14px;
-//   fill: var(--extra-color);
-// }
 /////////////виджет погоды
-.weather-position {
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
-    float: right;
-    padding-right: 16px;
-    height: 675px;
-    width: 353px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 395px;
-    height: 675px;
-    float: right;
-  }
-}
 
 .weather-app {
   background-image: url(/assets/window.jpg);
   border-radius: 4px;
-  margin: auto;
+
   @media screen and (max-width: 767px) {
     width: 288px;
     height: 470px;
@@ -266,12 +219,14 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  opacity: 0.9;
   color: var(--extra-color);
   background: linear-gradient(
     90deg,
     rgba(164, 146, 154, 1) 8%,
     rgba(61, 103, 215, 1) 100%
   );
+  box-shadow: 0 0.5em 0.5em -0.4em var(--extra-color);
   border-radius: 10px;
   font-size: 16px;
   line-height: 1.15;
@@ -282,9 +237,10 @@ body {
     padding: 10px 17px 7px;
   }
   @media screen and (min-width: 1280px) {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
+
 .geolocation-icon {
   margin-right: 4px;
   @media screen and (min-width: 768px) {
@@ -344,6 +300,7 @@ body {
     rgba(164, 146, 154, 1) 8%,
     rgba(61, 103, 215, 1) 100%
   );
+  box-shadow: 0 0.5em 0.5em -0.4em var(--extra-color);
   opacity: 0.8;
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
@@ -359,7 +316,6 @@ body {
 .gallery {
   display: flex;
   justify-content: center;
-  position: relative;
   margin: 0 auto;
   gap: 28px;
   @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -389,23 +345,15 @@ body {
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
     height: 675px;
-    // display: inline-block;
   }
   @media screen and (min-width: 1280px) {
     width: 395px;
     height: 675px;
-    // display: inline-block;
   }
 }
 .marked-opacity {
   opacity: 0.7;
 }
-// .categories-mobile {
-//   padding: 13px;
-//   background-color: var(--accent-color);
-//   border: 1px solid var(--accent-color);
-//   border-radius: 20px;
-// }
 
 .card-picture {
   position: relative;
@@ -414,7 +362,7 @@ body {
 .newsHomePage-image {
   height: 395px;
   width: 288px;
-  background-size: contain;
+  overflow: hidden;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
   }
@@ -499,6 +447,8 @@ body {
 }
 
 .newsHomePage-title {
+  height: 130px;
+  overflow: hidden;
   font-weight: 700;
   line-height: 1.37;
   letter-spacing: -0.01em;
@@ -507,19 +457,21 @@ body {
     font-size: 24px;
   }
   @media screen and (min-width: 768px) {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 .newsHomePage-text {
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     font-size: 16px;
+    height: 66px;
   }
 }
 .homePage-readMore {
   display: flex;
   @media screen and (min-width: 1280px) {
     font-size: 16px;
+    height: 22px;
   }
 }
 .newsHomePage-date {
@@ -529,7 +481,6 @@ body {
   color: var(--accent-color);
   text-decoration: none;
 }
-
 
 .next-btn {
   margin-left: 10px;
@@ -542,4 +493,3 @@ body {
     font-weight: 500;
   }
 }
-
