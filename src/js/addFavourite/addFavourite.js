@@ -20,7 +20,7 @@ export default function addFavourite(cardsSearch) {
 }
 // chectPage(incomingСardsHome, incomingСardsSearch);
 let arrayOfCardsSelectedById =
-  JSON.parse(localStorage.getItem('FavouriteStorage')) || [];
+  JSON.parse(localStorage.getItem('favouriteStorage')) || [];
 
 let arrayOfCardsSelectedByReadMoreLink =
   JSON.parse(localStorage.getItem('readMore')) || [];
@@ -34,15 +34,18 @@ function onClikGalleryHome(e) {
   const cardsHomeId = e.target.dataset.id;
   const cardsHomeReadLink = e.target.href;
 
+  const btn = e.target.closest(`.add-to-favBtn`);
+
   if (incomingСardsHome) {
     incomingСardsHome.forEach(news => {
-      console.log(testLocal(arrayOfCardsSelectedById, cardsHomeId));
       if (news.id == cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
-          'FavouriteStorage',
+          'favouriteStorage',
           JSON.stringify(arrayOfCardsSelectedById)
         );
+        btn.classList.remove('add-to-favBtn');
+        btn.classList.add('remove-from-favourite');
       }
       if (news.url === cardsHomeReadLink) {
         arrayOfCardsSelectedByReadMoreLink.push(news);
@@ -60,9 +63,11 @@ function onClikGalleryHome(e) {
       if (news._id === cardsHomeId) {
         arrayOfCardsSelectedById.push(news);
         localStorage.setItem(
-          'FavouriteStorage',
+          'favouriteStorage',
           JSON.stringify(arrayOfCardsSelectedById)
         );
+        btn.classList.remove('add-to-favBtn');
+        btn.classList.add('remove-from-favourite');
       }
       if (news.web_url === cardsHomeReadLink) {
         arrayOfCardsSelectedByReadMoreLink.push(news);
@@ -73,19 +78,4 @@ function onClikGalleryHome(e) {
       }
     });
   }
-}
-
-function testLocal(arr, idCardsClick) {
-  // console.log('arr :>> ', arr);
-
-  let allIdCards;
-  let contr;
-  return arr.filter(ons => {
-    allIdCards = ons.id || ons._id;
-    const foo = allIdCards == idCardsClick;
-    console.log(foo);
-    if (foo) {
-      return;
-    }
-  });
 }

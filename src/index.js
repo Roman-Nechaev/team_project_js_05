@@ -14,7 +14,9 @@ import './js/allLogicSearch/index';
 import './js/API/serviseNews/index';
 import './js/allLogicSearch/markupNews/renderNews';
 
+
+import './js/category/categories';
+
 import './js/burger/burger';
 
 import './js/decoration/decoration';
-

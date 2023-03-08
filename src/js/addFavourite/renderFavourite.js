@@ -3,19 +3,19 @@ import { templateFavouroteNews } from './templateFavouroteNews';
 const galleryFavouriteRef = document.querySelector('.gallery-favourite');
 
 if (galleryFavouriteRef) {
-  galleryFavouriteRef.addEventListener('click', onClikTest);
+  galleryFavouriteRef.addEventListener('click', onClikDelCards);
 }
 
-const savedNews = JSON.parse(localStorage.getItem('FavouriteStorage')) || [];
+const savedNews = JSON.parse(localStorage.getItem('favouriteStorage')) || [];
 
 renderTemplateFavo(savedNews);
 
 const refCards = document.querySelectorAll('.newsHomePage-card');
 
-function onClikTest(e) {
+function onClikDelCards(e) {
   const idCardsFov = e.target.dataset.id;
 
-  let localStorageGetKey = localStorage.getItem('FavouriteStorage');
+  let localStorageGetKey = localStorage.getItem('favouriteStorage');
   let cardsLocalParse = JSON.parse(localStorageGetKey);
   let filter = [];
   cardsLocalParse.forEach(on => {
@@ -26,7 +26,7 @@ function onClikTest(e) {
     }
   });
 
-  localStorage.setItem('FavouriteStorage', JSON.stringify(filter));
+  localStorage.setItem('favouriteStorage', JSON.stringify(filter));
 
   refCards.forEach(idCards => {
     if (idCards.dataset.id === idCardsFov) {
