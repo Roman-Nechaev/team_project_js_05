@@ -1,4 +1,3 @@
-
 const containerGallery = document.querySelector('.gallery');
 import imgDefault1 from '../../../assets/default-news-1.jpg';
 import imgDefault2 from '../../../assets/default-news-2.jpg';
@@ -18,4 +17,3 @@ import imgDefault2 from '../../../assets/default-news-2.jpg';
 export default function newDefaultMarkup() {
   containerGallery.innerHTML = newsDefaultMarkup();
 };
-

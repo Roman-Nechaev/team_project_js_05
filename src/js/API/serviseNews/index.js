@@ -6,7 +6,9 @@ import { templateMarkupNews } from './templateMarkupNews';
 import InitPagination from '../../pagination/pagination'; //Pagination Simak
 
 import addFavourite from '../../addFavourite/addFavourite';
+
 import newDefaultMarkup from '../../defaultPage/defaultPageHome';
+
 
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
@@ -35,8 +37,10 @@ export default function onSearchForm(e) {
   value = value.trim();
   clearGalleryInterface();
   newsApiServis.query = value;
+
   // onClickNext();
   requestToServer(newsApiServis.query);
+
 }
 
 async function requestToServer(valueQuery) {
