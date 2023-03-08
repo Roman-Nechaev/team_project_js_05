@@ -6,6 +6,7 @@
   --drop-down-icon: #a2a2a2;
   --inactive-text: rgba(60, 60, 67, 0.3);
   --border-inactive: rgba(162, 162, 162, 1);
+  --darkmode: #2e2e2e;
 }
 
 ul {
@@ -36,7 +37,9 @@ ul {
   margin-right: 37px;
   }
 }
-
+.dark .calendar-form__text {
+  color: var(--main-calendar-background);
+}
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -93,7 +96,6 @@ ul {
   cursor: pointer;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  
   @media screen and (min-width: 768px) {
     height: 31px;
     font-size: 14px;
@@ -104,7 +106,9 @@ ul {
     border-color: var(--accent-color);
   }
 }
-
+.dark .calendar-input {
+  background-color: var(--darkmode);
+}
 .calendar__button-calendar {
   position: absolute;
   fill: #4440f6;
@@ -129,7 +133,9 @@ ul {
   align-items: center;
   border-radius: 25px;
 }
-
+// .dark input.datepicker-here {
+// color: var(--accent-color);
+// }
 .calendar__button-arrow {
   margin-left: 12px;
   display: flex;
@@ -145,9 +151,6 @@ ul {
   fill: var(--main-calendar-background);
     transform: rotate(180deg);
 }
-
-
-
 
 .calendar__button-arrow-icon {
    cursor: pointer;
@@ -195,7 +198,6 @@ ul {
   background: #f8f8f8;
   box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -222,7 +224,6 @@ ul {
 
 .calendar-icons {
   display: flex;
-
   color: var(--accent-color);
 }
 
@@ -244,14 +245,12 @@ ul {
   margin-right: -10px;
 }
 
-.calendar-icons span:hover, {
+.calendar-icons span:hover {
   background: var(--main-calendar-background);
 }
 
-
 .year-change{
   fill: var(--accent-color);
-  
     display: flex;
     rotate: 0deg;
     justify-content: center;
@@ -278,10 +277,6 @@ ul {
   text-align: center;
 }
 
-.calendar .days {
-  // margin-bottom: 20px;
-
-}
 
 .calendar li {
   width: calc(100% / 7);
@@ -294,7 +289,6 @@ ul {
   line-height: 1.5;
   // letter-spacing: -0.078px;
   color: rgba(60, 60, 67, 0.3);
-  
 }
 
 .calendar .days li {
@@ -324,10 +318,6 @@ ul {
   margin-bottom: 0;
 }
 
-// .calendar .days li:nth-child(6n + 1),
-// .calendar .days li:nth-child(7n + 1) {
-//   color: #5f6775;
-// }
 .days li.active {
   color: #fff;
 }
@@ -379,8 +369,7 @@ ul {
   }
 
   .simplebar-scrollbar.simplebar-visible::before {
-    opacity: 0.7;
-    
+    opacity: 0.7;  
   }
 }
 
