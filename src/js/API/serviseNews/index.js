@@ -46,9 +46,7 @@ async function requestToServer() {
   let arr = [];
   try {
     const data = await newsApiServis.fetchNewsApi();
-
     const newsDateResponse = await data.response.docs;
-
     if (newsDateResponse.length <= 0) {
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'

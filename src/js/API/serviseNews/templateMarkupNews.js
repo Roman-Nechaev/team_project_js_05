@@ -31,7 +31,7 @@ export function templateMarkupNews(newsDateResp) {
         
         <button class="add-to-favBtn test-favBtn" type="button" data-id=${_id}>Add to favourite
                     <svg class="heart" width="16" height="16">
-                        <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
+                        <use href="../assets/svg/symbol-defs.svg#icon-unclicked_heart">
                         </use>
                     </svg>
                 </button>
