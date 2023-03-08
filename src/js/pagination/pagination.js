@@ -93,6 +93,11 @@ let Pagination = {
     render.addListNews(res.response.docs);
   },
 
+  scrollUp: function () {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  },
+
   // change page
   Click: function () {
     Pagination.page = +this.innerHTML;
@@ -100,6 +105,7 @@ let Pagination = {
     // console.log(Pagination.page);
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // previous page
@@ -113,6 +119,7 @@ let Pagination = {
     Pagination.enableButtonsNext();
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // next page
@@ -125,6 +132,7 @@ let Pagination = {
     Pagination.enableButtonsPrev();
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // --------------------

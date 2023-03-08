@@ -53,12 +53,14 @@ async function requestToServer(valueQuery) {
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'
       );
+      document.getElementById('pagination-container').style.display = 'none';
       return;
     }
 
     renderTemplate(newsDateResponse);
     InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
+    document.getElementById('pagination-container').style.display = 'flex';
     addFavourite(newsDateResponse);
   } catch (error) {}
 }
