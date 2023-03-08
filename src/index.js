@@ -11,3 +11,5 @@ import './js/allLogicSearch/index';
 
 import './js/API/serviseNews/index';
 import './js/allLogicSearch/markupNews/renderNews';
+
+import './js/category/categories';
