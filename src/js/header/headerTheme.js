@@ -1,6 +1,9 @@
 const themeButton = document.querySelector('.switch-btn');
+const themeButtonMobile = document.querySelector('.switch-btn_mobile');
+
 
 themeButton.addEventListener('click', changeTheme);
+themeButtonMobile.addEventListener('click', changeTheme);
 
 function changeTheme(event) { 
     event.preventDefault();

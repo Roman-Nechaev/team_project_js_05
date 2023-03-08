@@ -1,46 +1,58 @@
-<header class="header">
-    <button class="openburgmenu" type="button" burg-menu-open>
-        <svg class="burgeropen" width="40" height="40">
-            <use href="./images/sprite.svg#icon-menu_24px" width="24" height="16"></use>
-        </svg>
+<button class="burger-btn">
+  <svg class="burger-btn-icon">
+    <use href="../src/icons/sprite.svg#icon-burger-btn"></use>
+  </svg>
+</button>
+<div class="burger-menu">
+  <div class="header-mobile">
+    <a class="logo-mobile" href="#">News</a>
+    <button class="closeburgmenu">
+      <svg class="btn-close_icon">
+        <use href="../src/icons/sprite.svg#icon-close"></use>
+      </svg>
     </button>
-    <div class="burg-menu" burg-menu>
-        <div class="container burg-menu-container is-open">
-            <button class="closeburgmenu" type="button" burg-menu-close>
-                <svg width="40" height="40">
-                    <use href="./images/sprite.svg#close"></use>
-                </svg>
-            </button>
-            <ul class="burgmenu__navlist">
-                <li class="burgmenu__navlink">
-                    <a href="./index.html" class="burgmenu__link">
-                        <svg class="burg__icon" width="32" height="32">
-                            <use href="./images/sprite.svg#icon-home"></use>
-                        </svg><span class="burgmenu__link-text">Home</span>
-                        <svg class="burg__shevron" width="20" height="20">
-                            <use href="./images/sprite.svg#icon-Vector"></use>
-                        </svg></a>
-                </li>
-                <li class="burgmenu__navlink">
-                    <a href="#" class="burgmenu__link">
-                        <svg class="burg__icon" width="32" height="32">
-                            <use href="./images/sprite.svg#icon-favorite"></use>
-                        </svg><span class="burgmenu__link-text">Favorite</span>
-                        <svg class="burg__shevron" width="20" height="20">
-                            <use href="./images/sprite.svg#icon-Vector"></use>
-                        </svg></a>
-                </li>
-                <li class="burgmenu__navlink">
-                    <a href="#" class="burgmenu__link">
-                        <svg class="burg__icon" width="32" height="32">
-                            <use href="./images/sprite.svg#icon-read"></use>
-                        </svg><span class="burgmenu__link-text">Read</span>
-                        <svg class="burg__shevron" width="20" height="20">
-                            <use href="./images/sprite.svg#icon-Vector"></use>
-                        </svg></a>
-                </li>
-            </ul>
-        </div>
-    </div>
+  </div>
+  <ul class="burgmenu__navlist">
+    <li class="burgmenu__navlink">
+      <a class="burgmenu__link" href="./index.html">
+        <svg class="burg__icon" width="32" height="32">
+          <use href="../src/icons/sprite.svg#icon-home"></use></svg
+        ><span class="burgmenu__link-text">Home</span>
+        <svg class="burg__shevron" width="20" height="20">
+          <use href="../src/icons/sprite.svg#icon-vector"></use></svg
+      ></a>
+    </li>
 
-</header>
+    <li class="burgmenu__navlink">
+      <a href="../src/favourite.html" class="burgmenu__link">
+        <svg class="burg__icon" width="32" height="32">
+          <use href="../src/icons/sprite.svg#icon-favorite"></use></svg
+        ><span class="burgmenu__link-text">Favorite</span>
+        <svg class="burg__shevron" width="20" height="20">
+          <use href="../src/icons/sprite.svg#icon-vector"></use></svg
+      ></a>
+    </li>
+    <li class="burgmenu__navlink">
+      <a href="../src/read.html" class="burgmenu__link">
+        <svg class="burg__icon" width="32" height="32">
+          <use href="../src/icons/sprite.svg#icon-read"></use></svg
+        ><span class="burgmenu__link-text">Read</span>
+        <svg class="burg__shevron" width="20" height="20">
+          <use href="../src/icons/sprite.svg#icon-vector"></use></svg
+      ></a>
+    </li>
+  </ul>
+  <div class="theme-choice">
+    <ul class="switch-btn_choice">
+      <li class="switch-btn_choice_light switch-btn_choice_text">Light</li>
+      <svg class="switch-btn_choice_ligh-icon switch-btn_choice_icon">
+        <use href="../src/icons/sprite.svg#icon-light"></use>
+      </svg>
+      <li class="switch-btn switch-btn_mobile"></li>
+      <li class="switch-btn_choice_dark switch-btn_choice_text">Dark</li>
+      <svg class="switch-btn_choice_dark-icon switch-btn_choice_icon">
+        <use href="../src/icons/sprite.svg#icon-dark"></use>
+      </svg>
+    </ul>
+  </div>
+</div>

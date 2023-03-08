@@ -1,50 +1,51 @@
-<header class="header container">
-  <div class="logo">
-    <a href="#">News</a>
-  </div>
-  <nav>
-    <ul>
-      <li class="current">
-        <a href="../src/index.html">Home</a>
-      </li>
-      <li class="current">
-        <a href="../src/favourite.html">Favorite</a>
-      </li>
-      <li class="current">
-        <a href="../src/read.html">Read</a>
-      </li>
-    </ul>
-  </nav>
+<header class="header-section">
+  <div class="header-container container">
+    <div class="logo">
+      <a class="logo_link" href="./index.html">News</a>
+    </div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-list_item current">
+          <a class="nav-list_item_link" href="../src/index.html">Home</a>
+        </li>
+        <li class="nav-list_item">
+          <a class="nav-list_item_link" href="../src/favourite.html"
+            >Favorite</a
+          >
+        </li>
+        <li class="nav-list_item">
+          <a class="nav-list_item_link" href="../src/read.html">Read</a>
+        </li>
+      </ul>
+    </nav>
 
-  <form class="search" id="search-form">
-    <input
-      class="search-input"
-      type="text"
-      name="searchQuery"
-      placeholder="Search"
-    />
-    <button class="search-btn">
-      <svg class="search-icon">
-        <use href="../src/icons/sprite.svg#icon-search-icon"></use>
-      </svg>
-    </button>
-  </form>
-  <div class="theme-choice">
-    <ul class="switch-btn_choice">
-      <li class="switch-btn_choice_light switch-btn_choice_text">Light</li>
-      <svg class="switch-btn_choice_ligh-icon switch-btn_choice_icon">
-        <use href="../src/icons/sprite.svg#icon-light"></use>
-      </svg>
-      <li class="switch-btn"></li>
-      <li class="switch-btn_choice_dark switch-btn_choice_text">Dark</li>
-      <svg class="switch-btn_choice_dark-icon switch-btn_choice_icon">
-        <use href="../src/icons/sprite.svg#icon-dark"></use>
-      </svg>
-    </ul>
+    <form class="search" id="search-form">
+      <input
+        class="search-input"
+        type="text"
+        name="searchQuery"
+        placeholder="Search"
+      />
+      <button class="search-btn">
+        <svg class="search-icon">
+          <use href="../src/icons/sprite.svg#icon-search-icon"></use>
+        </svg>
+      </button>
+    </form>
+    <div class="theme-choice">
+      <ul class="switch-btn_choice">
+        <li class="switch-btn_choice_light switch-btn_choice_text">Light</li>
+        <svg class="switch-btn_choice_ligh-icon switch-btn_choice_icon">
+          <use href="../src/icons/sprite.svg#icon-light"></use>
+        </svg>
+        <li class="switch-btn"></li>
+        <li class="switch-btn_choice_dark switch-btn_choice_text">Dark</li>
+        <svg class="switch-btn_choice_dark-icon switch-btn_choice_icon">
+          <use href="../src/icons/sprite.svg#icon-dark"></use>
+        </svg>
+      </ul>
+    </div>
+
+    <include src="./partials/burger/burger.html"></include>
   </div>
-  <button class="burger-btn">
-    <svg class="burger-btn-icon">
-      <use href="../src/icons/sprite.svg#icon-burger-btn"></use>
-    </svg>
-  </button>
 </header>

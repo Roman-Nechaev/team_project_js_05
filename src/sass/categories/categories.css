@@ -1,0 +1,96 @@
+.categories-desktop-list > li > span,
+.categories-table-list > li > span,
+.categories-list > li > span {
+  text-overflow: ellipsis;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.categories-list {
+  background-color: #f5f3f3;
+  border-radius: 15px;
+  position: relative;
+  left: 0px;
+  text-align: center;
+  top: 10px;
+  width: 120px;
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.categories-desktop-list,
+.categories-table-list {
+  background-color: #f5f3f3;
+  border-radius: 15px;
+  position: relative;
+  left: -30px;
+  text-align: center;
+  top: 10px;
+  width: 170px;
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.categoriesList,
+.categories-table-list,
+.categories-desktop-list {
+  display: none;
+}
+
+ul.categories-list > li,
+.categories-table-list > li,
+.categories-desktop-list > li {
+  font-size: 14px;
+  opacity: 0.8;
+  color: #4440f6;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+ul.categories-list > li:hover,
+.categories-table-list > li:hover,
+.categories-desktop-list > li:hover {
+  opacity: 1;
+  -webkit-transform: scaleX(1.1);
+          transform: scaleX(1.1);
+  -webkit-text-decoration: underline #083892;
+          text-decoration: underline #083892;
+  cursor: pointer;
+}
+
+ul.categories-list::-webkit-scrollbar,
+.categories-table-list::-webkit-scrollbar,
+.categories-desktop-list::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (min-width: 320px) {
+  div.categories > ul > li.categoriesUl {
+    display: none;
+  }
+  ul.othersCategories {
+    position: absolute;
+    left: 320px;
+    top: 30px;
+    width: 170px;
+    height: 350px;
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  ul.othersCategories {
+    position: absolute;
+    left: 490px;
+    top: 30px;
+    width: 170px;
+    height: 350px;
+    overflow-y: scroll;
+  }
+}
+/*# sourceMappingURL=categories.css.map */
