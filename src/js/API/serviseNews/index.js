@@ -35,9 +35,9 @@ export default function onSearchForm(e) {
   // console.log(value);
   clearGalleryInterface();
   newsApiServis.query = value;
-  onClickNext();
+  // onClickNext();
   requestToServer();
-  InitPagination.init(value, currentPage = 1); //Pagination Simak
+  InitPagination.init(value, (currentPage = 1)); //Pagination Simak
 }
 
 // requestToServer();
@@ -94,7 +94,7 @@ Notify.init({
 });
 
 // ================= Pagination ===========
-function onClickNext() {
-  newsApiServis.incrementPage();
-  requestToServer();
-}
+// function onClickNext() {
+//   newsApiServis.incrementPage();
+//   requestToServer();
+// }
