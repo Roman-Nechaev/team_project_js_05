@@ -8,7 +8,6 @@ export const fetchPopularData = async () => {
 
   if (populerData.ok) {
     const popular = await populerData.json();
-
     return popular.results;
   }
   throw new Error(populerData.statusText);
