@@ -7,7 +7,7 @@ export async function getCategories() {
   try {
     const result = await getCategoriesFromApi();
     const categories = result.data.results;
-    console.log(categories);
+    // console.log(categories);
     let markupOthersDiv = [];
     let queryMobile = window.matchMedia('(max-width: 767px)');
     let queryTableMin = window.matchMedia('(min-width: 768px)');
