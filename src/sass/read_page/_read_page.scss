@@ -1,16 +1,21 @@
+.revision-date {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
 .revision-date-title {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  /* or 171% */
-
   letter-spacing: 0.02em;
   padding-bottom: 12px;
-
   color: #111321;
   border-bottom: 1px solid #929292;
+}
+.dark .revision-date-title {
+  color: #ffffff;
 }
 
 .revision-date-arrow {
@@ -19,7 +24,9 @@
   display: inline-block;
   padding: 4px;
 }
-
+.dark .revision-date-arrow {
+  fill: #ffffff;
+}
 .down {
   position: relative;
   top: 5px;

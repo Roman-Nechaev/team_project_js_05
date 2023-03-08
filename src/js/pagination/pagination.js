@@ -93,13 +93,20 @@ let Pagination = {
     render.addListNews(res.response.docs);
   },
 
+  scrollUp: function () {
+
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  },
+
   // change page
   Click: function () {
     Pagination.page = +this.innerHTML;
     Pagination.handlePageButtonStatus();
-    console.log(Pagination.page);
+    // console.log(Pagination.page);
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // previous page
@@ -113,6 +120,7 @@ let Pagination = {
     Pagination.enableButtonsNext();
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // next page
@@ -125,6 +133,7 @@ let Pagination = {
     Pagination.enableButtonsPrev();
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // --------------------
@@ -144,6 +153,22 @@ let Pagination = {
   // write pagination
   Finish: function () {
     Pagination.e.innerHTML = Pagination.code;
+
+    // let paginationButtons = document.querySelectorAll('.pagination-button');
+    //   paginationButtons.forEach( paginationButton => {
+
+    //    if(queryMobile.matches) {
+    //     if(Pagination.size >=1000) {
+    //       paginationButton.style.width = "50px"
+    //     }
+    //    } else {
+    //     if(Pagination.size >=1000) {
+    //       paginationButton.style.width = "53px"
+    //     }
+    //    }
+
+    //   });
+
     Pagination.code = '';
     Pagination.Bind();
   },
@@ -219,10 +244,9 @@ let Pagination = {
 };
 
 // Initialization
-const paginationTotal = 99;
 let init = function (queryName, pageNum) {
   Pagination.Init(document.getElementById('pagination-container'), {
-    size: paginationTotal, // pages size
+    size: 200, // pages size
     page: pageNum, // selected page
     step: 3, // pages before and after current
     name: queryName, // queryName

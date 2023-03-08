@@ -1,12 +1,14 @@
 import { newsMarkup } from './markup';
 import { getCategoriesFromApi } from './api-categories';
 import { NewsApiCategories } from './api-categories';
+import newDefaultMarkup from '../defaultPage/defaultPageHome';
 const newsApiCategories = new NewsApiCategories();
 
 export async function getCategories() {
   try {
     const result = await getCategoriesFromApi();
     const categories = result.data.results;
+    // console.log(categories);
     let markupOthersDiv = [];
     let queryMobile = window.matchMedia('(max-width: 767px)');
     let queryTableMin = window.matchMedia('(min-width: 768px)');
@@ -31,10 +33,10 @@ export async function getCategories() {
 
     const categoriesTable = document.querySelector('.categories-table-list');
     categoriesTable.innerHTML = markupOthersDiv.join('');
-    const categoriesDesktop = document.querySelector(
-      '.categories-desktop-list'
-    );
-    categoriesDesktop.innerHTML = markupOthersDiv.join('');
+    // const categoriesDesktop = document.querySelector(
+    //   '.categories-desktop-list'
+    // );
+    // categoriesDesktop.innerHTML = markupOthersDiv.join('');
     const othersBtn = document.querySelector('button.others');
     othersBtn.addEventListener('click', onClick);
     categoriesBtn.addEventListener('click', onCategoryOthers);
@@ -59,6 +61,12 @@ function onClick(e) {
   newsApiCategories.searchCategories = category;
   const categoriesMarkup = newsApiCategories.getNews().then(json => {
     const get = json.data.results;
+    if( get == null) {
+      newDefaultMarkup();
+      return;
+      console.log('Test');
+    }
+
     const gallery = document.querySelector('.gallery');
     const categoriesMarkup = get.map(element => newsMarkup(element));
     gallery.innerHTML = categoriesMarkup.join('');
