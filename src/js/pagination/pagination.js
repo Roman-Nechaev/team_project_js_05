@@ -91,14 +91,13 @@ let Pagination = {
     let name = Pagination.name;
     const res = await API.fetchNews(name, pageNumBtn);
     render.addListNews(res.response.docs);
-
   },
 
   // change page
   Click: function () {
     Pagination.page = +this.innerHTML;
     Pagination.handlePageButtonStatus();
-    console.log(Pagination.page);
+    // console.log(Pagination.page);
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
   },
