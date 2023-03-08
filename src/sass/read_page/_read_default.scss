@@ -23,29 +23,24 @@
 
 .default-read-title {
   margin-bottom: 40px;
+  margin-top: 50px;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 30px;
   line-height: 27px;
   text-align: center;
   letter-spacing: -0.01em;
-
   color: #111321;
-  @media screen and (min-width: 768px) {
-    width: 548px;
-    height: 110px;
-  }
-  @media screen and (min-width: 1200px) {
+
+  @media screen and (min-width: 1280px) {
     font-size: 40px;
     line-height: 55px;
-    width: 548px;
-    height: 110px;
   }
 }
 .default-read-img {
   margin: 0 auto;
   display: block;
   text-align: center;
-  width: 248px;
+  max-width: 248px;
   height: 198px;
   @media screen and (min-width: 1200px) {
     width: 601px;

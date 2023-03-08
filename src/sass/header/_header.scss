@@ -3,13 +3,11 @@
   border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
 }
 
-
-
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4f4f4; 
+  background-color: #f4f4f4;
   height: 81px;
   width: 100%;
 }
@@ -29,14 +27,13 @@
 }
 
 .dark .header-section {
-  background-color: #686868;
-  border-bottom: #F4F4F4 1px solid;
+  background-color: #2e2e2e;
+  border-bottom: #a8a8a8 1px solid;
 }
 
 .dark .header-container {
-  background-color: #686868;
+  background-color: #2e2e2e;
 }
-
 
 .logo_link {
   font-family: 'Manrope';
@@ -47,7 +44,6 @@
   line-height: 33px;
   text-decoration: none;
 }
-
 
 @media screen and (min-width: 768px) {
   .logo_link {
@@ -66,7 +62,7 @@
 }
 
 .dark .logo_link {
-  color: #F4F4F4;
+  color: #f4f4f4;
 }
 
 .nav-list {
@@ -86,19 +82,18 @@
     margin-left: 44px;
   }
 
-    .nav-list_item:first-child {
-      margin-left: 0px;
-    }
+  .nav-list_item:first-child {
+    margin-left: 0px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .nav-list_item {
     margin-left: 69px;
   }
-    .nav-list_item:first-child {
-      margin-left: 0px;
-    }
-
+  .nav-list_item:first-child {
+    margin-left: 0px;
+  }
 }
 
 .current::after {
@@ -112,7 +107,7 @@
 }
 
 .dark .current::after {
-  background-color: #4440F6;
+  background-color: #4440f6;
 }
 
 @media screen and (min-width: 768px) {
@@ -135,7 +130,7 @@
 }
 
 .dark .nav-list_item_link {
-  color: #F4F4F4;
+  color: #f4f4f4;
 }
 
 @media screen and (min-width: 768px) {
@@ -145,10 +140,10 @@
     font-size: 16px;
     line-height: 22px;
   }
-    .nav-list_item_link:hover {
-      border-bottom: #4440F6 2px solid;
-      padding-bottom: 8px;
-    }
+  .nav-list_item_link:hover {
+    border-bottom: #4440f6 2px solid;
+    padding-bottom: 8px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -157,45 +152,48 @@
     font-size: 18px;
     line-height: 25px;
   }
-    .nav-list_item_link:hover {
-      border-bottom: #4440F6 2px solid;
-      padding-bottom: 5px;
-    }
+  .nav-list_item_link:hover {
+    border-bottom: #4440f6 2px solid;
+    padding-bottom: 5px;
+  }
 }
-
-
 
 .search-input {
   display: none;
   padding-left: 48px;
 }
 .dark .search-input {
-  background-color: #686868;
-  color: #F4F4F4;
+  background-color: #2e2e2e;
+  color: #f4f4f4;
 }
-
+.search-icon {
+  background-color: #fff;
+}
+.dark .search-icon {
+  background-color: #2e2e2e;
+  border-color: #2e2e2e;
+}
 .search-form__button {
   border: none;
   background-color: #ffffff;
 }
 
 .dark .search-form__button {
-  background-color: #686868;
+  background-color: #2e2e2e;
 }
 
 .search input {
-    border: #111321 1px solid;
+  border: #111321 1px solid;
   border-radius: 20px;
   height: 31px;
 }
 
 .dark .search input {
-  border: #F4F4F4 1px solid;
+  border: #f4f4f4 1px solid;
 }
 
 @media screen and (min-width: 768px) {
   .search-input {
-
     display: block;
     width: 213px;
   }
@@ -211,11 +209,10 @@
 
 .search input[type='text']:hover {
   border: #007bff 2px solid;
-
 }
 
 .dark .search input[type='text']:hover {
-  border: #4440F6 2px solid;
+  border: #4440f6 2px solid;
 }
 
 .search-input:hover + .search-btn .search-icon {
@@ -223,7 +220,7 @@
 }
 
 .dark .search-input:hover + .search-btn .search-icon {
-  fill: #4440F6;
+  fill: #4440f6;
 }
 
 input::placeholder {
@@ -231,11 +228,11 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #111321;
-  opacity: 40%;  
+  opacity: 40%;
 }
 
 .dark input::placeholder {
-  color: #F4F4F4;
+  color: #f4f4f4;
   opacity: 40%;
 }
 
@@ -244,7 +241,7 @@ input:hover::placeholder {
 }
 
 .dark input:hover::placeholder {
-  color: #4440F6;
+  color: #4440f6;
 }
 //------------------------------------------------------//
 
@@ -261,20 +258,20 @@ input:hover::placeholder {
 .is-open .switch-btn {
   display: inline-block;
   width: 40px;
-    height: 20px;
-    border-radius: 20px;
-    background: #ffffff;
-    z-index: 1000;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #4b48db;
-    cursor: pointer;
-    position: relative;
-    transition-duration: 300ms;
+  height: 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #4b48db;
+  cursor: pointer;
+  position: relative;
+  transition-duration: 300ms;
 }
 
 .dark .is-open .switch-btn {
-  background: #4B48DB;
+  background: #4b48db;
   border: 1px solid white;
 }
 
@@ -295,9 +292,9 @@ input:hover::placeholder {
   }
 
   .dark .switch-btn {
-    background: #4B48DB;
+    background: #4b48db;
     border: 1px solid white;
-}
+  }
 }
 
 .switch-btn::after {
@@ -318,7 +315,6 @@ input:hover::placeholder {
   left: 21px;
 }
 
-
 .switch-btn_choice {
   display: flex;
   align-items: center;
@@ -327,7 +323,7 @@ input:hover::placeholder {
 .switch-btn_choice_light {
   margin-right: 13px;
   font-family: Poppins;
-  font-weight: 400; 
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   line-height: 89%;
@@ -351,7 +347,7 @@ input:hover::placeholder {
 }
 
 .dark .switch-btn_choice_dark {
-  color: #4440F7;
+  color: #4440f7;
 }
 
 .switch-btn_choice_icon {
@@ -361,10 +357,9 @@ input:hover::placeholder {
   stroke-width: 1.5;
 }
 
-
 .switch-btn_choice_dark-icon {
   margin-left: 11px;
-  stroke: #5F6775;
+  stroke: #5f6775;
 }
 
 .is-open .switch-btn_choice_dark-icon {
@@ -372,14 +367,13 @@ input:hover::placeholder {
   margin-right: 1px;
 }
 
-
 .dark .switch-btn_choice_dark-icon {
-  stroke: #4B48DB;
+  stroke: #4b48db;
 }
 
 .switch-btn_choice_ligh-icon {
   margin-right: 11px;
-  stroke: #4B48DB;
+  stroke: #4b48db;
 }
 
 .is-open .switch-btn_choice_ligh-icon {
@@ -393,7 +387,6 @@ input:hover::placeholder {
 .switch-btn_choice_text {
   display: none;
 }
-
 
 @media screen and (min-width: 768px) {
   .switch-btn_choice_icon {
@@ -452,16 +445,16 @@ input:hover::placeholder {
 
 .search-icon {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
   width: 15px;
   height: 15px;
 }
 
 .dark .search-icon {
-  fill: #F4F4F4;
+  fill: #f4f4f4;
 }
 
 .burger-btn {
@@ -484,10 +477,10 @@ input:hover::placeholder {
 
 .burger-btn-icon {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -500,6 +493,5 @@ input:hover::placeholder {
 }
 
 .dark .burger-btn-icon {
-  fill: #F4F4F4;
+  fill: #f4f4f4;
 }
-
