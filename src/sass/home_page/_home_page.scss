@@ -220,12 +220,14 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  opacity: 0.9;
   color: var(--extra-color);
   background: linear-gradient(
     90deg,
     rgba(164, 146, 154, 1) 8%,
     rgba(61, 103, 215, 1) 100%
   );
+  box-shadow: 0 0.5em 0.5em -0.4em var(--extra-color);
   border-radius: 10px;
   font-size: 16px;
   line-height: 1.15;
@@ -236,9 +238,10 @@ body {
     padding: 10px 17px 7px;
   }
   @media screen and (min-width: 1280px) {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
+
 .geolocation-icon {
   margin-right: 4px;
   @media screen and (min-width: 768px) {
@@ -298,6 +301,7 @@ body {
     rgba(164, 146, 154, 1) 8%,
     rgba(61, 103, 215, 1) 100%
   );
+  box-shadow: 0 0.5em 0.5em -0.4em var(--extra-color);
   opacity: 0.8;
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
