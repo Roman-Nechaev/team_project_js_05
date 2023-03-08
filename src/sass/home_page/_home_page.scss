@@ -60,10 +60,10 @@ body {
   }
 }
 
-// .newsHP-categories:focus {
-//   background-color: var(--accent-color);
-//   color: var(--extra-color);
-// }
+.newsHP-categories:focus {
+  background-color: var(--accent-color);
+  color: var(--extra-color);
+}
 button.newsHP-categories:hover {
   background-color: var(--accent-color);
   color: var(--extra-color);
