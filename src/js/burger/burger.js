@@ -1,14 +1,21 @@
-(() => {
-  const refs = {
-    openMenuBtn: document.querySelector("[burg-menu-open]"),
-    closeMenuBtn: document.querySelector("[burg-menu-close]"),
-    menu: document.querySelector("[burg-menu]"),
-  };
 
-  refs.openMenuBtn.addEventListener("click", toggleMenu);
-  refs.closeMenuBtn.addEventListener("click", toggleMenu);
+const burgerBtn = document.querySelector('.burger-btn');
+const btnClose = document.querySelector('.closeburgmenu');
 
-  function toggleMenu() {
-    refs.menu.classList.toggle("is-open");
+burgerBtn.addEventListener('click', openMenu);
+
+
+function openMenu() {
+  const menuOpen = document.querySelector('.burger-menu');
+    
+  menuOpen.classList.toggle('is-open');
+}
+
+btnClose.addEventListener('click', closeMenu);
+function closeMenu() {
+  const menuOpen = document.querySelector('.burger-menu');
+    
+  if (menuOpen.classList.contains('is-open')) {
+    menuOpen.classList.remove('is-open');
   }
-})();
+}
