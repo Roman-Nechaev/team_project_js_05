@@ -2,8 +2,8 @@ const defaultPageRef = document.querySelector('.default-news');
 const favConPageRef = document.querySelector('.gallery');
 
 export async function chectPage(arr) {
-  console.log(arr.length);
-
+  // console.log('arr :>> ', arr);
+  // console.log(arr.length);
   //   return (await arr.length) === 0
   //     ? favConPageRef.classList.toggle('dis-none')
   //     : defaultPageRef.classList.toggle('dis-none');
