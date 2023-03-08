@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import dateFormat, { masks } from 'dateformat';
 
 import NewsApiServis from './serviseNewsSearch';
 
@@ -13,6 +14,35 @@ import newDefaultMarkup from '../../defaultPage/defaultPageHome';
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 let currentPage; //Pagination Simak
+//---------------------------------------------------------------------------------------------------------
+const formatDate = (someDate) => +someDate.split('/').join('')//форматуємо дату в суцільне число
+const inputDate = document.querySelector('.calendar-input')//інпут календаря
+
+inputDate.addEventListener('blur', onSelectedDate)//при втраті фокусу слухаємо дату
+let isSelected = false;//перед рендером показує чи була вибрана дата
+let dateNumber;//змінна в яку ми винесемо дату календаря
+
+function onSelectedDate(e) {
+  isSelected = true;
+  dateNumber = formatDate(e.target.value)//відформатована дата календаря
+  console.log(dateNumber)
+}
+
+function formatPublishedDate(date) {
+  const now = new Date(date);
+  return dateFormat(now, 'mm/dd/yyyy');
+}
+
+function filterResponce(dataToFilter, dateNumber) {
+  const filterResult = dataToFilter.filter(item => {
+    const itemDate = formatPublishedDate(item.pub_date)
+    const correctDate = formatDate(itemDate)
+    console.log(correctDate, dateNumber)
+    return correctDate === dateNumber
+  })
+
+  return filterResult;//фукнція фільтр, викликаємо там де отримуємо дані
+}
 
 // ================= Pagination ===========
 const prewBtn = document.querySelector('.prew-btn');
@@ -48,7 +78,14 @@ async function requestToServer(valueQuery) {
   try {
     const data = await newsApiServis.fetchNewsApi();
     const newsDateResponse = await data.response.docs;
-    if (newsDateResponse.length <= 0) {
+    let totalResult = newsDateResponse
+    if (isSelected) {//якщо відбувся клік то фільтруємо
+      console.log(totalResult)
+      totalResult = filterResponce(newsDateResponse, dateNumber)
+      console.log(newsDateResponse, dateNumber)
+    }
+    
+    if (totalResult.length <= 0) {
       newDefaultMarkup();
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'
@@ -56,11 +93,11 @@ async function requestToServer(valueQuery) {
       return;
     }
 
-    renderTemplate(newsDateResponse);
+    renderTemplate(totalResult);
     InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
-    // const useID = newsDateResponse.map(onId => arr.push(onId._id));
-    addFavourite(newsDateResponse);
-  } catch (error) {}
+    // const useID = totalResult.map(onId => arr.push(onId._id));
+    addFavourite(totalResult);
+  } catch (error) { }
 }
 
 function renderTemplate(e) {
