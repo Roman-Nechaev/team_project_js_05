@@ -91,16 +91,21 @@ let Pagination = {
     let name = Pagination.name;
     const res = await API.fetchNews(name, pageNumBtn);
     render.addListNews(res.response.docs);
+  },
 
+  scrollUp: function() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   },
 
   // change page
   Click: function () {
     Pagination.page = +this.innerHTML;
     Pagination.handlePageButtonStatus();
-    console.log(Pagination.page);
+    // console.log(Pagination.page);
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // previous page
@@ -114,6 +119,7 @@ let Pagination = {
     Pagination.enableButtonsNext();
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // next page
@@ -126,6 +132,7 @@ let Pagination = {
     Pagination.enableButtonsPrev();
     Pagination.FetchNext(Pagination.page);
     Pagination.Start();
+    Pagination.scrollUp();
   },
 
   // --------------------

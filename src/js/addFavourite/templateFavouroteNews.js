@@ -1,4 +1,5 @@
 import dateFormat, { masks } from 'dateformat';
+import iconsSvgAddRemove from '/assets/svg/symbol-defs.svg';
 
 export function templateFavouroteNews(newsDateResp) {
   return newsDateResp
@@ -35,7 +36,7 @@ export function templateFavouroteNews(newsDateResp) {
 
         <button class="remove-from-favourite" type="button" data-id=${idAll} >Remove from favourite
                     <svg class="remove-heart" width="16" height="16">
-                        <use href="../assets/svg/symbol-defs.svg#icon-clicked_heart"></use>
+                        <use href="${iconsSvgAddRemove}#icon-clicked_heart"></use>
                     </svg>
                 </button>
       </div>

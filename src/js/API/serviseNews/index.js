@@ -7,6 +7,9 @@ import InitPagination from '../../pagination/pagination'; //Pagination Simak
 
 import addFavourite from '../../addFavourite/addFavourite';
 
+import newDefaultMarkup from '../../defaultPage/defaultPageHome';
+
+
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 let currentPage; //Pagination Simak
@@ -32,28 +35,37 @@ export default function onSearchForm(e) {
   }
 
   value = value.trim();
-  // console.log(value);
   clearGalleryInterface();
   newsApiServis.query = value;
+
   // onClickNext();
   requestToServer();
   InitPagination.init(value, (currentPage = 1)); //Pagination Simak
 }
 
-// requestToServer();
 
-async function requestToServer() {
+  // onClickNext();
+  requestToServer(newsApiServis.query);
+
+}
+
+async function requestToServer(valueQuery) {
   let arr = [];
   try {
     const data = await newsApiServis.fetchNewsApi();
     const newsDateResponse = await data.response.docs;
     if (newsDateResponse.length <= 0) {
+      newDefaultMarkup();
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'
       );
+      document.getElementById('pagination-container').style.display = 'none';
+      return;
     }
 
     renderTemplate(newsDateResponse);
+    InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
+    document.getElementById('pagination-container').style.display = 'flex';
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
     addFavourite(newsDateResponse);
   } catch (error) {}

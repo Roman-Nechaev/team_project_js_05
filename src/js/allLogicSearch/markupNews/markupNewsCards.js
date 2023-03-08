@@ -1,3 +1,5 @@
+import iconsSvgAdd from '/assets/svg/symbol-defs.svg';
+
 export const newsCardMarkup = ({
   id,
   image_url,
@@ -22,7 +24,7 @@ export const newsCardMarkup = ({
 
         <button class="add-to-favBtn" type="button" data-id="${id}">Add to favourite
                 <svg class="heart" width="16" height="16">
-                    <use href="../assets/svg/symbol-defs.svg#icon-unclicked_heart"></use>
+                    <use href="${iconsSvgAdd}#icon-unclicked_heart"></use>
                 </svg>
             </button>
       </div>
