@@ -6,6 +6,7 @@ import { templateMarkupNews } from './templateMarkupNews';
 import InitPagination from '../../pagination/pagination'; //Pagination Simak
 
 import addFavourite from '../../addFavourite/addFavourite';
+import newDefaultMarkup from '../../defaultPage/defaultPageHome';
 
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
@@ -48,9 +49,11 @@ async function requestToServer() {
     const data = await newsApiServis.fetchNewsApi();
     const newsDateResponse = await data.response.docs;
     if (newsDateResponse.length <= 0) {
+      newDefaultMarkup();
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'
       );
+      return;
     }
 
     renderTemplate(newsDateResponse);
