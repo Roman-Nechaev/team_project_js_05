@@ -93,7 +93,8 @@ let Pagination = {
     render.addListNews(res.response.docs);
   },
 
-  scrollUp: function() {
+  scrollUp: function () {
+
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   },

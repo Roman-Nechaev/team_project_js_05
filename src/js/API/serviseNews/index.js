@@ -67,6 +67,7 @@ async function requestToServer(valueQuery) {
     InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
     document.getElementById('pagination-container').style.display = 'flex';
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
+    document.getElementById('pagination-container').style.display = 'flex';
     addFavourite(newsDateResponse);
   } catch (error) {}
 }
