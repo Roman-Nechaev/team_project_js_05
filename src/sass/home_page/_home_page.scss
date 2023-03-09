@@ -66,7 +66,6 @@ body {
   }
 }
 
-
 .newsHP-categories:focus {
   background-color: var(--accent-color);
   color: var(--extra-color);
@@ -265,7 +264,6 @@ button.newsHP-categories:hover {
   margin: 0 auto;
   width: 148px;
   height: 141px;
-  // margin-bottom: 30px;
   @media screen and (min-width: 768px) {
     margin-bottom: 70px;
   }
@@ -513,7 +511,9 @@ button.newsHP-categories:hover {
   display: flex;
   padding-left: 5px;
   padding-right: 5px;
-
+  @media screen and (max-width: 767px) {
+    height: 15px;
+  }
   @media screen and (min-width: 1280px) {
     font-size: 16px;
     height: 22px;
