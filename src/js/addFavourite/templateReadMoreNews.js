@@ -1,4 +1,5 @@
 import dateFormat, { masks } from 'dateformat';
+import iconsSvgAddRemove from '/assets/svg/symbol-defs.svg';
 
 export function templateNewsReadMore(newsDateResp) {
   return newsDateResp
@@ -17,6 +18,7 @@ export function templateNewsReadMore(newsDateResp) {
         title,
         published_date,
         url,
+        thumbnail_standard,
       } = oneNewsItem;
       const idAll = _id || id;
 
@@ -25,12 +27,15 @@ export function templateNewsReadMore(newsDateResp) {
     <div class="card-picture">
         <img
           class="newsHomePage-image"
-          src="${image_url || checkUrkImg(oneNewsItem)}"
+          src="${image_url || thumbnail_standard || checkUrkImg(oneNewsItem)}"
           alt="news cover"
           width="288"
           height="395"
         />
-        <p class="newsHomePage-status-read">Already read</p>
+        <p class="newsHomePage-status-read">Already read
+                <svg class="marked-read" width="18" height="18">
+                    <use href="${iconsSvgAddRemove}#icon-already-read"></use>
+                </svg>
         <p class="newsHomePage-search-category">${news_desk || section}</p>
 
         <button class="remove-from-favourite" type="button" data-id=${idAll} >Remove from favourite

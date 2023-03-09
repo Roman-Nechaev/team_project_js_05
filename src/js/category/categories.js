@@ -1,7 +1,12 @@
 import { newsMarkup } from './markup';
 import { getCategoriesFromApi } from './api-categories';
 import { NewsApiCategories } from './api-categories';
+
+
+import { addCategori } from '../addFavourite/addFavourite';
+
 import newDefaultMarkup from '../defaultPage/defaultPageHome';
+
 const newsApiCategories = new NewsApiCategories();
 const categoriesBtn = document.querySelector('.newsHP-categories');
 categoriesBtn.addEventListener('click', onCategoryOthers);
@@ -12,6 +17,7 @@ export async function getCategories() {
   try {
     const result = await getCategoriesFromApi();
     const categories = result.data.results;
+
     let markupOthersDiv = [];
     let queryMobile = window.matchMedia('(max-width: 767px)');
     let queryTableMin = window.matchMedia('(min-width: 768px)');
@@ -64,6 +70,7 @@ function onClick(e) {
     const gallery = document.querySelector('.gallery');
     const categoriesMarkup = get.map(element => newsMarkup(element));
     gallery.innerHTML = categoriesMarkup.join('');
+    addCategori(get);
   });
 }
 function onCategoryOthers() {

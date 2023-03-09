@@ -19,7 +19,7 @@ export const newsCardMarkup = ({
           width="288"
           height="395"
         />
-        <p class="newsHomePage-status-read">Already read</p>
+        <p class="dispNo newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">${section}</p>
 
         <button class="add-to-favBtn" type="button" data-id="${id}">Add to favourite

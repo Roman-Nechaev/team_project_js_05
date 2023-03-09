@@ -18,15 +18,22 @@ export function templateFavouroteNews(newsDateResp) {
         title,
         published_date,
         url,
+        multimedia,
+        slug_name,
+        thumbnail_standard, //временно
       } = oneNewsItem;
-      const idAll = _id || id;
+      const idAll = _id || id || slug_name;
+      console.log(multimedia);
+      const fooImg =
+        image_url || thumbnail_standard || checkUrlImg(oneNewsItem);
+      console.log(fooImg);
 
       return `
     <div class="newsHomePage-card" data-id=${idAll}>
     <div class="card-picture">
         <img
           class="newsHomePage-image"
-          src="${image_url || checkUrkImg(oneNewsItem)}"
+          src="${fooImg}"
           alt="news cover"
           width="288"
           height="395"
@@ -62,14 +69,26 @@ export function templateFavouroteNews(newsDateResp) {
     .join('');
 }
 
-function checkUrkImg(item) {
-  const urlImage = item.multimedia;
+// const img = multimedia[2].url;
 
-  if (!urlImage.length) {
+function checkUrkImg(multimedia) {
+  console.log('multimedia :>> ', multimedia);
+  if (!multimedia.length) {
+    return 'https://placehold.co/400x400?text=NO+IMAGE';
+  }
+  return multimedia[2].url;
+}
+
+function checkUrlImg(item) {
+  console.log(item);
+  // const urlImage = item;
+  const foo = item.multimedia[0].url;
+  console.log(foo);
+  if (!foo.length) {
     return 'https://placehold.co/400x400?text=NO+IMAGE';
   }
 
-  return `https://static01.nyt.com/${item.multimedia[0].url}`;
+  return `https://static01.nyt.com/${foo}`;
 }
 
 function formatingDerscription(description) {

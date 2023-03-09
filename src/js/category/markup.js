@@ -7,8 +7,10 @@ export function newsMarkup({
   title, //title
   published_date,
   url, //Read more
+  slug_name,
 }) {
-  const img = multimedia[2].url; //------ссилка на картинку
+  const img = multimedia[2].url;
+  console.log(img); //------ссилка на картинку
   function checkUrkImg() {
     if (!multimedia.length) {
       return 'https://placehold.co/400x400?text=NO+IMAGE';
@@ -16,7 +18,7 @@ export function newsMarkup({
     return img;
   }
   return `
-  <div class="newsHomePage-card">
+  <div class="newsHomePage-card" data-id=${slug_name}>
   <div class="card-picture">
       <img
         class="newsHomePage-image"
@@ -28,7 +30,7 @@ export function newsMarkup({
       <p class="newsHomePage-status-read">Already read</p>
       <p class="newsHomePage-search-category">${section}</p>
       
-      <button class="add-to-favBtn test-favBtn" type="button">Add to favourite
+      <button class="add-to-favBtn test-favBtn" type="button" data-id=${slug_name}>Add to favourite
                   <svg class="heart" width="16" height="16">
                       <use href="/assets/svg/symbol-defs.svg#icon-unclicked_heart">
                       </use>

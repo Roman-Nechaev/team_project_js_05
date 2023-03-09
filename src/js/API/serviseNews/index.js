@@ -7,18 +7,13 @@ import InitPagination from '../../pagination/pagination'; //Pagination Simak
 
 import addFavourite from '../../addFavourite/addFavourite';
 
+
 import newDefaultMarkup from '../../defaultPage/defaultPageHome';
+
 
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 let currentPage; //Pagination Simak
-
-// ================= Pagination ===========
-const prewBtn = document.querySelector('.prew-btn');
-const nextBtn = document.querySelector('.next-btn');
-// prewBtn.addEventListener('click', onClickPrew);
-// nextBtn.addEventListener('click', onClickNext);
-// ================= Pagination ===========
 
 searchFormRef.addEventListener('submit', onSearchForm);
 
@@ -41,7 +36,7 @@ export default function onSearchForm(e) {
 
 
   requestToServer(newsApiServis.query);
-  InitPagination.init(value, (currentPage = 1)); //Pagination Simak
+
 }
 
 
@@ -50,6 +45,7 @@ async function requestToServer(valueQuery) {
   try {
     const data = await newsApiServis.fetchNewsApi();
     const newsDateResponse = await data.response.docs;
+
     if (newsDateResponse.length <= 0) {
       newDefaultMarkup();
       Notify.info(
@@ -61,10 +57,12 @@ async function requestToServer(valueQuery) {
 
     renderTemplate(newsDateResponse);
 
+
     InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
 
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
     document.getElementById('pagination-container').style.display = 'flex';
+
     addFavourite(newsDateResponse);
   } catch (error) {}
 }
