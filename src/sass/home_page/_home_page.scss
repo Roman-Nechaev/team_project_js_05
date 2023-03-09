@@ -93,7 +93,6 @@ button.newsHP-categories:hover {
   }
 }
 
-
 .article-btn {
   font-size: 12px;
   line-height: 1.14;
@@ -173,7 +172,7 @@ button.newsHP-categories:hover {
 
 .weather-info {
   display: flex;
-  margin: 32px 36px 40px 36px;
+  margin: 32px 30px 40px 30px;
   align-items: center;
   @media screen and (min-width: 768px) {
     margin-top: 40px;
@@ -183,8 +182,9 @@ button.newsHP-categories:hover {
 }
 .degrees {
   font-family: 'Roboto';
-  font-size: 55px;
+  font-size: 50px;
   line-height: 1.16;
+  padding-left: 0;
   color: var(--extra-color);
   @media screen and (min-width: 768px) {
     font-size: 74px;
@@ -219,7 +219,7 @@ button.newsHP-categories:hover {
   font-size: 16px;
   line-height: 1.15;
   border-style: none;
-  padding: 9px 17px 7px;
+  padding: 9px 13px 7px;
   @media screen and (min-width: 768px) and (max-width) {
     font-size: 22px;
     padding: 10px 17px 7px;
@@ -314,6 +314,7 @@ button.newsHP-categories:hover {
     flex-wrap: wrap;
     width: 768px;
     gap: 30px;
+    margin-bottom: 48px;
     flex-direction: row-reverse;
   }
   @media screen and (min-width: 1280px) {
@@ -323,6 +324,7 @@ button.newsHP-categories:hover {
     flex-wrap: wrap;
     flex-direction: row-reverse;
     justify-content: flex-end;
+    margin-bottom: 60px;
   }
 }
 
