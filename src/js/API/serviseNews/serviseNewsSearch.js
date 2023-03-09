@@ -13,6 +13,8 @@ export default class NewsApiServis {
       params: {
         page: this.page,
         q: this.searchQuery,
+        begin_date: 20181231,
+        end_date: 20191231, /// ЗАПРОС ПО ДАТЕ
 
         'api-key': API_KEY,
       },

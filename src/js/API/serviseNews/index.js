@@ -6,18 +6,10 @@ import { templateMarkupNews } from './templateMarkupNews';
 import InitPagination from '../../pagination/pagination'; //Pagination Simak
 
 import addFavourite from '../../addFavourite/addFavourite';
-// import newDefaultMarkup from '../../defaultPage/defaultPageHome';
 
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 let currentPage; //Pagination Simak
-
-// ================= Pagination ===========
-const prewBtn = document.querySelector('.prew-btn');
-const nextBtn = document.querySelector('.next-btn');
-// prewBtn.addEventListener('click', onClickPrew);
-// nextBtn.addEventListener('click', onClickNext);
-// ================= Pagination ===========
 
 searchFormRef.addEventListener('submit', onSearchForm);
 
@@ -48,6 +40,7 @@ async function requestToServer() {
   try {
     const data = await newsApiServis.fetchNewsApi();
     const newsDateResponse = await data.response.docs;
+
     if (newsDateResponse.length <= 0) {
       Notify.info(
         'Sorry, there are no news matching your search query. Please try again.'
@@ -55,7 +48,7 @@ async function requestToServer() {
     }
 
     renderTemplate(newsDateResponse);
-    // const useID = newsDateResponse.map(onId => arr.push(onId._id));
+
     addFavourite(newsDateResponse);
   } catch (error) {}
 }

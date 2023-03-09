@@ -19,7 +19,7 @@ function onClikDelCards(e) {
   let cardsLocalParse = JSON.parse(localStorageGetKey);
   let filter = [];
   cardsLocalParse.forEach(on => {
-    const allid = on.id || on._id;
+    const allid = on.id || on._id || on.slug_name;
 
     if (allid != idCardsFov) {
       filter.push(on);
