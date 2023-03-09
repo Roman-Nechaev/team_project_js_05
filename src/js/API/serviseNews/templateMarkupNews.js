@@ -62,7 +62,7 @@ function formatingDerscription(description) {
   return newFormat;
 }
 
-function firmatDate(date) {
+export function firmatDate(date) {
   const now = new Date(date);
   return dateFormat(now, 'dd/mm/yyyy');
 }
