@@ -482,7 +482,7 @@ button.newsHP-categories:hover {
 }
 
 .newsHomePage-text {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   padding-left: 5px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -490,6 +490,7 @@ button.newsHP-categories:hover {
   @media screen and (min-width: 768px) {
     font-size: 16px;
     height: 66px;
+    margin-bottom: 20px;
   }
 }
 .dark .newsHomePage-text {
@@ -509,6 +510,7 @@ button.newsHP-categories:hover {
 }
 .homePage-readMore {
   display: flex;
+  align-items: center;
   padding-left: 5px;
   padding-right: 5px;
   @media screen and (max-width: 767px) {
@@ -521,11 +523,11 @@ button.newsHP-categories:hover {
 }
 .newsHomePage-date {
   color: var(--light-color);
-  padding-bottom: 5px;
 }
 .newsHomePage-readMore-link {
   color: var(--accent-color);
   text-decoration: none;
+  padding-bottom: 3px;
 }
 
 .next-btn {
