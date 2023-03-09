@@ -16,7 +16,7 @@
   }
 
   &-button {
-    width: 33px;
+    width: 35px;
     height: 31px;
     background-color: #F4F4F4;
     border: 1px solid #4440F6;
@@ -30,8 +30,6 @@
     transition: all 0.3s ease-in-out;
     margin: 0;
     padding: 0;
-    padding-left: 4px;
-    padding-right: 4px;
 
     @media screen and (max-width: 767px) {
       width: 28px;
