@@ -47,7 +47,7 @@ export default function onSearchForm(e) {
   // onClickNext();
   requestToServer(newsApiServis.query);
 
-}
+
 
 async function requestToServer(valueQuery) {
   let arr = [];
