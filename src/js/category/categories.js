@@ -3,12 +3,15 @@ import { getCategoriesFromApi } from './api-categories';
 import { NewsApiCategories } from './api-categories';
 import newDefaultMarkup from '../defaultPage/defaultPageHome';
 const newsApiCategories = new NewsApiCategories();
+const categoriesBtn = document.querySelector('.newsHP-categories');
+categoriesBtn.addEventListener('click', onCategoryOthers);
+const categoriesList = document.querySelector('.categories');
+const othersBtn = document.querySelector('button.others');
 
 export async function getCategories() {
   try {
     const result = await getCategoriesFromApi();
     const categories = result.data.results;
-    // console.log(categories);
     let markupOthersDiv = [];
     let queryMobile = window.matchMedia('(max-width: 767px)');
     let queryTableMin = window.matchMedia('(min-width: 768px)');
@@ -28,19 +31,10 @@ export async function getCategories() {
       }
     });
     const categoriesMobile = document.querySelector('.categories-list');
-    const categoriesBtn = document.querySelector('.newsHP-categories');
     categoriesMobile.insertAdjacentHTML('beforeend', markupOthersDiv.join(''));
-
-    const categoriesTable = document.querySelector('.categories-table-list');
-    categoriesTable.innerHTML = markupOthersDiv.join('');
-    // const categoriesDesktop = document.querySelector(
-    //   '.categories-desktop-list'
-    // );
-    // categoriesDesktop.innerHTML = markupOthersDiv.join('');
-    const othersBtn = document.querySelector('button.others');
-    othersBtn.addEventListener('click', onClick);
-    categoriesBtn.addEventListener('click', onCategoryOthers);
-
+    categoriesList.addEventListener('click', showMenu);
+    const categoriesClose = document.querySelector('body');
+    othersBtn.addEventListener('click', showMenu);
     const category = document.querySelectorAll('.category');
     category.forEach(el => {
       el.addEventListener('click', onClick);
@@ -73,8 +67,19 @@ function onClick(e) {
   });
 }
 function onCategoryOthers() {
+  showMenu();
   const category = document.querySelectorAll('.category');
   category.forEach(el => {
     el.addEventListener('click', onClick);
   });
+}
+function showMenu() {
+  const iconMobile = document.querySelector('.categ-arrow-down');
+  const iconOthers = document.querySelector('.others-arrow-down');
+  categoriesList.classList.toggle('show');
+  categoriesList.classList.toggle('hidden');
+  iconMobile.classList.toggle('switchedImg');
+  iconOthers.classList.toggle('switchedImg');
+  categoriesBtn.classList.toggle('categoriesBtnOpened');
+  othersBtn.classList.toggle('othersBtnOpened');
 }

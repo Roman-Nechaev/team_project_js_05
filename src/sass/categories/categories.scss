@@ -1,5 +1,3 @@
-.categories-desktop-list > li > span,
-.categories-table-list > li > span,
 .categories-list > li > span {
   text-overflow: ellipsis;
   overflow-y: hidden;
@@ -8,55 +6,60 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-
-.categories {
+.switchedImg {
+  transform: rotate(180deg);
+}
+.show {
+  display: block;
+}
+.hidden {
   display: none;
+}
+.categories-menu {
+  position: relative;
+}
+.categories {
   margin: 0;
   padding: 10px 0 0 0;
   position: absolute;
-  top: 130px;
+  top: 30px;
   z-index: 100;
+  transition: all 250ms ease-in-out;
   @media screen and (min-width: 768px) {
-    top: 160px;
+    right: -20px;
+  }
+}
+.categories:hover {
+  .article-btn {
+    background-color: var(--accent-color);
+    color: var(--extra-color);
+    svg.others-arrow-down {
+      fill: #fff;
+    }
+  }
+  .newsHP-categories {
+    background-color: var(--accent-color);
+    color: var(--extra-color);
+
+    svg.categ-arrow-down {
+      fill: #fff;
+    }
   }
 }
 .categories-list {
   background-color: rgb(245, 243, 243);
   border-radius: 10px;
-  position: relative;
   left: 0px;
   text-align: center;
   top: 10px;
   width: 120px;
   height: 350px;
   overflow-y: scroll;
-}
-.categories-desktop-list,
-.categories-table-list {
-  background-color: rgb(245, 243, 243);
-  border-radius: 10px;
-  position: relative;
-  left: -30px;
-  text-align: center;
-  top: 10px;
-  width: 170px;
-  height: 350px;
-  overflow-y: scroll;
-}
-
-.newsHP-categories:hover {
-  .categories {
-    display: block;
+  @media screen and (min-width: 768px) {
+    width: 160px;
   }
 }
-.article-btn.others:hover {
-  .categories {
-    display: block;
-  }
-}
-ul.categories-list > li,
-.categories-table-list > li,
-.categories-desktop-list > li {
+ul.categories-list > li {
   font-size: 14px;
   opacity: 0.8;
   color: #4440f6;
@@ -65,16 +68,12 @@ ul.categories-list > li,
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-ul.categories-list > li:hover,
-.categories-table-list > li:hover,
-.categories-desktop-list > li:hover {
+ul.categories-list > li:hover {
   opacity: 1;
   transform: scaleX(1.1);
   text-decoration: underline rgb(8, 56, 146);
   cursor: pointer;
 }
-ul.categories-list::-webkit-scrollbar,
-.categories-table-list::-webkit-scrollbar,
-.categories-desktop-list::-webkit-scrollbar {
+ul.categories-list::-webkit-scrollbar {
   display: none;
 }
