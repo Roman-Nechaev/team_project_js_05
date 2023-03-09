@@ -74,19 +74,9 @@ button.newsHP-categories:hover {
   background-color: var(--accent-color);
   color: var(--extra-color);
 
-  svg.categ-arrow-down.switch-arrows {
+  svg.categ-arrow-down {
     fill: #fff;
-    transform: rotate(180deg);
   }
-}
-
-.newsHP-categories .categ-arrow-down {
-  rotate: 0;
-  transition: all 250ms ease-in-out;
-}
-.newsHP-categories:focus .switch-arrows {
-  fill: #fff;
-  transform: rotate(180deg);
 }
 
 ///////////teblet buttons
@@ -102,11 +92,7 @@ button.newsHP-categories:hover {
     gap: 16px;
   }
 }
-.article-btn .others {
-  .categoriesList {
-    display: block;
-  }
-}
+
 
 .article-btn {
   font-size: 12px;
@@ -138,16 +124,14 @@ button.newsHP-categories:hover {
   color: var(--extra-color);
   svg.others-arrow-down {
     fill: #fff;
-    transform: rotate(180deg);
-  }
-  .categoriesList {
-    display: block;
   }
 }
 .categ-arrow-down,
 .others-arrow-down {
   margin-left: 10px;
   fill: var(--accent-color);
+  rotate: 0;
+  transition: all 250ms ease-in-out;
 }
 .calendar-arrow-down {
   margin-left: 14px;
