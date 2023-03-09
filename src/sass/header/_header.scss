@@ -218,7 +218,7 @@
 }
 
 .dark .search-input:hover + .search-btn .search-icon {
-  fill: #4440f6;
+  fill: #ffffff;
 }
 
 input::placeholder {
@@ -238,8 +238,8 @@ input:hover::placeholder {
   color: #007bff;
 }
 
-.dark input:hover::placeholder {
-  color: #4440f6;
+.dark input:focus::placeholder {
+  color: #f4f4f4;
 }
 //------------------------------------------------------//
 
@@ -426,6 +426,11 @@ input:hover::placeholder {
   height: 15px;
   cursor: pointer;
   background-color: inherit;
+}
+
+
+.dark .search-btn {
+  background-color: #2e2e2e;
 }
 
 
