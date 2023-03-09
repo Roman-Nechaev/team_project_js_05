@@ -1,19 +1,14 @@
-.section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  //   background-color: #bf1818;
+// .section {
+//   padding-top: 40px;
+//   padding-bottom: 40px;
 
-  outline: 2px solid tomato;
+//   @media screen and (min-width: 768px) {
+//     padding-top: 48px;
+//     padding-bottom: 48px;
+//   }
 
-  @media screen and (min-width: 768px) {
-    padding-top: 48px;
-    padding-bottom: 48px;
-    outline: 2px solid tomato;
-  }
-
-  @media screen and (min-width: 1200px) {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    outline: 2px solid tomato;
-  }
-}
+//   @media screen and (min-width: 1280px) {
+//     padding-top: 60px;
+//     padding-bottom: 60px;
+//   }
+// }

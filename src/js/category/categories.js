@@ -2,8 +2,16 @@ import { newsMarkup } from './markup';
 import { getCategoriesFromApi } from './api-categories';
 import { NewsApiCategories } from './api-categories';
 
+
 import { addCategori } from '../addFavourite/addFavourite';
+
+import newDefaultMarkup from '../defaultPage/defaultPageHome';
+
 const newsApiCategories = new NewsApiCategories();
+const categoriesBtn = document.querySelector('.newsHP-categories');
+categoriesBtn.addEventListener('click', onCategoryOthers);
+const categoriesList = document.querySelector('.categories');
+const othersBtn = document.querySelector('button.others');
 
 export async function getCategories() {
   try {
@@ -29,19 +37,10 @@ export async function getCategories() {
       }
     });
     const categoriesMobile = document.querySelector('.categories-list');
-    const categoriesBtn = document.querySelector('.newsHP-categories');
     categoriesMobile.insertAdjacentHTML('beforeend', markupOthersDiv.join(''));
-
-    const categoriesTable = document.querySelector('.categories-table-list');
-    categoriesTable.innerHTML = markupOthersDiv.join('');
-    // const categoriesDesktop = document.querySelector(
-    //   '.categories-desktop-list'
-    // );
-    // categoriesDesktop.innerHTML = markupOthersDiv.join('');
-    const othersBtn = document.querySelector('button.others');
-    othersBtn.addEventListener('click', onClick);
-    categoriesBtn.addEventListener('click', onCategoryOthers);
-
+    categoriesList.addEventListener('click', showMenu);
+    const categoriesClose = document.querySelector('body');
+    othersBtn.addEventListener('click', showMenu);
     const category = document.querySelectorAll('.category');
     category.forEach(el => {
       el.addEventListener('click', onClick);
@@ -62,6 +61,12 @@ function onClick(e) {
   newsApiCategories.searchCategories = category;
   const categoriesMarkup = newsApiCategories.getNews().then(json => {
     const get = json.data.results;
+    if( get == null) {
+      newDefaultMarkup();
+      document.getElementById('pagination-container').style.display = 'none';
+      return;
+    }
+
     const gallery = document.querySelector('.gallery');
     const categoriesMarkup = get.map(element => newsMarkup(element));
     gallery.innerHTML = categoriesMarkup.join('');
@@ -69,8 +74,19 @@ function onClick(e) {
   });
 }
 function onCategoryOthers() {
+  showMenu();
   const category = document.querySelectorAll('.category');
   category.forEach(el => {
     el.addEventListener('click', onClick);
   });
+}
+function showMenu() {
+  const iconMobile = document.querySelector('.categ-arrow-down');
+  const iconOthers = document.querySelector('.others-arrow-down');
+  categoriesList.classList.toggle('show');
+  categoriesList.classList.toggle('hidden');
+  iconMobile.classList.toggle('switchedImg');
+  iconOthers.classList.toggle('switchedImg');
+  categoriesBtn.classList.toggle('categoriesBtnOpened');
+  othersBtn.classList.toggle('othersBtnOpened');
 }

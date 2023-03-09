@@ -104,6 +104,11 @@
     }
 }
 
+.current.burgmenu__navlink {
+    background-color: #4440F6;
+    border-color: #F4F4F4;
+}
+
 .burgmenu__link {
         display: flex;
         gap: 13px;
@@ -124,6 +129,10 @@
     &:hover {
         color: #F4F4F4;
     }
+}
+
+.current .burgmenu__link-text {
+    color: #F4F4F4;
 }
 
 .dark .burgmenu__link-text {
