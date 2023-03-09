@@ -9,7 +9,6 @@ import addFavourite from '../../addFavourite/addFavourite';
 
 import newDefaultMarkup from '../../defaultPage/defaultPageHome';
 
-
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 let currentPage; //Pagination Simak
@@ -44,8 +43,10 @@ export default function onSearchForm(e) {
 }
 
 
+
   // onClickNext();
   requestToServer(newsApiServis.query);
+
 
 
 
@@ -64,7 +65,7 @@ async function requestToServer(valueQuery) {
     }
 
     renderTemplate(newsDateResponse);
-    InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
+    InitPagination.init(valueQuery, (currentPage = 1)); //Pagination Simak
     document.getElementById('pagination-container').style.display = 'flex';
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
     document.getElementById('pagination-container').style.display = 'flex';
