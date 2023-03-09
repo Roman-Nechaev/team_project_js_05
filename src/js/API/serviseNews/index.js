@@ -9,7 +9,6 @@ import addFavourite from '../../addFavourite/addFavourite';
 
 import newDefaultMarkup from '../../defaultPage/defaultPageHome';
 
-
 const galleryRef = document.querySelector('.gallery');
 const searchFormRef = document.querySelector('#search-form');
 let currentPage; //Pagination Simak
@@ -39,9 +38,11 @@ export default function onSearchForm(e) {
   newsApiServis.query = value;
 
   // onClickNext();
+
   requestToServer(newsApiServis.query);
   InitPagination.init(value, (currentPage = 1)); //Pagination Simak
 }
+
 
 async function requestToServer(valueQuery) {
   let arr = [];
@@ -58,7 +59,9 @@ async function requestToServer(valueQuery) {
     }
 
     renderTemplate(newsDateResponse);
+
     InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
+
     // const useID = newsDateResponse.map(onId => arr.push(onId._id));
     document.getElementById('pagination-container').style.display = 'flex';
     addFavourite(newsDateResponse);
