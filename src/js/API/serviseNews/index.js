@@ -42,8 +42,13 @@ export default function onSearchForm(e) {
   InitPagination.init(value, (currentPage = 1)); //Pagination Simak
 }
 
-// onClickNext();
-requestToServer(newsApiServis.query);
+
+
+  // onClickNext();
+  requestToServer(newsApiServis.query);
+
+
+
 
 async function requestToServer(valueQuery) {
   let arr = [];
