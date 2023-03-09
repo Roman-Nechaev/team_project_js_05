@@ -63,8 +63,8 @@ function onClick(e) {
     const get = json.data.results;
     if( get == null) {
       newDefaultMarkup();
+      document.getElementById('pagination-container').style.display = 'none';
       return;
-      console.log('Test');
     }
 
     const gallery = document.querySelector('.gallery');
