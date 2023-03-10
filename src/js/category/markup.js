@@ -10,7 +10,7 @@ export function newsMarkup({
   slug_name,
 }) {
   const img = multimedia[2].url;
-  console.log(img); //------ссилка на картинку
+  // console.log(img); //------ссилка на картинку
   function checkUrkImg() {
     if (!multimedia.length) {
       return 'https://placehold.co/400x400?text=NO+IMAGE';

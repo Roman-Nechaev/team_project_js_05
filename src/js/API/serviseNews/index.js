@@ -48,18 +48,18 @@ let isSelected = false; //перед рендером показує чи бул
 let dateNumber; //змінна в яку ми винесемо дату календаря
 
 function onSelectedDate(e) {
-  console.log(e.target);
+  // console.log(e.target);
   isSelected = true;
   dateNumber = formatDate(e.target.value); //відформатована дата календаря
 }
 
 function filterResponce(dataToFilter, dateNumber) {
-  console.log('filterResponce');
+  // console.log('filterResponce');
   const filterResult = dataToFilter.filter(item => {
-    console.log(item.pub_date);
+    // console.log(item.pub_date);
     const itemDate = firmatDate(item.pub_date);
     const correctDate = formatDate(itemDate);
-    console.log(correctDate, dateNumber);
+    // console.log(correctDate, dateNumber);
     return correctDate === dateNumber;
   });
 
@@ -104,7 +104,6 @@ searchFormRef.addEventListener('submit', onSearchForm);
 // requestToServer(newsApiServis.query);
 
 function renderTemplate(e) {
-  console.log(e);
   galleryRef.innerHTML = templateMarkupNews(e);
 }
 

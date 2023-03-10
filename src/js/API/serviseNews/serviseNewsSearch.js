@@ -10,7 +10,7 @@ let dateNumber; //змінна в яку ми винесемо дату кале
 
 function onSelectedDate(e) {
   dateNumber = formatDate(e.target.value); //відформатована дата календаря
-  console.log(dateNumber, 'onSelectedDate servise');
+  // console.log(dateNumber, 'onSelectedDate servise');
 }
 
 const begin = dateNumber || 20211231;

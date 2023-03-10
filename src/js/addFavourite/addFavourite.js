@@ -104,8 +104,8 @@ function onClikGalleryHome(e) {
 function checkCardsLokal(params) {
   const readStatus = document.querySelector('newsHomePage-status-read');
   const idHomeCards = incomingСardsHome.map(on => on.id);
-  console.log(idHomeCards);
+  // console.log(idHomeCards);
 
   const idcardsRead = arrayOfCardsSelectedByReadMoreLink.map(one => one.id);
-  console.log(idcardsRead);
+  // console.log(idcardsRead);
 }
