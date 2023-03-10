@@ -2,19 +2,19 @@ import axios from 'axios';
 
 const API_KEY = '13J2OJQdfSen9tQqVIHpzfTVNgWWH6dm';
 
-const formatDate = (someDate) => +someDate.split('/').reverse().join('')//форматуємо дату в суцільне число
-const inputDate = document.querySelector('.calendar-input')//інпут календаря
+const formatDate = someDate => +someDate.split('/').reverse().join(''); //форматуємо дату в суцільне число
+// const inputDate = document.querySelector('.calendar-input'); //інпут календаря
 
-inputDate.addEventListener('click', onSelectedDate)//при втраті фокусу слухаємо дату
-let dateNumber;//змінна в яку ми винесемо дату календаря
+// inputDate.addEventListener('click', onSelectedDate); //при втраті фокусу слухаємо дату
+let dateNumber; //змінна в яку ми винесемо дату календаря
 
 function onSelectedDate(e) {
-  dateNumber = formatDate(e.target.value)//відформатована дата календаря
-  console.log(dateNumber, 'onSelectedDate servise')
+  dateNumber = formatDate(e.target.value); //відформатована дата календаря
+  console.log(dateNumber, 'onSelectedDate servise');
 }
 
-const begin = dateNumber || 20211231 
-const end = dateNumber || 20230228
+const begin = dateNumber || 20211231;
+const end = dateNumber || 20230228;
 
 export default class NewsApiServis {
   constructor() {

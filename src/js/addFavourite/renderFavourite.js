@@ -36,6 +36,7 @@ function onClikDelCards(e) {
 }
 
 export function renderTemplateFavo(newsDateResp) {
+  console.log(newsDateResp);
   if (galleryFavouriteRef) {
     galleryFavouriteRef.innerHTML = templateFavouroteNews(newsDateResp);
   }
