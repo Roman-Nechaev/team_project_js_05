@@ -112,7 +112,11 @@ ul {
   border-color: var(--main-calendar-background);
   color:#f8f8f8;
 }
-
+.calendar-input::placeholder {
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
+}
 
 .calendar__button-calendar {
   position: absolute;

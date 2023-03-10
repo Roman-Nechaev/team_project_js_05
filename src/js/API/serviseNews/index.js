@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import {firmatDate} from './templateMarkupNews'
 import NewsApiServis from './serviseNewsSearch';
 
 import { templateMarkupNews } from './templateMarkupNews';
@@ -18,6 +18,7 @@ let currentPage; //Pagination Simak
 searchFormRef.addEventListener('submit', onSearchForm);
 
 const newsApiServis = new NewsApiServis();
+
 export default function onSearchForm(e) {
   e.preventDefault();
   let { value } = e.target.searchQuery;
@@ -33,39 +34,69 @@ export default function onSearchForm(e) {
   newsApiServis.query = value;
 
   // onClickNext();
-
-
   requestToServer(newsApiServis.query);
-
 }
 
+const formatDate = (someDate) => +someDate.split('/').join('')//форматуємо дату в суцільне число
+const inputDate = document.querySelector('.calendar-input')//інпут календаря
+
+inputDate.addEventListener('blur', onSelectedDate)//при втраті фокусу слухаємо дату
+let isSelected = false;//перед рендером показує чи була вибрана дата
+let dateNumber;//змінна в яку ми винесемо дату календаря
+
+function onSelectedDate(e) {
+  console.log(e.target)
+  isSelected = true;
+  dateNumber = formatDate(e.target.value)//відформатована дата календаря
+}
+
+function filterResponce(dataToFilter, dateNumber) {
+  console.log('filterResponce')
+  const filterResult = dataToFilter.filter(item => {
+    console.log(item.pub_date)
+    const itemDate = firmatDate(item.pub_date)
+    const correctDate = formatDate(itemDate)
+    console.log(correctDate, dateNumber)
+    return correctDate === dateNumber
+  })
+
+  return filterResult;//фукнція фільтр, викликаємо там де отримуємо дані
+}
 
 async function requestToServer(valueQuery) {
-  let arr = [];
   try {
     const data = await newsApiServis.fetchNewsApi();
     const newsDateResponse = await data.response.docs;
+    let totalResult = newsDateResponse
+    if (isSelected) {//якщо відбувся клік то фільтруємо
+      totalResult = filterResponce(newsDateResponse, dateNumber)
+      if (totalResult.length <= 0) {
+        newDefaultMarkup();
+        Notify.info(
+          'Sorry, there are no news matching your search query. Please try again.'
+        );
+        document.getElementById('pagination-container').style.display = 'none';
+        return;
+      }
 
-    if (newsDateResponse.length <= 0) {
-      newDefaultMarkup();
-      Notify.info(
-        'Sorry, there are no news matching your search query. Please try again.'
-      );
-      document.getElementById('pagination-container').style.display = 'none';
-      return;
+      renderTemplate(totalResult);
+
+
+      InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
+
+      // const useID = newsDateResponse.map(onId => arr.push(onId._id));
+      document.getElementById('pagination-container').style.display = 'flex';
+
+      addFavourite(totalResult);
     }
-
-    renderTemplate(newsDateResponse);
-
-
-    InitPagination.init(valueQuery, currentPage = 1); //Pagination Simak
-
-    // const useID = newsDateResponse.map(onId => arr.push(onId._id));
-    document.getElementById('pagination-container').style.display = 'flex';
-
-    addFavourite(newsDateResponse);
-  } catch (error) {}
+  } catch (error) {
+    console.error(error)
+  }
 }
+
+searchFormRef.addEventListener('submit', onSearchForm);
+
+requestToServer(newsApiServis.query);
 
 function renderTemplate(e) {
   galleryRef.innerHTML = templateMarkupNews(e);
@@ -100,9 +131,3 @@ Notify.init({
     backOverlayColor: 'rgba(38,192,211,0.2)',
   },
 });
-
-// ================= Pagination ===========
-// function onClickNext() {
-//   newsApiServis.incrementPage();
-//   requestToServer();
-// }

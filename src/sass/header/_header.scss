@@ -1,6 +1,9 @@
 .header-section {
   background-color: #f4f4f4;
   border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .header-container {
@@ -10,7 +13,6 @@
   background-color: #f4f4f4;
   height: 81px;
 }
-
 
 @media screen and (min-width: 768px) {
   .header-container {
@@ -23,7 +25,6 @@
     height: 113px;
   }
 }
-
 
 .dark .header-section {
   background-color: #2e2e2e;
@@ -235,7 +236,7 @@ input::placeholder {
 }
 
 input:hover::placeholder {
-  color: #007bff;
+  color: #f4f4f4;
 }
 
 .dark input:focus::placeholder {
@@ -306,13 +307,11 @@ input:hover::placeholder {
   transition-duration: 300ms;
   position: absolute;
   z-index: 1;
-
 }
 
 .dark .switch-btn::after {
   background: white;
   left: 21px;
- 
 }
 
 .switch-btn_choice {
@@ -425,14 +424,12 @@ input:hover::placeholder {
   width: 15px;
   height: 15px;
   cursor: pointer;
-  background-color: inherit;
+  background-color: transparent;
 }
-
 
 .dark .search-btn {
   background-color: #2e2e2e;
 }
-
 
 @media screen and (min-width: 768px) {
   .search-btn {
@@ -461,7 +458,6 @@ input:hover::placeholder {
   fill: #f4f4f4;
 }
 
-
 .burger-btn {
   display: block;
   position: relative;
@@ -470,7 +466,6 @@ input:hover::placeholder {
   border: none;
   background-color: inherit;
 }
-
 
 @media screen and (min-width: 768px) {
   .burger-btn {
