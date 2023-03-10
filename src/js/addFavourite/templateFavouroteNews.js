@@ -23,10 +23,9 @@ export function templateFavouroteNews(newsDateResp) {
         thumbnail_standard, //временно
       } = oneNewsItem;
       const idAll = _id || id || slug_name;
-      console.log(multimedia);
+
       const fooImg =
         image_url || thumbnail_standard || checkUrlImg(oneNewsItem);
-      console.log(fooImg);
 
       return `
     <div class="newsHomePage-card" data-id=${idAll}>
@@ -38,7 +37,7 @@ export function templateFavouroteNews(newsDateResp) {
           width="288"
           height="395"
         />
-        <p class="newsHomePage-status-read">Already read</p>
+        <p class="dispNo newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">${news_desk || section}</p>
 
         <button class="remove-from-favourite" type="button" data-id=${idAll} >Remove from favourite
@@ -72,7 +71,6 @@ export function templateFavouroteNews(newsDateResp) {
 // const img = multimedia[2].url;
 
 function checkUrkImg(multimedia) {
-  console.log('multimedia :>> ', multimedia);
   if (!multimedia.length) {
     return 'https://placehold.co/400x400?text=NO+IMAGE';
   }
@@ -80,10 +78,9 @@ function checkUrkImg(multimedia) {
 }
 
 function checkUrlImg(item) {
-  console.log(item);
   // const urlImage = item;
   const foo = item.multimedia[0].url;
-  console.log(foo);
+
   if (!foo.length) {
     return 'https://placehold.co/400x400?text=NO+IMAGE';
   }
