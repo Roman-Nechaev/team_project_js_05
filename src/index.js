@@ -5,6 +5,7 @@ import './js/addFavourite/renderFavourite';
 
 import './js/header/mobileSearch';
 import './js/header/headerTheme';
+import './js/header/headerCurrent';
 
 // import './js/calendar/calendar';
 import './js/readRevisionDate/readRevisionDate';
