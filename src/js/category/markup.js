@@ -27,7 +27,7 @@ export function newsMarkup({
         width="288"
         height="395"
       />
-      <p class="newsHomePage-status-read">Already read</p>
+      <p class="dispNo newsHomePage-status-read">Already read</p>
       <p class="newsHomePage-search-category">${section}</p>
       
       <button class="add-to-favBtn test-favBtn" type="button" data-id=${slug_name}>Add to favourite

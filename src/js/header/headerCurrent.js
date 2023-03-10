@@ -1,6 +1,6 @@
 const href = window.location.href;
 const path = href.split('/');
-console.log(path);
+
 function pageCurrent() {
   if (path[4] === 'index.html') {
     document.getElementById('home').classList.add('current');

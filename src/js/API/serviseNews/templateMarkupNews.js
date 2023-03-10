@@ -26,7 +26,7 @@ export function templateMarkupNews(newsDateResp) {
           width="288"
           height="395"
         />
-        <p class="newsHomePage-status-read">Already read</p>
+        <p class="dispNo newsHomePage-status-read">Already read</p>
         <p class="newsHomePage-search-category">${news_desk}</p>
         
         <button class="add-to-favBtn test-favBtn" type="button" data-id=${_id}>Add to favourite
